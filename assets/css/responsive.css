@@ -1,0 +1,549 @@
+/**
+ * Shree Plastic Industries - Responsive Stylesheet
+ * Mobile-first responsive breakpoints
+ * 
+ * Breakpoints:
+ * - Mobile: < 576px
+ * - Tablet: 576px - 991px
+ * - Desktop: 992px - 1199px
+ * - Large Desktop: >= 1200px
+ */
+
+/* ========================================
+   Mobile First Base (< 576px)
+   ======================================== */
+
+/* Header Mobile */
+.hamburger {
+    display: flex;
+}
+
+.main-nav {
+    display: none;
+}
+
+.main-header {
+    height: 60px;
+}
+
+.logo {
+    height: 40px;
+}
+
+/* Hero Mobile */
+.hero {
+    height: 60vh;
+    min-height: 400px;
+}
+
+.hero-quote {
+    font-size: 28px;
+}
+
+.hero-tagline {
+    font-size: 14px;
+}
+
+/* Typography Mobile */
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+/* Content Sections Mobile */
+.section {
+    padding: 40px 0;
+}
+
+.intro-title {
+    font-size: 26px;
+}
+
+.intro-text {
+    font-size: 16px;
+}
+
+/* Values Grid Mobile */
+.values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.value-card {
+    padding: 24px;
+}
+
+/* Alt Sections Mobile */
+.alt-section,
+.alt-section.reverse {
+    flex-direction: column;
+}
+
+.alt-image {
+    flex: none;
+    width: 100%;
+}
+
+.alt-content {
+    text-align: center;
+}
+
+/* Quote Block Mobile */
+.quote-block {
+    padding: 32px 24px;
+}
+
+.quote-block::before {
+    font-size: 60px;
+    top: -10px;
+    left: 10px;
+}
+
+.quote-text {
+    font-size: 20px;
+}
+
+/* Footer Mobile */
+.footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+.footer-section {
+    text-align: center;
+}
+
+.footer-logo {
+    margin: 0 auto 16px;
+}
+
+.contact-info {
+    align-items: center;
+}
+
+.contact-item {
+    justify-content: center;
+}
+
+.footer-bottom-content {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+/* Flip Cards Mobile */
+.flip-cards-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Timeline Mobile */
+.timeline {
+    padding-left: 30px;
+}
+
+.timeline::before {
+    left: 0;
+}
+
+.timeline-item {
+    padding-left: 30px;
+}
+
+.timeline-marker {
+    left: -30px;
+}
+
+.timeline-content {
+    width: 100%;
+}
+
+/* Buttons Mobile */
+.btn {
+    padding: 12px 24px;
+    font-size: 13px;
+}
+
+/* ========================================
+   Small Tablets (>= 576px)
+   ======================================== */
+@media (min-width: 576px) {
+    /* Values Grid */
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Flip Cards */
+    .flip-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Hero */
+    .hero-quote {
+        font-size: 32px;
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-section {
+        text-align: left;
+    }
+    
+    .footer-logo {
+        margin: 0 0 16px;
+    }
+    
+    .contact-info {
+        align-items: flex-start;
+    }
+    
+    .contact-item {
+        justify-content: flex-start;
+    }
+}
+
+/* ========================================
+   Tablets (>= 768px)
+   ======================================== */
+@media (min-width: 768px) {
+    /* Header */
+    .main-header {
+        height: 70px;
+    }
+    
+    .logo {
+        height: 45px;
+    }
+    
+    /* Hero */
+    .hero {
+        height: 70vh;
+    }
+    
+    .hero-quote {
+        font-size: 38px;
+    }
+    
+    .hero-tagline {
+        font-size: 16px;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: 40px;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+    
+    h3 {
+        font-size: 26px;
+    }
+    
+    /* Sections */
+    .section {
+        padding: 60px 0;
+    }
+    
+    .intro-title {
+        font-size: 32px;
+    }
+    
+    /* Values Grid */
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    /* Alt Sections */
+    .alt-section,
+    .alt-section.reverse {
+        flex-direction: row;
+    }
+    
+    .alt-section.reverse {
+        flex-direction: row-reverse;
+    }
+    
+    .alt-image {
+        flex: 0 0 45%;
+    }
+    
+    .alt-content {
+        text-align: left;
+    }
+    
+    /* Quote Block */
+    .quote-text {
+        font-size: 24px;
+    }
+    
+    /* Timeline */
+    .timeline {
+        padding-left: 50%;
+    }
+    
+    .timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-item:nth-child(odd) {
+        padding-left: 40px;
+        padding-right: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+        padding-left: 0;
+        padding-right: 40px;
+        margin-left: -100%;
+        text-align: right;
+    }
+    
+    .timeline-marker {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* Footer */
+    .footer-bottom-content {
+        flex-direction: row;
+    }
+}
+
+/* ========================================
+   Desktop (>= 992px)
+   ======================================== */
+@media (min-width: 992px) {
+    /* Header */
+    .main-header {
+        height: var(--header-height);
+    }
+    
+    .hamburger {
+        display: none;
+    }
+    
+    .main-nav {
+        display: flex;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    /* Hero */
+    .hero {
+        height: 80vh;
+    }
+    
+    .hero-quote {
+        font-size: 44px;
+    }
+    
+    .hero-tagline {
+        font-size: 18px;
+    }
+    
+    /* Typography */
+    h1 {
+        font-size: var(--fs-h1);
+    }
+    
+    h2 {
+        font-size: var(--fs-h2);
+    }
+    
+    h3 {
+        font-size: var(--fs-h3);
+    }
+    
+    h4 {
+        font-size: var(--fs-h4);
+    }
+    
+    /* Sections */
+    .section {
+        padding: var(--spacing-xxl) 0;
+    }
+    
+    .intro-title {
+        font-size: var(--fs-h2);
+    }
+    
+    .intro-text {
+        font-size: var(--fs-body-lg);
+    }
+    
+    /* Values Grid */
+    .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    /* Alt Sections */
+    .alt-image {
+        flex: 0 0 40%;
+    }
+    
+    /* Quote Block */
+    .quote-block {
+        padding: var(--spacing-xl);
+    }
+    
+    .quote-block::before {
+        font-size: 120px;
+    }
+    
+    .quote-text {
+        font-size: var(--fs-h3);
+    }
+    
+    /* Flip Cards */
+    .flip-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Footer */
+    .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    }
+}
+
+/* ========================================
+   Large Desktop (>= 1200px)
+   ======================================== */
+@media (min-width: 1200px) {
+    /* Hero */
+    .hero-quote {
+        font-size: var(--fs-h1);
+    }
+    
+    /* Values Grid */
+    .value-card {
+        padding: var(--spacing-lg);
+    }
+    
+    /* Flip Cards */
+    .flip-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Navigation spacing */
+    .nav-list {
+        gap: var(--spacing-xl);
+    }
+}
+
+/* ========================================
+   Extra Large Desktop (>= 1400px)
+   ======================================== */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+/* ========================================
+   Height-based adjustments
+   ======================================== */
+@media (max-height: 600px) {
+    .hero {
+        min-height: 350px;
+        height: auto;
+        padding: 80px 0;
+    }
+    
+    .hero-quote {
+        font-size: 28px;
+    }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+@media print {
+    .main-header,
+    .main-footer,
+    .hamburger,
+    .mobile-nav-overlay {
+        display: none;
+    }
+    
+    .main-content {
+        padding-top: 0;
+    }
+    
+    .hero {
+        height: auto;
+        min-height: auto;
+        padding: 40px 0;
+    }
+    
+    .hero-overlay {
+        background: none;
+    }
+    
+    .hero-content {
+        color: #000;
+    }
+    
+    .section {
+        padding: 20px 0;
+    }
+    
+    .btn {
+        display: none;
+    }
+}
+
+/* ========================================
+   High Contrast Mode
+   ======================================== */
+@media (prefers-contrast: high) {
+    :root {
+        --color-text: #000000;
+        --color-text-light: #333333;
+        --color-border: #000000;
+    }
+    
+    .nav-link::after {
+        height: 3px;
+    }
+    
+    .btn {
+        border-width: 3px;
+    }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .flip-card-inner {
+        transition: none;
+    }
+}

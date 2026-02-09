@@ -1,0 +1,607 @@
+/**
+ * Shree Plastic Industries - Animations Stylesheet
+ * Keyframes, transitions, and scroll animations
+ */
+
+/* ========================================
+   Keyframe Animations
+   ======================================== */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale In */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Slide In Up */
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Pulse */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Float */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Rotate */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* ========================================
+   3D Logo Animation (Intro Page)
+   ======================================== */
+@keyframes logo3DRotate {
+    0% {
+        transform: perspective(1000px) rotateY(-30deg) rotateX(10deg) scale(0.8);
+        opacity: 0;
+    }
+    30% {
+        transform: perspective(1000px) rotateY(15deg) rotateX(-5deg) scale(1.05);
+        opacity: 1;
+    }
+    60% {
+        transform: perspective(1000px) rotateY(-10deg) rotateX(3deg) scale(1);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes logoGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(0, 102, 204, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 40px rgba(0, 102, 204, 0.6));
+    }
+}
+
+@keyframes introFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Intro Page Specific */
+.intro-logo {
+    animation: logo3DRotate 2s ease-out forwards,
+               logoGlow 2s ease-in-out infinite;
+    animation-delay: 0.3s, 2.3s;
+}
+
+.intro-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.intro-container.fade-out {
+    animation: introFadeOut 0.5s ease-in forwards;
+}
+
+/* ========================================
+   Scroll Animation Classes
+   ======================================== */
+
+/* Initial states for scroll animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animate-left {
+    transform: translateX(-30px);
+}
+
+.animate-on-scroll.animate-right {
+    transform: translateX(30px);
+}
+
+.animate-on-scroll.animate-scale {
+    transform: scale(0.9);
+}
+
+/* Animated state */
+.animate-on-scroll.animate-in {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Staggered animations */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* ========================================
+   Hero Animations
+   ======================================== */
+.hero-content {
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.hero-quote {
+    animation: fadeInDown 1s ease-out 0.5s backwards;
+}
+
+.hero-tagline {
+    animation: fadeInUp 1s ease-out 0.7s backwards;
+}
+
+/* ========================================
+   Timeline Animations
+   ======================================== */
+.timeline-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.timeline-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-marker {
+    transform: scale(0);
+    transition: transform 0.4s ease 0.3s;
+}
+
+.timeline-item.animate-in .timeline-marker {
+    transform: scale(1);
+}
+
+.timeline-line {
+    height: 0;
+    transition: height 0.8s ease;
+}
+
+.timeline-line.animate-in {
+    height: 100%;
+}
+
+/* ========================================
+   Flip Card Animations
+   ======================================== */
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Card entrance animation */
+.flip-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.flip-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Navigation Animations
+   ======================================== */
+.nav-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+    width: 100%;
+}
+
+/* Mobile nav animation */
+.mobile-nav-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(1) { transition-delay: 0.1s; }
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(2) { transition-delay: 0.15s; }
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(3) { transition-delay: 0.2s; }
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(4) { transition-delay: 0.25s; }
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(5) { transition-delay: 0.3s; }
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(6) { transition-delay: 0.35s; }
+
+/* ========================================
+   Button Animations
+   ======================================== */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* ========================================
+   Card Hover Animations
+   ======================================== */
+.card,
+.value-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.value-icon {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+    transform: scale(1.1);
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+}
+
+/* ========================================
+   Image Animations
+   ======================================== */
+.img-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-reveal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-primary);
+    transform: scaleX(1);
+    transform-origin: right;
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.img-reveal.animate-in::after {
+    transform: scaleX(0);
+}
+
+.img-reveal img {
+    transform: scale(1.2);
+    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1) 0.4s;
+}
+
+.img-reveal.animate-in img {
+    transform: scale(1);
+}
+
+/* ========================================
+   Loading Animations
+   ======================================== */
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-bg-light);
+    border-top-color: var(--color-accent);
+    border-radius: 50%;
+    animation: rotate 0.8s linear infinite;
+}
+
+.loading-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.loading-dots span {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Skeleton loading */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--color-bg-light) 25%,
+        var(--color-bg-lighter) 50%,
+        var(--color-bg-light) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* ========================================
+   Quote Block Animations
+   ======================================== */
+.quote-block {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.quote-block.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Parallax Effects
+   ======================================== */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Disable parallax on mobile for performance */
+@media (max-width: 768px) {
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+}
+
+/* ========================================
+   Page Transition
+   ======================================== */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-primary);
+    z-index: 9999;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.page-transition.active {
+    transform: translateY(0);
+}
+
+.page-transition.exit {
+    transform: translateY(-100%);
+}
+
+/* ========================================
+   Text Animations
+   ======================================== */
+.text-reveal {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.text-reveal span {
+    display: inline-block;
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.text-reveal.animate-in span {
+    transform: translateY(0);
+}
+
+/* Letter by letter animation */
+.letter-animate span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.letter-animate.animate-in span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Counter Animation
+   ======================================== */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ========================================
+   Accessibility - Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+    
+    .flip-card-inner {
+        transition: none;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+        transform: none;
+    }
+    
+    .parallax-bg {
+        background-attachment: scroll;
+    }
+}

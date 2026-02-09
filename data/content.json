@@ -1,0 +1,310 @@
+{
+    "company": {
+        "name": "Shree Plastic Industries",
+        "tagline": "Believe in Yourself",
+        "established": "1984",
+        "location": "Pune, Maharashtra, India",
+        "description": "A distinguished name in Indian plastic manufacturing since 1984. Delivering premium-quality plastic products and innovative packaging solutions."
+    },
+    "timeline": [
+        {
+            "id": 1,
+            "period": "1984 - 1994",
+            "title": "Foundation & Vision",
+            "subtitle": "The Visionary Founder: Nitin Shah",
+            "description": "Shree Plastic Industries was born from the visionary mindset of Mr. Nitin Shah, a promoter and creator who dared to dream beyond convention. In an era when the market had modest expectations, Mr. Shah invested in machinery that was far superior to contemporary needs. What might have seemed like an excessive investment to others was, for him, the cornerstone of building a company destined for greatness. \"We never felt like we over-invested; it was the foundation of forming a company with lasting impact,\" reflects the founding philosophy that continues to guide us today.",
+            "image": "assets/images/timeline/1984-foundation.jpg",
+            "highlights": [
+                "Company established in Pune, Maharashtra",
+                "Investment in superior machinery",
+                "Foundation of quality-first approach"
+            ]
+        },
+        {
+            "id": 2,
+            "period": "1995 - 2008",
+            "title": "Building Partnerships",
+            "subtitle": "Era of Collaboration & Growth",
+            "description": "This period marked the expansion of our network as many associates joined hands with Shree Plastic Industries, offering job work opportunities that fueled our growth. During this transformative phase, Shri Nitin Shah demonstrated an exceptional vision of togetherness, building relationships that transcended mere business transactions. His philosophy of collaborative success created an ecosystem where partners prospered alongside the company, establishing Shree Plastic Industries as a trusted name in the industry.",
+            "image": "assets/images/timeline/1995-partnerships.jpg",
+            "highlights": [
+                "Expansion of partner network",
+                "Job work opportunities created",
+                "Philosophy of collaborative success"
+            ]
+        },
+        {
+            "id": 3,
+            "period": "2008 - 2012",
+            "title": "Next Generation Leadership",
+            "subtitle": "Strengthening the Legacy",
+            "description": "The industry witnessed the entry of the founder's backbone support - Mr. Nimesh Shah and Mr. Milan Shah, the two gem sons of Mr. Nitin Shah. Bringing fresh perspectives while honoring established values, they infused the company with renewed energy and modern business acumen. Their leadership marked the beginning of a new chapter, one that would see Shree Plastic Industries evolve into a comprehensive solutions provider while staying true to its founding principles.",
+            "image": "assets/images/timeline/2008-leadership.jpg",
+            "highlights": [
+                "Nimesh Shah joins leadership",
+                "Milan Shah joins leadership",
+                "Modern business practices introduced"
+            ]
+        },
+        {
+            "id": 4,
+            "period": "2013 - Present",
+            "title": "Innovation & Sustainability",
+            "subtitle": "Embracing the Future",
+            "description": "Under the dynamic leadership of the second generation, Shree Plastic Industries has embraced innovation and sustainability as core pillars of growth. The company has expanded its product portfolio to include eco-friendly solutions, obtained ISO certifications for compostable products, and continues to invest in cutting-edge technology. Today, we stand as a comprehensive plastic solutions provider, committed to excellence, sustainability, and the welfare of our communities.",
+            "image": "assets/images/timeline/2013-innovation.jpg",
+            "highlights": [
+                "ISO 17088 certification for compostable bags",
+                "Eco-friendly product line expansion",
+                "State-of-the-art manufacturing facilities"
+            ]
+        }
+    ],
+    "businesses": [
+        {
+            "id": 1,
+            "title": "Polythene Bags & Rolls",
+            "icon": "polythene",
+            "image": "assets/images/products/polythene-bags.jpg",
+            "shortDescription": "High-quality polythene bags and rolls for diverse packaging needs",
+            "description": "Our premium polythene bags and rolls are manufactured using the finest quality raw materials, ensuring durability, flexibility, and reliability for all your packaging requirements.",
+            "features": [
+                "Custom sizes available",
+                "Food-grade options",
+                "Various thickness options",
+                "Bulk supply capability",
+                "Consistent quality assurance"
+            ],
+            "applications": [
+                "Retail packaging",
+                "Industrial wrapping",
+                "Food storage",
+                "Logistics"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "VCL Bags",
+            "icon": "vcl",
+            "image": "assets/images/products/vcl-bags.jpg",
+            "shortDescription": "Vapor Corrosion Inhibitor bags for metal protection",
+            "description": "Our VCL (Volatile Corrosion Inhibitor) bags provide superior protection for metal components and products, preventing rust and corrosion during storage and transportation.",
+            "features": [
+                "Multi-metal protection",
+                "Long-term corrosion prevention",
+                "Clean and dry protection",
+                "No removal required before use",
+                "Environmentally safe"
+            ],
+            "applications": [
+                "Automotive parts",
+                "Machine components",
+                "Electronic equipment",
+                "Export packaging"
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Compostable Bags",
+            "icon": "compostable",
+            "image": "assets/images/products/compostable-bags.jpg",
+            "shortDescription": "ISO 17088 Certified eco-friendly compostable solutions",
+            "description": "Our compostable bags are certified to ISO 17088 standards, offering an environmentally responsible alternative to traditional plastic bags. They break down naturally, leaving no harmful residues.",
+            "features": [
+                "ISO 17088 Certified",
+                "100% biodegradable",
+                "Made from renewable resources",
+                "Industrial & home compostable options",
+                "Comparable strength to traditional plastic"
+            ],
+            "applications": [
+                "Waste collection",
+                "Retail shopping",
+                "Food service",
+                "Agricultural use"
+            ],
+            "certifications": ["ISO 17088", "EN 13432"]
+        },
+        {
+            "id": 4,
+            "title": "Bats",
+            "icon": "bats",
+            "image": "assets/images/products/bats.jpg",
+            "shortDescription": "Specialized plastic components and protective solutions",
+            "description": "Our range of plastic bats and components are designed for specific industrial applications, offering durability and precision in various protective and packaging scenarios.",
+            "features": [
+                "Custom specifications",
+                "High-impact resistance",
+                "Multiple material options",
+                "Precision manufacturing",
+                "Quality tested"
+            ],
+            "applications": [
+                "Industrial protection",
+                "Component packaging",
+                "Specialized applications"
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Jackets",
+            "icon": "jackets",
+            "image": "assets/images/products/jackets.jpg",
+            "shortDescription": "Protective coverings for equipment and materials",
+            "description": "Our plastic jackets provide excellent protective covering for machinery, equipment, and materials during storage, transportation, and various industrial processes.",
+            "features": [
+                "Weather-resistant",
+                "UV protection available",
+                "Custom sizing",
+                "Tear-resistant materials",
+                "Reusable options"
+            ],
+            "applications": [
+                "Equipment protection",
+                "Construction covering",
+                "Transport protection",
+                "Storage solutions"
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Pouches",
+            "icon": "pouches",
+            "image": "assets/images/products/pouches.jpg",
+            "shortDescription": "Versatile pouch solutions for various packaging needs",
+            "description": "Our diverse range of pouches caters to multiple industries, from food packaging to industrial applications, with options for customization in size, material, and closure types.",
+            "features": [
+                "Multiple closure options",
+                "Stand-up & flat designs",
+                "Barrier properties available",
+                "Custom printing",
+                "Food-grade materials"
+            ],
+            "applications": [
+                "Food packaging",
+                "Pharmaceutical",
+                "Cosmetics",
+                "Retail products"
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Printed Bags",
+            "icon": "printed",
+            "image": "assets/images/products/printed-bags.jpg",
+            "shortDescription": "Custom printed shopping bags for brand visibility",
+            "description": "Elevate your brand presence with our custom printed shopping bags. We offer high-quality printing on various bag types, helping businesses create lasting impressions with their packaging.",
+            "features": [
+                "Full-color printing",
+                "Multiple bag styles",
+                "Brand customization",
+                "Eco-friendly ink options",
+                "Various sizes available"
+            ],
+            "applications": [
+                "Retail shopping",
+                "Promotional events",
+                "Corporate gifting",
+                "Trade shows"
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Plastic Virgin Raw Material",
+            "icon": "raw-material",
+            "image": "assets/images/products/raw-material.jpg",
+            "shortDescription": "Premium quality virgin plastic raw materials",
+            "description": "We supply high-grade virgin plastic raw materials to manufacturers, ensuring consistent quality and performance for various plastic product applications.",
+            "features": [
+                "Premium quality grades",
+                "Consistent specifications",
+                "Multiple polymer types",
+                "Technical support",
+                "Reliable supply chain"
+            ],
+            "applications": [
+                "Manufacturing",
+                "Injection molding",
+                "Extrusion processes",
+                "Film production"
+            ],
+            "materials": ["LDPE", "HDPE", "PP", "LLDPE"]
+        }
+    ],
+    "values": [
+        {
+            "id": 1,
+            "title": "Ethical Business Conduct",
+            "description": "We aim to conduct our business ethically and in a manner that is respectful to all stakeholders, partners, and communities we serve.",
+            "icon": "ethics"
+        },
+        {
+            "id": 2,
+            "title": "Integrated Excellence",
+            "description": "We achieve this by designing all goals with integrated values via good practices that ensure sustainable growth and operational efficiency.",
+            "icon": "excellence"
+        },
+        {
+            "id": 3,
+            "title": "Customer-Centric Innovation",
+            "description": "Delivering solutions that exceed expectations through continuous innovation and a deep understanding of customer needs.",
+            "icon": "innovation"
+        },
+        {
+            "id": 4,
+            "title": "Sustainable Manufacturing",
+            "description": "Commitment to environmental responsibility through eco-friendly products, processes, and a dedication to reducing our carbon footprint.",
+            "icon": "sustainability"
+        },
+        {
+            "id": 5,
+            "title": "Continuous Improvement",
+            "description": "Pursuing excellence in every process through constant evaluation, learning, and implementation of best practices.",
+            "icon": "improvement"
+        },
+        {
+            "id": 6,
+            "title": "Team Empowerment",
+            "description": "Fostering growth and collaboration among our team members, creating an environment where talent thrives and innovation flourishes.",
+            "icon": "team"
+        }
+    ],
+    "leadership": [
+        {
+            "id": 1,
+            "name": "Nitin Shah",
+            "title": "Founder",
+            "image": "assets/images/team/nitin-shah.jpg",
+            "description": "The visionary founder who established Shree Plastic Industries in 1984 with a commitment to quality and excellence."
+        },
+        {
+            "id": 2,
+            "name": "Nimesh Shah",
+            "title": "Director",
+            "image": "assets/images/team/nimesh-shah.jpg",
+            "quote": "Our prosperity is to ensure care for our Mother Earth and the welfare of our people.",
+            "description": "Bringing modern business acumen while honoring the company's founding principles."
+        },
+        {
+            "id": 3,
+            "name": "Milan Shah",
+            "title": "Director",
+            "image": "assets/images/team/milan-shah.jpg",
+            "quote": "It begins from home. The world is entering a new energy era. The age of fossil fuels, which powered economic growth for nearly three centuries, cannot continue much longer. Transition to the new era of green, clean, and renewable energy is imperative.",
+            "description": "Championing sustainability and the green transition in manufacturing."
+        }
+    ],
+    "sustainability": {
+        "commitments": [
+            "Reducing carbon footprint across all manufacturing processes",
+            "Transitioning to renewable energy sources",
+            "Developing eco-friendly, compostable product lines",
+            "Implementing circular economy principles",
+            "Empowering communities through sustainable practices",
+            "Continuous innovation in green technology"
+        ],
+        "pledge": "We pledge to educate and lead people from Industrial Civilization to an Ecological Civilization.",
+        "closingQuote": "We Believe, Therefore We Can. Shree Plastic Industries has the spirit of Quality & Vision that quality always pays.",
+        "closingAuthors": "Nimesh Shah & Milan Shah"
+    }
+}
