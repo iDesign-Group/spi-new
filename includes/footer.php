@@ -79,10 +79,65 @@
                     <p class="footer-credits">
                         Established <?php echo SITE_ESTABLISHED; ?> | Pune, Maharashtra
                     </p>
+                    <p class="footer-developer-credit">
+                        Managed, Developed and Designed by <a href="https://www.idesigngroup.co.in/" target="_blank" rel="noopener noreferrer" class="idesign-link">iDesign</a>
+                    </p>
                 </div>
             </div>
         </div>
     </footer>
+    
+    <!-- iDesign Link Animation Styles -->
+    <style>
+        .footer-developer-credit {
+            margin-top: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .idesign-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .idesign-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            transition: width 0.3s ease;
+        }
+        
+        .idesign-link:hover {
+            color: #4CAF50;
+            transform: translateY(-2px);
+            text-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+        }
+        
+        .idesign-link:hover::after {
+            width: 100%;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+        
+        .idesign-link:hover {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
     
     <!-- JavaScript Files -->
     <script src="<?php echo $basePath; ?>assets/js/main.js"></script>
