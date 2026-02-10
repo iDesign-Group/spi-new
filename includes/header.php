@@ -154,6 +154,9 @@ $basePath = $isSubpage ? '../' : '';
                     <li class="nav-item">
                         <a href="<?php echo $basePath; ?>pages/news-media.php" class="nav-link <?php echo isActivePage('news-media') ? 'active' : ''; ?>">News and Media</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="<?php echo $basePath; ?>pages/contact.php" class="nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>">Contact Us</a>
+                    </li>
                 </ul>
             </nav>
             
@@ -190,6 +193,9 @@ $basePath = $isSubpage ? '../' : '';
                 </li>
                 <li class="mobile-nav-item">
                     <a href="<?php echo $basePath; ?>pages/news-media.php" class="mobile-nav-link <?php echo isActivePage('news-media') ? 'active' : ''; ?>">News and Media</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="<?php echo $basePath; ?>pages/contact.php" class="mobile-nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>">Contact Us</a>
                 </li>
             </ul>
         </nav>
