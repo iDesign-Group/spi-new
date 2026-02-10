@@ -14,6 +14,15 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Generate math CAPTCHA if not exists
+if (!isset($_SESSION['captcha_answer'])) {
+    $num1 = rand(1, 10);
+    $num2 = rand(1, 10);
+    $_SESSION['captcha_num1'] = $num1;
+    $_SESSION['captcha_num2'] = $num2;
+    $_SESSION['captcha_answer'] = $num1 + $num2;
+}
+
 // Form submission handling
 $formSubmitted = false;
 $formSuccess = false;
@@ -54,8 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_contact'])) {
     // CAPTCHA validation
     if (empty($captcha)) {
         $formErrors[] = 'CAPTCHA is required';
-    } elseif (!isset($_SESSION['captcha']) || strtolower($captcha) !== strtolower($_SESSION['captcha'])) {
-        $formErrors[] = 'CAPTCHA is incorrect';
+    } elseif (!isset($_SESSION['captcha_answer']) || intval($captcha) !== intval($_SESSION['captcha_answer'])) {
+        $formErrors[] = 'CAPTCHA answer is incorrect';
     }
     
     // If no errors, process the form
@@ -85,7 +94,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_contact'])) {
     }
     
     // Generate new CAPTCHA after submission
-    unset($_SESSION['captcha']);
+    unset($_SESSION['captcha_num1']);
+    unset($_SESSION['captcha_num2']);
+    unset($_SESSION['captcha_answer']);
+    
+    $num1 = rand(1, 10);
+    $num2 = rand(1, 10);
+    $_SESSION['captcha_num1'] = $num1;
+    $_SESSION['captcha_num2'] = $num2;
+    $_SESSION['captcha_answer'] = $num1 + $num2;
 }
 
 include '../includes/header.php';
@@ -227,22 +244,20 @@ include '../includes/header.php';
                             <textarea id="message" name="message" rows="5" required><?php echo htmlspecialchars($message ?? ''); ?></textarea>
                         </div>
                         
-                        <!-- CAPTCHA -->
+                        <!-- Math CAPTCHA -->
                         <div class="form-group captcha-group">
-                            <label for="captcha">Enter CAPTCHA Code *</label>
-                            <div class="captcha-wrapper">
-                                <div class="captcha-image">
-                                    <img src="../includes/captcha.php" alt="CAPTCHA" id="captchaImage">
+                            <label for="captcha">Security Question: What is <?php echo $_SESSION['captcha_num1']; ?> + <?php echo $_SESSION['captcha_num2']; ?>? *</label>
+                            <div class="math-captcha">
+                                <div class="captcha-question">
+                                    <span class="captcha-number"><?php echo $_SESSION['captcha_num1']; ?></span>
+                                    <span class="captcha-operator">+</span>
+                                    <span class="captcha-number"><?php echo $_SESSION['captcha_num2']; ?></span>
+                                    <span class="captcha-equals">=</span>
+                                    <span class="captcha-question-mark">?</span>
                                 </div>
-                                <button type="button" class="btn-refresh-captcha" onclick="refreshCaptcha()" title="Refresh CAPTCHA">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="23 4 23 10 17 10"></polyline>
-                                        <polyline points="1 20 1 14 7 14"></polyline>
-                                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                                    </svg>
-                                </button>
                             </div>
-                            <input type="text" id="captcha" name="captcha" placeholder="Enter the code shown above" required autocomplete="off">
+                            <input type="number" id="captcha" name="captcha" placeholder="Enter your answer" required autocomplete="off" style="max-width: 150px;">
+                            <p class="captcha-hint" style="font-size: 13px; color: #666; margin-top: 5px;">Please solve the math problem above</p>
                         </div>
                         
                         <button type="submit" name="submit_contact" class="btn btn-primary btn-submit">
@@ -378,46 +393,61 @@ include '../includes/header.php';
     margin-top: 30px;
 }
 
-.captcha-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.math-captcha {
     margin-bottom: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 8px;
+    border: 2px solid #2E5090;
 }
 
-.captcha-image {
-    flex-shrink: 0;
-}
-
-.captcha-image img {
-    display: block;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-}
-
-.btn-refresh-captcha {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    background: #2E5090;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+.captcha-question {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    gap: 15px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1A1A1A;
 }
 
-.btn-refresh-captcha:hover {
-    background: #1e3a60;
-    transform: rotate(180deg);
+.captcha-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #2E5090;
 }
 
-.btn-refresh-captcha svg {
-    width: 20px;
-    height: 20px;
-    stroke: white;
+.captcha-operator,
+.captcha-equals {
+    color: #2E5090;
+    font-size: 36px;
+}
+
+.captcha-question-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 60px;
+    background: #2E5090;
+    color: white;
+    border-radius: 8px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 .btn-submit {
@@ -477,14 +507,19 @@ include '../includes/header.php';
     .contact-form-container {
         padding: 30px 20px;
     }
+    
+    .captcha-question {
+        font-size: 24px;
+        gap: 10px;
+    }
+    
+    .captcha-number,
+    .captcha-question-mark {
+        min-width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
 }
 </style>
-
-<script>
-function refreshCaptcha() {
-    var img = document.getElementById('captchaImage');
-    img.src = '../includes/captcha.php?' + Date.now();
-}
-</script>
 
 <?php include '../includes/footer.php'; ?>
