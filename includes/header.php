@@ -133,6 +133,9 @@ $basePath = $isSubpage ? '../' : '';
             <nav class="main-nav" id="mainNav">
                 <ul class="nav-list">
                     <li class="nav-item">
+                        <a href="<?php echo $basePath; ?>index.php" class="nav-link <?php echo isActivePage('index') ? 'active' : ''; ?>">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="<?php echo $basePath; ?>pages/about.php" class="nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>">About</a>
                     </li>
                     <li class="nav-item">
@@ -166,6 +169,9 @@ $basePath = $isSubpage ? '../' : '';
     <div class="mobile-nav-overlay" id="mobileNavOverlay">
         <nav class="mobile-nav">
             <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="<?php echo $basePath; ?>index.php" class="mobile-nav-link <?php echo isActivePage('index') ? 'active' : ''; ?>">Home</a>
+                </li>
                 <li class="mobile-nav-item">
                     <a href="<?php echo $basePath; ?>pages/about.php" class="mobile-nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>">About</a>
                 </li>
