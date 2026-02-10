@@ -243,6 +243,16 @@ include '../includes/header.php';
         <p class="hero-tagline">Comprehensive Plastic Solutions for Every Industry</p>
     </div>
 </section>
+<script>
+// Load hero image if available
+(function() {
+    var img = new Image();
+    img.onload = function() {
+        document.querySelector('.hero-bg').style.backgroundImage = "url('../assets/images/heroes/businesses-hero.jpg')";
+    };
+    img.src = '../assets/images/heroes/businesses-hero.jpg';
+})();
+</script>
 
 <!-- Introduction -->
 <section class="intro-section">
@@ -283,9 +293,9 @@ include '../includes/header.php';
 <section class="section">
     <div class="container">
         <div class="alt-section animate-on-scroll">
-            <div class="alt-image img-reveal">
+            <div class="alt-image">
                 <img src="<?php echo $basePath; ?>assets/images/about/quality.jpg" alt="Quality Assurance" loading="lazy"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Quality Assurance</span></div>';">
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Quality Assurance</span></div>
             </div>
             <div class="alt-content">
                 <h2 class="alt-title">Committed to Quality</h2>

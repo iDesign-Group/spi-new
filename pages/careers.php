@@ -106,6 +106,16 @@ include '../includes/header.php';
         <p class="hero-tagline">Grow With Us, Build Your Future</p>
     </div>
 </section>
+<script>
+// Load hero image if available
+(function() {
+    var img = new Image();
+    img.onload = function() {
+        document.querySelector('.hero-bg').style.backgroundImage = "url('../assets/images/heroes/careers-hero.jpg')";
+    };
+    img.src = '../assets/images/heroes/careers-hero.jpg';
+})();
+</script>
 
 <!-- Introduction -->
 <section class="intro-section">

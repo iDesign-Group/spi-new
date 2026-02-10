@@ -18,39 +18,50 @@ include '../includes/header.php';
 ?>
 
 <style>
-/* Timeline Specific Styles */
+/* Timeline Specific Styles - Straight Vertical Line on Left */
 .timeline-section {
     padding: 80px 0;
     background: linear-gradient(to bottom, #FFFFFF 0%, #F5F5F5 100%);
 }
 
 .timeline {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    position: relative !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    padding: 20px 20px 20px 50px !important;
 }
 
-/* Vertical line on the left side */
+/* Blue vertical line on the left */
 .timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 60px;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(to bottom, #0066CC, #2E5090);
-    border-radius: 3px;
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 20px !important;
+    width: 4px !important;
+    height: 100% !important;
+    background: linear-gradient(to bottom, #0066CC, #2E5090) !important;
+    border-radius: 4px !important;
+    transform: none !important;
 }
 
-.timeline-item {
-    position: relative;
-    width: 100%;
-    padding: 0 20px 40px 100px;
-    margin-bottom: 0;
+/* All timeline items on the RIGHT of the blue line */
+.timeline-item,
+.timeline-item:nth-child(odd),
+.timeline-item:nth-child(even) {
+    position: relative !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: auto !important;
+    padding: 0 0 50px 50px !important;
+    text-align: left !important;
+    margin-left: 0 !important;
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0 !important;
 }
 
 .timeline-item.animate-in {
@@ -58,47 +69,52 @@ include '../includes/header.php';
     transform: translateY(0);
 }
 
-/* Timeline marker on the left line */
-.timeline-marker {
-    position: absolute;
-    top: 30px;
-    left: 51px;
-    width: 20px;
-    height: 20px;
-    background: #0066CC;
-    border: 4px solid #FFFFFF;
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.2);
-    z-index: 1;
+/* Timeline marker - sits ON the blue line */
+.timeline-marker,
+.timeline-item:nth-child(odd) .timeline-marker,
+.timeline-item:nth-child(even) .timeline-marker {
+    position: absolute !important;
+    top: 5px !important;
+    left: 10px !important;
+    right: auto !important;
+    width: 24px !important;
+    height: 24px !important;
+    background: #0066CC !important;
+    border: 4px solid #FFFFFF !important;
+    border-radius: 50% !important;
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 0.2) !important;
+    z-index: 2 !important;
     transform: scale(0);
     transition: transform 0.4s ease 0.3s;
 }
 
 .timeline-item.animate-in .timeline-marker {
-    transform: scale(1);
+    transform: scale(1) !important;
 }
 
+/* Timeline card - on the right side */
 .timeline-card {
-    background: #FFFFFF;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-align: left;
+    background: #FFFFFF !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    border-left: 4px solid #0066CC !important;
+    text-align: left !important;
+    margin-left: 0 !important;
 }
 
 .timeline-card:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+    transform: translateX(8px) !important;
 }
 
 .timeline-period {
     display: inline-block;
     background: linear-gradient(135deg, #0066CC, #2E5090);
     color: #FFFFFF;
-    padding: 6px 16px;
-    border-radius: 20px;
+    padding: 8px 20px;
+    border-radius: 25px;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 16px;
@@ -108,6 +124,7 @@ include '../includes/header.php';
     font-size: 24px;
     color: #1A1A1A;
     margin-bottom: 8px;
+    text-align: left !important;
 }
 
 .timeline-subtitle {
@@ -115,11 +132,14 @@ include '../includes/header.php';
     font-style: italic;
     color: #0066CC;
     margin-bottom: 16px;
+    font-size: 16px;
+    text-align: left !important;
 }
 
 .timeline-content p {
     color: #666666;
     line-height: 1.8;
+    text-align: left !important;
 }
 
 .timeline-image {
@@ -137,16 +157,17 @@ include '../includes/header.php';
     margin-top: 16px;
     padding-top: 16px;
     border-top: 1px solid #E0E0E0;
-    list-style: none;
-    padding-left: 0;
+    text-align: left !important;
 }
 
 .timeline-highlights li {
     position: relative;
-    padding-left: 20px;
-    margin-bottom: 8px;
+    padding-left: 24px;
+    margin-bottom: 10px;
     color: #666666;
     font-size: 14px;
+    line-height: 1.6;
+    text-align: left !important;
 }
 
 .timeline-highlights li::before {
@@ -157,34 +178,69 @@ include '../includes/header.php';
     font-weight: 600;
 }
 
-/* Mobile Timeline */
-@media (max-width: 768px) {
+/* Tablet */
+@media (max-width: 991px) {
     .timeline {
-        padding: 40px 15px;
+        max-width: 100% !important;
+        padding: 20px 15px 20px 45px !important;
     }
     
     .timeline::before {
-        left: 25px;
+        left: 18px !important;
     }
     
-    .timeline-item {
-        padding: 0 15px 30px 60px;
+    .timeline-marker,
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: 8px !important;
     }
     
-    .timeline-marker {
-        left: 16px;
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding: 0 0 40px 45px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 575px) {
+    .timeline {
+        padding: 20px 10px 20px 35px !important;
     }
     
-    .timeline-title {
-        font-size: 20px;
+    .timeline::before {
+        left: 12px !important;
+        width: 3px !important;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding: 0 0 35px 35px !important;
+    }
+    
+    .timeline-marker,
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: 2px !important;
+        width: 20px !important;
+        height: 20px !important;
     }
     
     .timeline-card {
-        padding: 20px;
+        padding: 20px !important;
+    }
+    
+    .timeline-title {
+        font-size: 18px;
+    }
+    
+    .timeline-period {
+        font-size: 12px;
+        padding: 6px 14px;
     }
 }
 </style>
-
 
 <!-- Hero Section -->
 <section class="hero">

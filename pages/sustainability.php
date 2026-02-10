@@ -59,7 +59,7 @@ include '../includes/header.php';
     left: -20px;
     right: 20px;
     top: 20px;
-    border: 3px solid #0066CC;
+    border: 0px solid #ffffff;
     border-radius: 8px;
     z-index: -1;
 }
@@ -253,6 +253,16 @@ include '../includes/header.php';
         <p class="hero-tagline">Building a Greener Tomorrow, Today</p>
     </div>
 </section>
+<script>
+// Load hero image if available
+(function() {
+    var img = new Image();
+    img.onload = function() {
+        document.querySelector('.hero-bg').style.backgroundImage = "url('../assets/images/heroes/sustainability-hero.jpg')";
+    };
+    img.src = '../assets/images/heroes/sustainability-hero.jpg';
+})();
+</script>
 
 <!-- Introduction -->
 <section class="intro-section">
@@ -273,8 +283,8 @@ include '../includes/header.php';
 <section class="leader-section">
     <div class="container">
         <div class="leader-content animate-on-scroll">
-            <div class="leader-image img-reveal">
-                <img src="<?php echo $basePath; ?>assets/images/team/nimesh-shah.jpg" alt="Mr. Nimesh Shah - Director" loading="lazy"
+            <div class="leader-image">
+                <img src="<?php echo $basePath; ?>assets/images/team/nimesh-shah.jpg" alt="Mr. Nimesh Shah - Director"
                      onerror="this.src='<?php echo $basePath; ?>assets/images/placeholder-person.jpg';">
             </div>
             <div class="leader-text">
@@ -297,8 +307,8 @@ include '../includes/header.php';
 <section class="leader-section">
     <div class="container">
         <div class="leader-content reverse animate-on-scroll">
-            <div class="leader-image img-reveal">
-                <img src="<?php echo $basePath; ?>assets/images/team/milan-shah.jpg" alt="Mr. Milan Shah - Director" loading="lazy"
+            <div class="leader-image">
+                <img src="<?php echo $basePath; ?>assets/images/team/milan-shah.jpg" alt="Mr. Milan Shah - Director"
                      onerror="this.src='<?php echo $basePath; ?>assets/images/placeholder-person.jpg';">
             </div>
             <div class="leader-text">
