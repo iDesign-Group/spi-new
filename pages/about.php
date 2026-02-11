@@ -86,31 +86,6 @@ function getValueIcon($iconName) {
         </div>
     </div>
 </section>
-
-<!-- Values Section -->
-<section class="section bg-light">
-    <div class="container">
-        <div class="section-header animate-on-scroll">
-            <h2 class="section-title">Our Values & Behaviours</h2>
-            <p class="section-subtitle">
-                The principles that guide everything we do at Shree Plastic Industries
-            </p>
-        </div>
-        
-        <div class="values-grid">
-            <?php foreach ($values as $index => $value): ?>
-            <div class="value-card animate-on-scroll stagger-<?php echo ($index % 6) + 1; ?>">
-                <div class="value-icon">
-                    <?php echo getValueIcon($value['icon']); ?>
-                </div>
-                <h3 class="value-title"><?php echo sanitize($value['title']); ?></h3>
-                <p class="value-description"><?php echo sanitize($value['description']); ?></p>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
 <!-- Legacy Section -->
 <section class="section">
     <div class="container">
@@ -138,6 +113,31 @@ function getValueIcon($iconName) {
 </section>
 
 
+<!-- Values Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Our Values & Behaviours</h2>
+            <p class="section-subtitle">
+                The principles that guide everything we do at Shree Plastic Industries
+            </p>
+        </div>
+        
+        <div class="values-grid">
+            <?php foreach ($values as $index => $value): ?>
+            <div class="value-card animate-on-scroll stagger-<?php echo ($index % 6) + 1; ?>">
+                <div class="value-icon">
+                    <?php echo getValueIcon($value['icon']); ?>
+                </div>
+                <h3 class="value-title"><?php echo sanitize($value['title']); ?></h3>
+                <p class="value-description"><?php echo sanitize($value['description']); ?></p>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+
 
 <!-- Closing Quote -->
 <section class="section">
@@ -153,4 +153,5 @@ function getValueIcon($iconName) {
 </section>
 
 <?php include '../includes/footer.php'; ?>
+
 
