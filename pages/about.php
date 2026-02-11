@@ -137,29 +137,7 @@ function getValueIcon($iconName) {
     </div>
 </section>
 
-<!-- Products Preview Section -->
-<section class="section bg-light">
-    <div class="container">
-        <div class="alt-section reverse animate-on-scroll">
-            <div class="alt-image">
-                <img src="<?php echo $basePath; ?>assets/images/about/products.jpg" alt="Our Product Range" loading="lazy"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Product Range</span></div>
-            </div>
-            <div class="alt-content">
-                <h2 class="alt-title">Comprehensive Product Solutions</h2>
-                <p class="alt-text">
-                    From polythene bags and rolls to eco-friendly compostable solutions, our diverse product 
-                    portfolio caters to various industries including retail, manufacturing, agriculture, and more.
-                </p>
-                <p class="alt-text">
-                    Our ISO 17088 certified compostable bags represent our commitment to environmental 
-                    responsibility while maintaining the quality standards our customers expect.
-                </p>
-                <a href="businesses.php" class="btn btn-primary">View Our Products</a>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- Closing Quote -->
 <section class="section">
@@ -175,3 +153,4 @@ function getValueIcon($iconName) {
 </section>
 
 <?php include '../includes/footer.php'; ?>
+
