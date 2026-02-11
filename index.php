@@ -1,7 +1,7 @@
 <?php
 /**
  * Shree Plastic Industries - Home Page
- * Main landing page with video hero and Why Choose Us section
+ * Main landing page with hero slider and Why Choose Us section
  */
 
 require_once 'includes/config.php';
@@ -10,6 +10,25 @@ $page_title = 'Home';
 $page_description = 'Welcome to Shree Plastic Industries - Leading plastic manufacturing company in Pune since 1984. Specializing in Skirting Bags, Garbage Bags, HDPE Sheets, LDPE Bags, Vacuum Bagging Film.';
 
 include 'includes/header.php';
+
+// Hero Slider data
+$heroSlides = [
+    [
+        'image' => 'assets/images/heroes/home-hero.jpg',
+        'title' => 'Welcome to <span>Shree Plastic Industries</span>',
+        'description' => 'Leading plastic manufacturing company in Pune with over 4 decades of excellence in quality and innovation.'
+    ],
+    [
+        'image' => 'assets/images/heroes/businesses-hero.jpg',
+        'title' => 'Quality <span>Plastic Products</span>',
+        'description' => 'Specializing in Skirting Bags, Garbage Bags, HDPE Sheets, LDPE Bags, and Vacuum Bagging Films.'
+    ],
+    [
+        'image' => 'assets/images/heroes/sustainability-hero.jpg',
+        'title' => 'Committed to <span>Sustainability</span>',
+        'description' => 'Building a greener future through responsible manufacturing and eco-friendly practices.'
+    ]
+];
 
 // Why Choose Us data
 $whyChooseUs = [
@@ -86,42 +105,58 @@ function getChooseUsIcon($iconName) {
 ?>
 
 <style>
-/* Video Hero Styles */
-.video-hero {
+/* Hero Slider Styles */
+.hero-slider {
     position: relative;
     height: 100vh;
     min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
 }
 
-.video-hero-bg {
+.hero-slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero-slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -2;
 }
 
-.video-hero-fallback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);
-    z-index: -3;
+.hero-slide.active .hero-slide-bg {
+    animation: kenburns 15s ease-out forwards;
 }
 
-.video-hero-fallback.has-image {
-    background: url('assets/images/heroes/home-hero.jpg') center/cover no-repeat;
+@keyframes kenburns {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
 
-.video-hero-overlay {
+.hero-slide-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -131,15 +166,20 @@ function getChooseUsIcon($iconName) {
     z-index: -1;
 }
 
-.video-hero-content {
+.hero-slide-content {
     text-align: center;
     color: #FFFFFF;
     max-width: 900px;
     padding: 0 24px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-slide.active .hero-slide-content {
     animation: fadeInUp 1s ease-out;
 }
 
-.video-hero-content h1 {
+.hero-slide-content h1 {
     font-family: 'Montserrat', sans-serif;
     font-size: 56px;
     font-weight: 700;
@@ -148,23 +188,83 @@ function getChooseUsIcon($iconName) {
     color: #FFFFFF;
 }
 
-.video-hero-content h1 span {
+.hero-slide-content h1 span {
     color: #0066CC;
 }
 
-.video-hero-content p {
+.hero-slide-content p {
     font-size: 20px;
     font-weight: 400;
     opacity: 0.9;
     line-height: 1.6;
+    margin-bottom: 32px;
 }
 
 .hero-cta {
-    margin-top: 32px;
     display: flex;
     gap: 16px;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: #0066CC;
+    border-color: #0066CC;
+    width: 40px;
+    border-radius: 6px;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    color: #fff;
+    font-size: 20px;
+}
+
+.slider-arrow:hover {
+    background: rgba(0, 102, 204, 0.8);
+    border-color: #0066CC;
+}
+
+.slider-arrow.prev {
+    left: 30px;
+}
+
+.slider-arrow.next {
+    right: 30px;
 }
 
 /* Why Choose Us Flash Cards */
@@ -275,27 +375,6 @@ function getChooseUsIcon($iconName) {
     line-height: 1.7;
 }
 
-/* .choose-card-number {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, #0066CC, #2E5090);
-    color: #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-} */
-
-/* .choose-card-back .choose-card-number {
-    background: rgba(255, 255, 255, 0.2);
-} */
-
 /* Animation for cards */
 .choose-card {
     opacity: 0;
@@ -310,21 +389,26 @@ function getChooseUsIcon($iconName) {
 
 /* Responsive */
 @media (max-width: 991px) {
-    .video-hero-content h1 {
+    .hero-slide-content h1 {
         font-size: 42px;
     }
     
     .choose-us-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media (max-width: 575px) {
-    .video-hero-content h1 {
+    .hero-slide-content h1 {
         font-size: 32px;
     }
     
-    .video-hero-content p {
+    .hero-slide-content p {
         font-size: 16px;
     }
     
@@ -335,28 +419,41 @@ function getChooseUsIcon($iconName) {
     .choose-card {
         height: 280px;
     }
+    
+    .slider-arrow {
+        display: none;
+    }
 }
 </style>
 
-<!-- Video Hero Section -->
-<section class="video-hero">
-    <div class="video-hero-fallback"></div>
-    <video class="video-hero-bg" autoplay muted loop playsinline>
-        <source src="assets/videos/hero-video.mp4" type="video/mp4">
-    </video>
-    <div class="video-hero-overlay"></div>
-    <div class="video-hero-content">
-        <h1>Welcome to <span><?php echo SITE_NAME; ?></span></h1>
-        <p>
-            Shree Plastic Industries has been at the forefront of plastic manufacturing excellence in Pune. 
-            As a trusted firm, we have built our reputation on delivering high-quality plastic 
-            products that meet the diverse needs of industries across India.
-        </p>
-        <div class="hero-cta">
-            <a href="pages/businesses.php" class="btn btn-primary">Explore Our Products</a>
-            <a href="pages/about.php" class="btn btn-secondary" style="border-color: #fff; color: #fff;">Learn More About Us</a>
+<!-- Hero Slider Section -->
+<section class="hero-slider" id="heroSlider">
+    <?php foreach ($heroSlides as $index => $slide): ?>
+    <div class="hero-slide <?php echo $index === 0 ? 'active' : ''; ?>" data-slide="<?php echo $index; ?>">
+        <div class="hero-slide-bg" style="background-image: url('<?php echo $slide['image']; ?>');"></div>
+        <div class="hero-slide-overlay"></div>
+        <div class="hero-slide-content">
+            <h1><?php echo $slide['title']; ?></h1>
+            <p><?php echo sanitize($slide['description']); ?></p>
+            <?php if ($index === 0): ?>
+            <div class="hero-cta">
+                <a href="pages/businesses.php" class="btn btn-primary">Explore Our Products</a>
+                <a href="pages/about.php" class="btn btn-secondary" style="border-color: #fff; color: #fff;">Learn More About Us</a>
+            </div>
+            <?php endif; ?>
         </div>
     </div>
+    <?php endforeach; ?>
+    
+    <!-- Slider Controls -->
+    <div class="slider-controls">
+        <?php foreach ($heroSlides as $index => $slide): ?>
+        <span class="slider-dot <?php echo $index === 0 ? 'active' : ''; ?>" data-slide="<?php echo $index; ?>"></span>
+        <?php endforeach; ?>
+    </div>
+    
+    <button class="slider-arrow prev" aria-label="Previous slide">‹</button>
+    <button class="slider-arrow next" aria-label="Next slide">›</button>
 </section>
 
 <!-- Company Introduction -->
@@ -389,7 +486,6 @@ function getChooseUsIcon($iconName) {
             <div class="choose-card" data-index="<?php echo $index; ?>">
                 <div class="choose-card-inner">
                     <div class="choose-card-front">
-                        
                         <div class="choose-card-icon">
                             <?php echo getChooseUsIcon($item['icon']); ?>
                         </div>
@@ -397,7 +493,6 @@ function getChooseUsIcon($iconName) {
                         <p class="choose-card-desc"><?php echo sanitize($item['description']); ?></p>
                     </div>
                     <div class="choose-card-back">
-                        
                         <h3 class="choose-card-title"><?php echo sanitize($item['title']); ?></h3>
                         <p class="choose-card-desc"><?php echo sanitize($item['description']); ?></p>
                     </div>
@@ -423,6 +518,70 @@ function getChooseUsIcon($iconName) {
 </section>
 
 <script>
+// Hero Slider functionality
+(function() {
+    const slider = document.getElementById('heroSlider');
+    const slides = slider.querySelectorAll('.hero-slide');
+    const dots = slider.querySelectorAll('.slider-dot');
+    const prevBtn = slider.querySelector('.slider-arrow.prev');
+    const nextBtn = slider.querySelector('.slider-arrow.next');
+    let currentSlide = 0;
+    let slideInterval;
+    
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+    
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+    
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+    
+    function startAutoplay() {
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+    
+    function stopAutoplay() {
+        clearInterval(slideInterval);
+    }
+    
+    // Event listeners
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopAutoplay();
+            showSlide(index);
+            startAutoplay();
+        });
+    });
+    
+    prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        prevSlide();
+        startAutoplay();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        nextSlide();
+        startAutoplay();
+    });
+    
+    // Pause on hover
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
+    
+    // Start autoplay
+    startAutoplay();
+})();
+
 // Initialize flash card animations
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.choose-card');
