@@ -122,8 +122,7 @@ function getChooseUsIcon($iconName) {
     opacity: 0;
     transition: opacity 1s ease-in-out;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
 }
 
 .hero-slide.active {
@@ -162,21 +161,34 @@ function getChooseUsIcon($iconName) {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.7));
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.85) 0%, rgba(26, 26, 26, 0.4) 50%, rgba(26, 26, 26, 0.2) 100%);
     z-index: -1;
 }
 
 .hero-slide-content {
-    text-align: center;
+    text-align: left;
     color: #FFFFFF;
-    max-width: 900px;
-    padding: 0 24px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 48px 100px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
 .hero-slide.active .hero-slide-content {
-    animation: fadeInUp 1s ease-out;
+    animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .hero-slide-content h1 {
@@ -184,8 +196,9 @@ function getChooseUsIcon($iconName) {
     font-size: 56px;
     font-weight: 700;
     margin-bottom: 24px;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
+    max-width: 800px;
 }
 
 .hero-slide-content h1 span {
@@ -195,15 +208,16 @@ function getChooseUsIcon($iconName) {
 .hero-slide-content p {
     font-size: 20px;
     font-weight: 400;
-    opacity: 0.9;
+    opacity: 0.95;
     line-height: 1.6;
     margin-bottom: 32px;
+    max-width: 700px;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-cta {
     display: flex;
     gap: 16px;
-    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -389,6 +403,10 @@ function getChooseUsIcon($iconName) {
 
 /* Responsive */
 @media (max-width: 991px) {
+    .hero-slide-content {
+        padding: 0 32px 80px;
+    }
+    
     .hero-slide-content h1 {
         font-size: 42px;
     }
@@ -404,6 +422,10 @@ function getChooseUsIcon($iconName) {
 }
 
 @media (max-width: 575px) {
+    .hero-slide-content {
+        padding: 0 24px 60px;
+    }
+    
     .hero-slide-content h1 {
         font-size: 32px;
     }
