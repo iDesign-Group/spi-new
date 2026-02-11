@@ -111,12 +111,12 @@ $basePath = $isSubpage ? '../' : '';
         
         /* Larger logo in header */
         .main-header .logo {
-            height: 70px !important;
+            height: 85px !important;
         }
         
         @media (max-width: 991px) {
             .main-header .logo {
-                height: 55px !important;
+                height: 65px !important;
             }
         }
     </style>
@@ -138,9 +138,6 @@ $basePath = $isSubpage ? '../' : '';
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo $basePath; ?>pages/about.php" class="nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/history.php" class="nav-link <?php echo isActivePage('history') ? 'active' : ''; ?>">Our History</a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo $basePath; ?>pages/businesses.php" class="nav-link <?php echo isActivePage('businesses') ? 'active' : ''; ?>">Businesses</a>
@@ -178,9 +175,6 @@ $basePath = $isSubpage ? '../' : '';
                 </li>
                 <li class="mobile-nav-item">
                     <a href="<?php echo $basePath; ?>pages/about.php" class="mobile-nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>">About</a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/history.php" class="mobile-nav-link <?php echo isActivePage('history') ? 'active' : ''; ?>">Our History</a>
                 </li>
                 <li class="mobile-nav-item">
                     <a href="<?php echo $basePath; ?>pages/businesses.php" class="mobile-nav-link <?php echo isActivePage('businesses') ? 'active' : ''; ?>">Businesses</a>
