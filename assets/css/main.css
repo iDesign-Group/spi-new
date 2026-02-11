@@ -294,6 +294,7 @@ p {
     padding: var(--spacing-xs) 0;
     position: relative;
     transition: color var(--transition-fast);
+    white-space: nowrap;
 }
 
 .nav-link::after {
