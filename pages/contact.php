@@ -110,8 +110,7 @@ include '../includes/header.php';
 
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-bg" style="background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);"></div>
-    <div class="hero-overlay"></div>
+        <div class="hero-bg" style="background-image: url('../assets/images/heroes/contact-hero.jpg');"></div>    <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-title">Contact Us</h1>
         <p class="hero-tagline">We'd love to hear from you. Get in touch with us today.</p>
