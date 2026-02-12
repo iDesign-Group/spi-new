@@ -16,17 +16,14 @@ $heroSlides = [
     [
         'image' => 'assets/images/heroes/home-hero.jpg',
         'title' => 'Welcome to <span>Shree Plastic Industries</span>',
-        'description' => 'Leading plastic manufacturing company in Pune with over 4 decades of excellence in quality and innovation.'
     ],
     [
         'image' => 'assets/images/heroes/businesses-hero.jpg',
         'title' => 'Quality <span>Plastic Products</span>',
-        'description' => 'Specializing in Skirting Bags, Garbage Bags, HDPE Sheets, LDPE Bags, and Vacuum Bagging Films.'
     ],
     [
         'image' => 'assets/images/heroes/sustainability-hero.jpg',
         'title' => 'Committed to <span>Sustainability</span>',
-        'description' => 'Building a greener future through responsible manufacturing and eco-friendly practices.'
     ]
 ];
 
@@ -456,13 +453,10 @@ function getChooseUsIcon($iconName) {
         <div class="hero-slide-overlay"></div>
         <div class="hero-slide-content">
             <h1><?php echo $slide['title']; ?></h1>
-            <p><?php echo sanitize($slide['description']); ?></p>
-            <?php if ($index === 0): ?>
             <div class="hero-cta">
                 <a href="pages/businesses.php" class="btn btn-primary">Explore Our Products</a>
                 <a href="pages/about.php" class="btn btn-secondary" style="border-color: #fff; color: #fff;">Learn More About Us</a>
             </div>
-            <?php endif; ?>
         </div>
     </div>
     <?php endforeach; ?>
@@ -623,3 +617,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php include 'includes/footer.php'; ?>
+
