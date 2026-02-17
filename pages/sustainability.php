@@ -293,10 +293,7 @@ include '../includes/header.php';
                     "Our prosperity is to ensure care for our Mother Earth and the welfare of our people."
                 </blockquote>
                 <p class="leader-description">
-                    At Shree Plastic Industries, we recognize that true business success is measured not just in 
-                    profits, but in our positive impact on the environment and communities we serve. Our commitment 
-                    to sustainability is woven into every aspect of our operations, from material sourcing to 
-                    manufacturing processes and product lifecycle management.
+                    Under Mr. Nimesh Shah's visionary leadership, Shree Plastic Industries has championed environmental stewardship as a core business principle. His philosophy emphasizes that protecting Mother Earth and ensuring the welfare of our communities are inseparable from achieving long-term prosperity. By integrating sustainable practices throughout our value chain—from raw material selection to end-of-life product management—we're creating a circular economy model that benefits both business and the planet.
                 </p>
             </div>
         </div>
@@ -394,3 +391,4 @@ include '../includes/header.php';
 </section>
 
 <?php include '../includes/footer.php'; ?>
+
