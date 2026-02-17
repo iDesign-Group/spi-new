@@ -86,17 +86,36 @@ function getValueIcon($iconName) {
         </div>
     </div>
 </section>
-<!-- Legacy Section -->
+
+<!-- Founder Section -->
 <section class="section">
     <div class="container">
         <div class="alt-section animate-on-scroll">
-            <div class="alt-content">
-                <h1 class="alt-title">Mr. Nitin Shah</h1>
-            </div>
             <div class="alt-image">
-                <img src="<?php echo $basePath; ?>assets/images/about/factory.jpg" alt="Shree Plastic Industries"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"></div>
+                <img src="<?php echo $basePath; ?>assets/images/team/nitin-shah.jpg" alt="Mr. Nitin Shah - Founder" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:400px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Mr. Nitin Shah</span></div>'"/>
             </div>
+            <div class="alt-content">
+                <h2 class="alt-title">Mr. Nitin Shah</h2>
+                <p class="alt-text">
+                    Founder of Shree Plastic Industries, Mr. Nitin Shah laid the foundation of our company in 1984 
+                    with a vision to deliver excellence in plastic manufacturing. His dedication, business acumen, 
+                    and commitment to quality established the core values that continue to guide our organization today.
+                </p>
+                <p class="alt-text">
+                    Under his visionary leadership, Shree Plastic Industries grew from a small manufacturing unit 
+                    to become a trusted name in the Indian plastic industry, serving diverse sectors with innovative 
+                    solutions and unwavering commitment to customer satisfaction.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Legacy Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="alt-section reverse animate-on-scroll">
             <div class="alt-content">
                 <h2 class="alt-title">Four Decades of Excellence</h2>
                 <p class="alt-text">
@@ -109,15 +128,17 @@ function getValueIcon($iconName) {
                     Under the leadership of Mr. Nimesh Shah and Mr. Milan Shah, we have expanded our capabilities 
                     while maintaining our core values of integrity, quality, and customer satisfaction.
                 </p>
-                <a href="history.php" class="btn btn-primary">Explore Our History</a>
+            </div>
+            <div class="alt-image">
+                <img src="<?php echo $basePath; ?>assets/images/about/factory.jpg" alt="Shree Plastic Industries Factory" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Our Factory</span></div>'"/>
             </div>
         </div>
     </div>
 </section>
 
-
 <!-- Values Section -->
-<section class="section bg-light">
+<section class="section">
     <div class="container">
         <div class="section-header animate-on-scroll">
             <h2 class="section-title">Our Values & Behaviours</h2>
@@ -140,10 +161,8 @@ function getValueIcon($iconName) {
     </div>
 </section>
 
-
-
 <!-- Closing Quote -->
-<section class="section">
+<section class="section bg-light">
     <div class="container">
         <div class="quote-block animate-on-scroll">
             <p class="quote-text">
@@ -156,5 +175,3 @@ function getValueIcon($iconName) {
 </section>
 
 <?php include '../includes/footer.php'; ?>
-
-
