@@ -331,7 +331,7 @@ include '../includes/header.php';
     <div class="container">
         <div class="alt-section reverse animate-on-scroll">
             <div class="alt-content">
-                <h2 class="alt-title">Committed to Quality</h2>
+                <h2 class="alt-title">Quality Assurance</h2>
                 <p class="alt-text">
                     Every product that leaves our facility undergoes rigorous quality checks to ensure it meets 
                     our exacting standards. Our ISO certifications and industry recognitions are a testament to 
