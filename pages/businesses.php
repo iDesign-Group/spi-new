@@ -88,8 +88,35 @@ include '../includes/header.php';
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
+    z-index: 10;
 }
 
+/* Product Image Styles */
+.flip-card-image {
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.flip-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.flip-card:hover .flip-card-image img {
+    transform: scale(1.05);
+}
+
+/* Icon Styles (fallback) */
 .flip-card-icon {
     width: 80px;
     height: 80px;
@@ -214,6 +241,11 @@ include '../includes/header.php';
     .flip-card {
         height: 380px;
     }
+    
+    .flip-card-image {
+        max-width: 180px;
+        height: 135px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -223,6 +255,11 @@ include '../includes/header.php';
     
     .flip-card {
         height: 360px;
+    }
+    
+    .flip-card-image {
+        max-width: 160px;
+        height: 120px;
     }
 }
 
@@ -295,7 +332,7 @@ include '../includes/header.php';
         <div class="alt-section animate-on-scroll">
             <div class="alt-image">
                 <img src="<?php echo $basePath; ?>assets/images/about/quality.jpg" alt="Quality Assurance" loading="lazy"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Quality Assurance</span></div>
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Quality Assurance</span></div>'"/>
             </div>
             <div class="alt-content">
                 <h2 class="alt-title">Committed to Quality</h2>
