@@ -63,172 +63,322 @@
     "businesses": [
         {
             "id": 1,
-            "title": "Polythene Bags & Rolls",
+            "title": "Polythene Bags & Rolls (LDPE & HM)",
             "icon": "polythene",
             "image": "assets/images/products/polythene-bags.jpg",
-            "shortDescription": "High-quality polythene bags and rolls for diverse packaging needs",
-            "description": "Our premium polythene bags and rolls are manufactured using the finest quality raw materials, ensuring durability, flexibility, and reliability for all your packaging requirements.",
+            "shortDescription": "Premium LDPE and HM-HDPE bags & rolls for versatile packaging",
+            "description": "Manufactured with superior-grade Low-Density Polyethylene (LDPE) and High-Molecular HDPE, our polythene bags and rolls deliver exceptional strength, flexibility, and reliability. Available in both printed and non-printed options, these solutions cater to diverse industrial and commercial packaging requirements.",
             "features": [
-                "Custom sizes available",
-                "Food-grade options",
-                "Various thickness options",
-                "Bulk supply capability",
-                "Consistent quality assurance"
+                "Width range: 2 inches to 80 inches",
+                "Thickness options: Up to 500 microns",
+                "Custom printing with vibrant colors",
+                "Food-grade certified options available",
+                "Consistent quality with superior tear resistance"
             ],
             "applications": [
-                "Retail packaging",
-                "Industrial wrapping",
-                "Food storage",
-                "Logistics"
-            ]
+                "General packaging solutions",
+                "White goods protection",
+                "Industrial wrapping & bundling",
+                "Retail merchandise packaging",
+                "Export and logistics"
+            ],
+            "materials": ["LDPE", "HM-HDPE"]
         },
         {
             "id": 2,
-            "title": "VCL Bags",
-            "icon": "vcl",
-            "image": "assets/images/products/vcl-bags.jpg",
-            "shortDescription": "Vapor Corrosion Inhibitor bags for metal protection",
-            "description": "Our VCL (Volatile Corrosion Inhibitor) bags provide superior protection for metal components and products, preventing rust and corrosion during storage and transportation.",
+            "title": "Polypropylene Bags & Rolls",
+            "icon": "polypropylene",
+            "image": "assets/images/products/polypropylene-bags.jpg",
+            "shortDescription": "Crystal-clear PP bags for garment, food & bakery packaging",
+            "description": "Our Polypropylene (PP) bags and rolls offer superior clarity, excellent moisture resistance, and enhanced product visibility. Perfect for applications requiring transparent, professional-grade packaging that showcases your products while providing protection.",
             "features": [
-                "Multi-metal protection",
-                "Long-term corrosion prevention",
-                "Clean and dry protection",
-                "No removal required before use",
-                "Environmentally safe"
+                "Width availability: 2 inches to 30 inches",
+                "Thickness range: Up to 100 microns",
+                "High transparency & gloss finish",
+                "Printed and non-printed variants",
+                "Excellent moisture barrier properties"
             ],
             "applications": [
-                "Automotive parts",
-                "Machine components",
-                "Electronic equipment",
-                "Export packaging"
-            ]
+                "Garment & apparel packaging",
+                "Bread & bakery products",
+                "Food packaging & storage",
+                "Retail display packaging",
+                "Premium product presentation"
+            ],
+            "materials": ["PP"]
         },
         {
             "id": 3,
-            "title": "Compostable Bags",
-            "icon": "compostable",
-            "image": "assets/images/products/compostable-bags.jpg",
-            "shortDescription": "ISO 17088 Certified eco-friendly compostable solutions",
-            "description": "Our compostable bags are certified to ISO 17088 standards, offering an environmentally responsible alternative to traditional plastic bags. They break down naturally, leaving no harmful residues.",
+            "title": "3D / 5D Polythene Covers",
+            "icon": "3d-covers",
+            "image": "assets/images/products/3d-covers.jpg",
+            "shortDescription": "Customizable protective covers for industrial equipment",
+            "description": "Engineered for heavy-duty protection, our 3D and 5D polythene covers are completely customizable to fit complex shapes and sizes. These covers provide superior protection against dust, moisture, and environmental contaminants for valuable equipment and machinery.",
             "features": [
-                "ISO 17088 Certified",
-                "100% biodegradable",
-                "Made from renewable resources",
-                "Industrial & home compostable options",
-                "Comparable strength to traditional plastic"
+                "100% customizable dimensions & shapes",
+                "Heavy-duty material construction",
+                "UV stabilization available",
+                "Weather-resistant formulation",
+                "Precise fit for complex geometries"
             ],
             "applications": [
-                "Waste collection",
-                "Retail shopping",
-                "Food service",
-                "Agricultural use"
+                "Engine & machinery covers",
+                "Aircraft protective covering",
+                "Forging port protection",
+                "White goods transportation covers",
+                "Heavy equipment storage"
             ],
-            "certifications": ["ISO 17088", "EN 13432"]
+            "certifications": ["Custom Manufacturing"]
         },
         {
             "id": 4,
-            "title": "Bats",
-            "icon": "bats",
-            "image": "assets/images/products/bats.jpg",
-            "shortDescription": "Specialized plastic components and protective solutions",
-            "description": "Our range of plastic bats and components are designed for specific industrial applications, offering durability and precision in various protective and packaging scenarios.",
+            "title": "Compostable Garbage Bags",
+            "icon": "compostable",
+            "image": "assets/images/products/compostable-bags.jpg",
+            "shortDescription": "ISO 17088 Certified eco-friendly waste disposal solutions",
+            "badge": "ISO Certified",
+            "description": "Our ISO 17088 certified compostable garbage bags represent the future of sustainable waste management. Specially designed for HoReCa (Hotels, Restaurants, Cafes), Railways, Hospitals, and general waste disposal, these bags naturally decompose without harming the environment.",
             "features": [
-                "Custom specifications",
-                "High-impact resistance",
-                "Multiple material options",
-                "Precision manufacturing",
-                "Quality tested"
+                "ISO 17088 International Certification",
+                "100% biodegradable & compostable",
+                "Bio-medical waste bags available",
+                "Multi-color options: Red, Yellow, Blue, Black, White",
+                "Comparable strength to traditional plastic"
             ],
             "applications": [
-                "Industrial protection",
-                "Component packaging",
-                "Specialized applications"
-            ]
+                "Hotel & restaurant waste management",
+                "Hospital bio-medical waste disposal",
+                "Railway waste collection",
+                "Municipal waste programs",
+                "Eco-conscious businesses"
+            ],
+            "certifications": ["ISO 17088", "Bio-Medical Grade"]
         },
         {
             "id": 5,
-            "title": "Jackets",
-            "icon": "jackets",
-            "image": "assets/images/products/jackets.jpg",
-            "shortDescription": "Protective coverings for equipment and materials",
-            "description": "Our plastic jackets provide excellent protective covering for machinery, equipment, and materials during storage, transportation, and various industrial processes.",
+            "title": "Nursery Bags",
+            "icon": "nursery",
+            "image": "assets/images/products/nursery-bags.jpg",
+            "shortDescription": "Durable grow bags for fruit & vegetable cultivation",
+            "description": "Specifically designed for agricultural and horticultural applications, our nursery bags support healthy plant growth with optimal drainage and root aeration. Available in both traditional LDPE and eco-friendly compostable materials.",
             "features": [
-                "Weather-resistant",
-                "UV protection available",
-                "Custom sizing",
-                "Tear-resistant materials",
-                "Reusable options"
+                "Size range: 2 inches to 40 inches",
+                "Available in LDPE & compostable materials",
+                "UV stabilized for outdoor use",
+                "Enhanced drainage holes",
+                "Cost-effective bulk quantities"
             ],
             "applications": [
-                "Equipment protection",
-                "Construction covering",
-                "Transport protection",
-                "Storage solutions"
-            ]
+                "Fruit tree cultivation",
+                "Vegetable nurseries",
+                "Ornamental plant growing",
+                "Agricultural seedling propagation",
+                "Commercial nursery operations"
+            ],
+            "materials": ["LDPE", "Compostable"]
         },
         {
             "id": 6,
-            "title": "Pouches",
-            "icon": "pouches",
-            "image": "assets/images/products/pouches.jpg",
-            "shortDescription": "Versatile pouch solutions for various packaging needs",
-            "description": "Our diverse range of pouches caters to multiple industries, from food packaging to industrial applications, with options for customization in size, material, and closure types.",
+            "title": "Grow Bags",
+            "icon": "growbags",
+            "image": "assets/images/products/grow-bags.jpg",
+            "shortDescription": "Space-saving vegetable growing solutions for urban gardening",
+            "description": "Transform your balconies, terraces, and patios into productive gardens with our specially designed grow bags. These innovative gardening solutions enable urban dwellers to cultivate fresh vegetables and herbs in limited spaces while ensuring proper drainage and root health.",
             "features": [
-                "Multiple closure options",
-                "Stand-up & flat designs",
-                "Barrier properties available",
-                "Custom printing",
-                "Food-grade materials"
+                "Space-efficient design",
+                "Superior drainage system",
+                "Breathable fabric options",
+                "Reusable for multiple seasons",
+                "Various sizes for different plants"
             ],
             "applications": [
-                "Food packaging",
-                "Pharmaceutical",
-                "Cosmetics",
-                "Retail products"
+                "Balcony vegetable gardens",
+                "Terrace farming",
+                "Patio herb cultivation",
+                "Urban agriculture projects",
+                "Home kitchen gardens"
             ]
         },
         {
             "id": 7,
-            "title": "Printed Bags",
-            "icon": "printed",
-            "image": "assets/images/products/printed-bags.jpg",
-            "shortDescription": "Custom printed shopping bags for brand visibility",
-            "description": "Elevate your brand presence with our custom printed shopping bags. We offer high-quality printing on various bag types, helping businesses create lasting impressions with their packaging.",
+            "title": "Banana Skirting Bags",
+            "icon": "banana",
+            "image": "assets/images/products/banana-bags.jpg",
+            "shortDescription": "Specialized protection for premium banana cultivation",
+            "description": "Maximize your banana crop yield and quality with our purpose-engineered banana skirting bags. These protective covers shield developing banana bunches from pests, weather damage, and physical injury, ensuring superior quality fruit production.",
             "features": [
-                "Full-color printing",
-                "Multiple bag styles",
-                "Brand customization",
-                "Eco-friendly ink options",
-                "Various sizes available"
+                "UV-stabilized material",
+                "Pest & insect protection",
+                "Weather-resistant construction",
+                "Promotes uniform ripening",
+                "Reduces fruit blemishes & scars"
             ],
             "applications": [
-                "Retail shopping",
-                "Promotional events",
-                "Corporate gifting",
-                "Trade shows"
+                "Commercial banana plantations",
+                "Organic banana farming",
+                "Export-quality fruit production",
+                "Agricultural cooperatives",
+                "High-yield cultivation"
             ]
         },
         {
             "id": 8,
+            "title": "Grocery Bags",
+            "icon": "grocery",
+            "image": "assets/images/products/grocery-bags.jpg",
+            "shortDescription": "Customized bags for grocery packaging in multiple sizes",
+            "description": "Our grocery bags are specially engineered for food packaging with customization options in both traditional LDPE and environmentally responsible compostable materials. Available in standard weight denominations to suit all grocery packaging needs.",
+            "features": [
+                "Available in LDPE & compostable materials",
+                "Standard sizes: ¼, ½, 1, 2, 3, 5, 10, 20 KG",
+                "Food-grade certified materials",
+                "Custom printing options",
+                "Strong sealing & tear resistance"
+            ],
+            "applications": [
+                "Retail grocery stores",
+                "Supermarket packaging",
+                "Wholesale grain & pulse packaging",
+                "Dry food storage",
+                "Farmers markets"
+            ],
+            "materials": ["LDPE", "Compostable"]
+        },
+        {
+            "id": 9,
+            "title": "VCI Bags",
+            "icon": "vci",
+            "image": "assets/images/products/vci-bags.jpg",
+            "shortDescription": "Advanced corrosion protection for metal components",
+            "description": "Our VCI (Volatile Corrosion Inhibitor) bags provide cutting-edge protection for metal components against rust and corrosion during storage and shipping. The specialized VCI molecules create an invisible protective layer on metal surfaces, ensuring long-term preservation without oils or coatings.",
+            "features": [
+                "Multi-metal corrosion protection",
+                "No cleaning required before use",
+                "Long-term rust prevention (12-24 months)",
+                "Non-toxic & environmentally safe",
+                "Transparent inspection window options"
+            ],
+            "applications": [
+                "Automotive parts storage",
+                "Precision machinery components",
+                "Electronic equipment shipping",
+                "Export packaging for metal goods",
+                "Warehouse metal storage"
+            ]
+        },
+        {
+            "id": 10,
+            "title": "Recycled Bags & Sheets",
+            "icon": "recycled",
+            "image": "assets/images/products/recycled-bags.jpg",
+            "shortDescription": "Sustainable recycled plastic solutions for Mother Earth",
+            "badge": "Eco-Friendly",
+            "description": "We don't just talk about caring for Mother Earth—we act on it. Our recycled bags and sheets transform waste into valuable products, reducing environmental impact while offering cost-effective solutions. All production waste is recycled and repurposed into high-quality products.",
+            "features": [
+                "100% recycled material construction",
+                "Cost-effective alternative",
+                "Reduces landfill waste",
+                "Suitable for non-food applications",
+                "Black sheets for road construction"
+            ],
+            "applications": [
+                "Road construction underlayment",
+                "Industrial packaging (non-food)",
+                "Construction site protection",
+                "Agricultural covering",
+                "General-purpose packaging"
+            ],
+            "materials": ["Recycled LDPE", "Recycled HDPE"]
+        },
+        {
+            "id": 11,
+            "title": "Seal Me Bags (BOPP)",
+            "icon": "bopp",
+            "image": "assets/images/products/seal-me-bags.jpg",
+            "shortDescription": "Crystal-clear BOPP bags for premium product display",
+            "description": "Our Seal Me Bags are premium BOPP (Biaxially Oriented Polypropylene) packaging solutions that combine exceptional clarity with professional presentation. Perfect for products that require visibility while maintaining protection and professional appearance.",
+            "features": [
+                "High transparency & clarity",
+                "Self-adhesive sealing strip",
+                "Moisture & dust resistance",
+                "Professional presentation quality",
+                "Custom sizes & printing available"
+            ],
+            "applications": [
+                "Garment & apparel display",
+                "Rangoli powder packaging",
+                "Gift & craft items",
+                "Retail merchandise presentation",
+                "Premium product packaging"
+            ],
+            "materials": ["BOPP"]
+        },
+        {
+            "id": 12,
+            "title": "Courier Bags",
+            "icon": "courier",
+            "image": "assets/images/products/courier-bags.jpg",
+            "shortDescription": "Secure tamper-proof bags for e-commerce & shipping",
+            "description": "Designed for the fast-paced world of e-commerce and logistics, our courier bags provide secure, tamper-evident packaging for shipments. Whether you're running a small business or managing intercity deliveries, these bags ensure your products reach customers safely.",
+            "features": [
+                "Tamper-evident security seal",
+                "Lightweight yet strong construction",
+                "Water-resistant material",
+                "Custom branding options",
+                "POD (Proof of Delivery) pocket available"
+            ],
+            "applications": [
+                "E-commerce order fulfillment",
+                "Small business shipping",
+                "Intercity courier services",
+                "Return merchandise packaging",
+                "Document & parcel delivery"
+            ]
+        },
+        {
+            "id": 13,
             "title": "Plastic Virgin Raw Material",
             "icon": "raw-material",
             "image": "assets/images/products/raw-material.jpg",
-            "shortDescription": "Premium quality virgin plastic raw materials",
-            "description": "We supply high-grade virgin plastic raw materials to manufacturers, ensuring consistent quality and performance for various plastic product applications.",
+            "shortDescription": "Premium virgin plastic polymers for manufacturing",
+            "description": "We supply high-quality virgin plastic raw materials to manufacturers across industries. Our extensive inventory includes various polymer grades, ensuring you receive consistent quality specifications backed by technical support and reliable supply chain management.",
             "features": [
-                "Premium quality grades",
-                "Consistent specifications",
-                "Multiple polymer types",
-                "Technical support",
-                "Reliable supply chain"
+                "Premium virgin grade quality",
+                "Consistent specifications & performance",
+                "Multiple polymer types in stock",
+                "Technical support & consultation",
+                "Reliable supply chain logistics"
             ],
             "applications": [
-                "Manufacturing",
-                "Injection molding",
+                "Plastic product manufacturing",
+                "Injection molding operations",
                 "Extrusion processes",
-                "Film production"
+                "Film & sheet production",
+                "Blow molding applications"
             ],
-            "materials": ["LDPE", "HDPE", "PP", "LLDPE"]
+            "materials": ["LDPE", "HDPE", "PP", "LLDPE", "HM"]
+        },
+        {
+            "id": 14,
+            "title": "Bubble Roll",
+            "icon": "bubble",
+            "image": "assets/images/products/bubble-roll.jpg",
+            "shortDescription": "Protective bubble wrap for fragile item packaging",
+            "description": "Our high-quality bubble rolls provide superior cushioning protection for fragile items during storage and transportation. Available in various bubble sizes and roll lengths, these protective wrapping solutions ensure your valuable products arrive safely at their destination.",
+            "features": [
+                "Multiple bubble sizes available",
+                "High-strength puncture resistance",
+                "Lightweight protective solution",
+                "Cost-effective shipping protection",
+                "Easy-to-use perforated options"
+            ],
+            "applications": [
+                "E-commerce packaging",
+                "Electronics & glassware protection",
+                "Furniture shipping protection",
+                "Moving & relocation",
+                "Warehouse storage cushioning"
+            ]
         }
     ],
     "values": [
