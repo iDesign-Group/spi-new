@@ -114,18 +114,30 @@
         renderCard(item, index) {
             const iconSvg = this.getIconSvg(item.icon);
             const features = item.features ? item.features.slice(0, 4) : [];
-            const certification = item.certifications ? 
-                `<span class="flip-card-badge">${item.certifications[0]}</span>` : '';
+            const badge = item.badge || (item.certifications ? item.certifications[0] : '');
+            
+            // Get the correct image path
+            let imagePath = item.image || '';
+            if (imagePath && window.location.pathname.includes('/pages/')) {
+                imagePath = '../' + imagePath;
+            }
 
             return `
                 <div class="flip-card stagger-${(index % 6) + 1}" data-id="${item.id}">
                     <div class="flip-card-inner">
                         <!-- Front -->
                         <div class="flip-card-front">
-                            ${certification}
-                            <div class="flip-card-icon">
-                                ${iconSvg}
-                            </div>
+                            ${badge ? `<span class="flip-card-badge">${badge}</span>` : ''}
+                            ${imagePath ? `
+                                <div class="flip-card-image">
+                                    <img src="${imagePath}" alt="${item.title}" loading="lazy" 
+                                         onerror="this.style.display='none'; this.parentElement.innerHTML='${iconSvg.replace(/'/g, "&apos;")}';">
+                                </div>
+                            ` : `
+                                <div class="flip-card-icon">
+                                    ${iconSvg}
+                                </div>
+                            `}
                             <h3 class="flip-card-title">${item.title}</h3>
                             <p class="flip-card-short-desc">${item.shortDescription}</p>
                             <span class="flip-card-hint">
@@ -165,6 +177,16 @@
                     <line x1="20" y1="20" x2="44" y2="20"/>
                     <line x1="20" y1="28" x2="44" y2="28"/>
                 </svg>`,
+                'polypropylene': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="14" y="10" width="36" height="44" rx="3"/>
+                    <path d="M22 10v-4h20v4"/>
+                    <rect x="20" y="22" width="24" height="16" rx="2" fill="currentColor" opacity="0.2"/>
+                </svg>`,
+                '3d-covers': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 20l20-8 20 8v24l-20 8-20-8z"/>
+                    <path d="M12 20v24M32 12v32M52 20v24"/>
+                    <path d="M12 32l20 8 20-8"/>
+                </svg>`,
                 'vcl': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="16" y="12" width="32" height="40" rx="2"/>
                     <path d="M24 12v-4h16v4"/>
@@ -175,6 +197,67 @@
                     <circle cx="32" cy="32" r="20"/>
                     <path d="M32 20c-8 0-12 8-8 16s8 8 12 0-4-16-4-16"/>
                     <path d="M28 52v4M36 52v4"/>
+                </svg>`,
+                'nursery': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 24h32v28c0 2-2 4-4 4H20c-2 0-4-2-4-4V24z"/>
+                    <path d="M32 24v-8c0-4 4-8 8-8M32 16c0-4-4-8-8-8"/>
+                    <circle cx="32" cy="36" r="2" fill="currentColor"/>
+                </svg>`,
+                'growbags': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="16" y="20" width="32" height="32" rx="2"/>
+                    <path d="M32 20v-8l-4-4M32 12l4-4"/>
+                    <line x1="24" y1="32" x2="40" y2="32"/>
+                    <line x1="24" y1="40" x2="40" y2="40"/>
+                </svg>`,
+                'banana': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M32 12c-8 0-12 4-12 12v20c0 4 4 8 12 8s12-4 12-8V24c0-8-4-12-12-12z"/>
+                    <path d="M20 24c-4 0-8 2-8 6v8c0 4 4 6 8 6"/>
+                    <path d="M44 24c4 0 8 2 8 6v8c0 4-4 6-8 6"/>
+                </svg>`,
+                'grocery': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 20h32v32c0 2-2 4-4 4H20c-2 0-4-2-4-4V20z"/>
+                    <path d="M24 20v-8h16v8"/>
+                    <rect x="24" y="32" width="16" height="2" fill="currentColor"/>
+                    <rect x="24" y="40" width="16" height="2" fill="currentColor"/>
+                </svg>`,
+                'vci': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="16" y="16" width="32" height="32" rx="2"/>
+                    <circle cx="32" cy="32" r="8"/>
+                    <circle cx="32" cy="32" r="4" fill="currentColor"/>
+                    <line x1="32" y1="16" x2="32" y2="20"/>
+                    <line x1="32" y1="44" x2="32" y2="48"/>
+                    <line x1="16" y1="32" x2="20" y2="32"/>
+                    <line x1="44" y1="32" x2="48" y2="32"/>
+                </svg>`,
+                'recycled': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M32 16l8 14h-8M32 48l-8-14h8M48 40l-12-8v8"/>
+                    <path d="M24 22l8 6M40 22l-8 6M32 36v8"/>
+                    <circle cx="24" cy="22" r="2" fill="currentColor"/>
+                    <circle cx="40" cy="22" r="2" fill="currentColor"/>
+                    <circle cx="32" cy="44" r="2" fill="currentColor"/>
+                </svg>`,
+                'bopp': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="12" y="16" width="40" height="32" rx="2"/>
+                    <path d="M20 16v-4h24v4"/>
+                    <rect x="20" y="28" width="24" height="12" rx="1"/>
+                    <line x1="28" y1="24" x2="36" y2="24"/>
+                </svg>`,
+                'courier': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="16" y="12" width="32" height="40" rx="2"/>
+                    <path d="M24 12v-4h16v4"/>
+                    <rect x="22" y="20" width="20" height="8" rx="1"/>
+                    <line x1="22" y1="36" x2="42" y2="36"/>
+                    <line x1="22" y1="42" x2="36" y2="42"/>
+                </svg>`,
+                'bubble': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="20" cy="20" r="6"/>
+                    <circle cx="36" cy="20" r="6"/>
+                    <circle cx="52" cy="20" r="6"/>
+                    <circle cx="20" cy="36" r="6"/>
+                    <circle cx="36" cy="36" r="6"/>
+                    <circle cx="52" cy="36" r="6"/>
+                    <circle cx="20" cy="52" r="6"/>
+                    <circle cx="36" cy="52" r="6"/>
                 </svg>`,
                 'bats': `<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="8" y="16" width="48" height="32" rx="4"/>
