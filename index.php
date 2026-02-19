@@ -15,15 +15,18 @@ include 'includes/header.php';
 $heroSlides = [
     [
         'image' => 'assets/images/heroes/home-hero.jpg',
-        'title' => 'Welcome to <span>Shree Plastic Industries</span>',
+        'title' => 'Believe in Yourself',
+        /* 'description' => 'Leading plastic manufacturing company in Pune with over 4 decades of excellence in quality and innovation.' */
     ],
     [
-        'image' => 'assets/images/heroes/businesses-hero.jpg',
-        'title' => 'Quality <span>Plastic Products</span>',
+        'image' => 'assets/images/about/products.jpg',
+        'title' => 'Quality Plastic Products',
+        /* 'description' => 'Specializing in Skirting Bags, Garbage Bags, HDPE Sheets, LDPE Bags, and Vacuum Bagging Films.' */
     ],
     [
         'image' => 'assets/images/heroes/sustainability-hero.jpg',
-        'title' => 'Committed to <span>Sustainability</span>',
+        'title' => 'Committed to Sustainability',
+        /* 'description' => 'Building a greener future through responsible manufacturing and eco-friendly practices.' */
     ]
 ];
 
@@ -454,8 +457,8 @@ function getChooseUsIcon($iconName) {
         <div class="hero-slide-content">
             <h1><?php echo $slide['title']; ?></h1>
             <div class="hero-cta">
-                <a href="pages/businesses.php" class="btn btn-primary">Explore Our Products</a>
-                <a href="pages/about.php" class="btn btn-secondary" style="border-color: #fff; color: #fff;">Learn More About Us</a>
+                <a href="pages/about.php" class="btn btn-primary">About Us</a>
+                <a href="pages/history.php" class="btn btn-secondary" style="border-color: #fff; color: #fff;">Our History</a>
             </div>
         </div>
     </div>

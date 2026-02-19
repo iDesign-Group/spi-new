@@ -329,9 +329,16 @@ include '../includes/header.php';
 <!-- Quality Assurance -->
 <section class="section">
     <div class="container">
-        <div class="alt-section reverse animate-on-scroll">
+        <div class="alt-section animate-on-scroll">
             <div class="alt-content">
-                <h2 class="alt-title">Quality Assurance</h2>
+                <h1 class="alt-title">Quality Assurance</h1>
+            </div>
+            <div class="alt-image">
+                <img src="<?php echo $basePath; ?>assets/images/about/quality.jpg" alt="Quality Assurance" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"></div>
+            </div>
+            <div class="alt-content">
+                <h2 class="alt-title">Committed to Quality</h2>
                 <p class="alt-text">
                     Every product that leaves our facility undergoes rigorous quality checks to ensure it meets 
                     our exacting standards. Our ISO certifications and industry recognitions are a testament to 
@@ -341,10 +348,6 @@ include '../includes/header.php';
                     We continuously invest in advanced manufacturing technologies and skilled workforce to 
                     maintain our position as a trusted partner for businesses across India.
                 </p>
-            </div>
-            <div class="alt-image">
-                <img src="<?php echo $basePath; ?>assets/images/about/quality.jpg" alt="Quality Assurance" loading="lazy"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Quality Assurance</span></div>'"/>
             </div>
         </div>
     </div>

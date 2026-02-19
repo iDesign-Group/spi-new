@@ -12,7 +12,7 @@
                     </a>
                     <p class="footer-tagline">"Believe in Yourself"</p>
                     <p class="footer-description">
-                        A distinguished name in Indian plastic manufacturing since <?php echo SITE_ESTABLISHED; ?>. 
+                        Shree Plastic Industries, distinguished name in Indian plastic manufacturing since <?php echo SITE_ESTABLISHED; ?>. 
                         Delivering premium-quality plastic products and innovative packaging solutions.
                     </p>
                 </div>

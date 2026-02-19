@@ -131,7 +131,7 @@
                             ${imagePath ? `
                                 <div class="flip-card-image">
                                     <img src="${imagePath}" alt="${item.title}" loading="lazy" 
-                                         onerror="this.style.display='none'; this.parentElement.innerHTML='${iconSvg.replace(/'/g, "&apos;")}';">
+                                         onerror="this.style.display='none'; this.parentElement.innerHTML='${iconSvg.replace(/'/g, "&apos;")}
                                 </div>
                             ` : `
                                 <div class="flip-card-icon">

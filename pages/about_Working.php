@@ -86,35 +86,6 @@ function getValueIcon($iconName) {
         </div>
     </div>
 </section>
-<!-- Legacy Section -->
-<section class="section">
-    <div class="container">
-        <div class="alt-section animate-on-scroll">
-            <div class="alt-content">
-                <h1 class="alt-title">Mr. Nitin Shah</h1>
-            </div>
-            <div class="alt-image">
-                <img src="<?php echo $basePath; ?>assets/images/about/factory.jpg" alt="Shree Plastic Industries"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"></div>
-            </div>
-            <div class="alt-content">
-                <h2 class="alt-title">Four Decades of Excellence</h2>
-                <p class="alt-text">
-                    Since 1984, Shree Plastic Industries has been synonymous with quality and innovation in the 
-                    Indian plastic manufacturing sector. Our journey began with a vision to deliver excellence, 
-                    and today, we continue to uphold the same commitment that our founder, Mr. Nitin Shah, 
-                    instilled in our company culture.
-                </p>
-                <p class="alt-text">
-                    Under the leadership of Mr. Nimesh Shah and Mr. Milan Shah, we have expanded our capabilities 
-                    while maintaining our core values of integrity, quality, and customer satisfaction.
-                </p>
-                <a href="history.php" class="btn btn-primary">Explore Our History</a>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <!-- Values Section -->
 <section class="section bg-light">
@@ -140,7 +111,55 @@ function getValueIcon($iconName) {
     </div>
 </section>
 
+<!-- Legacy Section -->
+<section class="section">
+    <div class="container">
+        <div class="alt-section animate-on-scroll">
+            <div class="alt-image">
+                <img src="<?php echo $basePath; ?>assets/images/about/factory.jpg" alt="Shree Plastic Industries"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Mr. Nitin Shah</span></div>
+            </div>
+            <div class="alt-content">
+                <h2 class="alt-title">Four Decades of Excellence</h2>
+                <p class="alt-text">
+                    Since 1984, Shree Plastic Industries has been synonymous with quality and innovation in the 
+                    Indian plastic manufacturing sector. Our journey began with a vision to deliver excellence, 
+                    and today, we continue to uphold the same commitment that our founder, Mr. Nitin Shah, 
+                    instilled in our company culture.
+                </p>
+                <p class="alt-text">
+                    Under the leadership of Mr. Nimesh Shah and Mr. Milan Shah, we have expanded our capabilities 
+                    while maintaining our core values of integrity, quality, and customer satisfaction.
+                </p>
+                <a href="history.php" class="btn btn-primary">Explore Our History</a>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Products Preview Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="alt-section reverse animate-on-scroll">
+            <div class="alt-image">
+                <img src="<?php echo $basePath; ?>assets/images/about/products.jpg" alt="Our Product Range" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"><span>Product Range</span></div>
+            </div>
+            <div class="alt-content">
+                <h2 class="alt-title">Comprehensive Product Solutions</h2>
+                <p class="alt-text">
+                    From polythene bags and rolls to eco-friendly compostable solutions, our diverse product 
+                    portfolio caters to various industries including retail, manufacturing, agriculture, and more.
+                </p>
+                <p class="alt-text">
+                    Our ISO 17088 certified compostable bags represent our commitment to environmental 
+                    responsibility while maintaining the quality standards our customers expect.
+                </p>
+                <a href="businesses.php" class="btn btn-primary">View Our Products</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Closing Quote -->
 <section class="section">
@@ -156,5 +175,3 @@ function getValueIcon($iconName) {
 </section>
 
 <?php include '../includes/footer.php'; ?>
-
-
