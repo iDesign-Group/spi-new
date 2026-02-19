@@ -1,7 +1,7 @@
 <?php
 /**
  * Shree Plastic Industries - Intro/Splash Page
- * 3D Logo animation with auto-redirect after 5 seconds
+ * Logo pop-out animation with auto-redirect after 5 seconds
  */
 
 require_once 'includes/config.php';
@@ -66,12 +66,14 @@ markIntroAsSeen();
             width: 1200px;
             height: auto;
             max-width: 90vw;
-            animation: logo3DRotate 15s ease-out forwards;
+            opacity: 0;
+            animation: logoPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             filter: drop-shadow(0 0 30px rgba(0, 102, 204, 0.4));
         }
         
         .intro-logo.glowing {
-            animation: logo3DRotate 15s ease-out forwards, logoGlow 15s ease-in-out infinite;
+            opacity: 1;
+            animation: logoGlow 3s ease-in-out infinite;
         }
         
         .intro-tagline {
@@ -81,7 +83,7 @@ markIntroAsSeen();
             letter-spacing: 4px;
             text-transform: uppercase;
             opacity: 0;
-            animation: fadeInUp 1s ease-out 1.5s forwards;
+            animation: fadeInUp 1s ease-out 1s forwards;
         }
         
         .intro-subtitle {
@@ -91,7 +93,7 @@ markIntroAsSeen();
             letter-spacing: 2px;
             margin-top: 16px;
             opacity: 0;
-            animation: fadeInUp 1s ease-out 15s forwards;
+            animation: fadeInUp 1s ease-out 1.3s forwards;
         }
         
         .progress-bar {
@@ -129,7 +131,7 @@ markIntroAsSeen();
             transition: all 0.3s ease;
             border-radius: 4px;
             opacity: 0;
-            animation: fadeIn 0.5s ease-out 2.5s forwards;
+            animation: fadeIn 0.5s ease-out 1.5s forwards;
         }
         
         .skip-btn:hover {
@@ -139,20 +141,21 @@ markIntroAsSeen();
         }
         
         /* Keyframes */
-        @keyframes logo3DRotate {
+        @keyframes logoPop {
             0% {
-                transform: perspective(1000px) rotateY(-30deg) rotateX(10deg) scale(0.8);
+                transform: scale(0);
                 opacity: 0;
             }
-            30% {
-                transform: perspective(1000px) rotateY(15deg) rotateX(-5deg) scale(1.05);
+            60% {
+                transform: scale(1.15);
                 opacity: 1;
             }
-            60% {
-                transform: perspective(1000px) rotateY(-10deg) rotateX(3deg) scale(1);
+            80% {
+                transform: scale(0.95);
+                opacity: 1;
             }
             100% {
-                transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1);
+                transform: scale(1);
                 opacity: 1;
             }
         }
@@ -251,13 +254,13 @@ markIntroAsSeen();
     </button>
     
     <script>
-        // Add glow effect after initial animation
+        // Add glow effect after pop animation completes
         setTimeout(function() {
             var logo = document.getElementById('introLogo');
             if (logo) {
                 logo.classList.add('glowing');
             }
-        }, 2000);
+        }, 900);
         
         // Redirect after 5 seconds
         var redirectTimeout = setTimeout(function() {
