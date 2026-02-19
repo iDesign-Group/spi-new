@@ -482,9 +482,19 @@ function getChooseUsIcon($iconName) {
             <h2 class="intro-title">Excellence in Plastic Manufacturing</h2>
             <p class="intro-text">
                 Since 1984, our Pisoli manufacturing facility has been turning raw polymer into precision plastic 
-                that industries across India rely on. From heavy-duty <strong>HDPE Sheets</strong> engineered for 
-                demanding applications, to high-performance <strong>Vacuum Bagging Films</strong> trusted by 
-                composites manufacturers &mdash; quality here isn&rsquo;t a promise, it&rsquo;s a four-decade track record.
+                that industries and businesses across India depend on every single day. What started as a vision 
+                to deliver consistent, high-quality plastic products has grown into four decades of manufacturing 
+                excellence &mdash; built on trust, precision, and an unwavering commitment to getting it right, 
+                every time.
+            </p>
+            <p class="intro-text">
+                From the structural strength of our heavy-duty <strong>HDPE Sheets</strong> engineered for 
+                demanding industrial applications, to the everyday versatility of our 
+                <strong>Polythene Bags &amp; Rolls (LDPE &amp; HM)</strong> serving retail and industrial 
+                packaging needs across sectors, and the snug precision of our 
+                <strong>3D / 5D Polythene Covers</strong> crafted for a perfect contoured fit &mdash; every 
+                product that leaves our facility carries the same uncompromising standard. At Shree Plastic 
+                Industries, quality isn&rsquo;t a checkbox. It&rsquo;s the foundation everything is built on.
             </p>
         </div>
     </div>
