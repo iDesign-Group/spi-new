@@ -46,7 +46,7 @@ function getValueIcon($iconName) {
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
         </svg>'
     ];
-    
+
     return $icons[$iconName] ?? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle></svg>';
 }
 ?>
@@ -77,37 +77,56 @@ function getValueIcon($iconName) {
         <div class="intro-content animate-on-scroll">
             <h2 class="intro-title">"Believe in Yourself" — Our Driving Philosophy</h2>
             <p class="intro-text">
-                Welcome to Shree Plastic Industries, a distinguished name in India's plastic manufacturing landscape. 
-                Since our establishment in <?php echo SITE_ESTABLISHED; ?>, we have been at the forefront of delivering 
-                premium-quality plastic products and innovative packaging solutions to businesses across the nation. 
-                Rooted in the industrial hub of Pune, Maharashtra, we have grown from a modest manufacturing unit to 
+                Welcome to Shree Plastic Industries, a distinguished name in India's plastic manufacturing landscape.
+                Since our establishment in <?php echo SITE_ESTABLISHED; ?>, we have been at the forefront of delivering
+                premium-quality plastic products and innovative packaging solutions to businesses across the nation.
+                Rooted in the industrial hub of Pune, Maharashtra, we have grown from a modest manufacturing unit to
                 a comprehensive plastic solutions provider, serving diverse industries with unwavering commitment to excellence.
             </p>
         </div>
     </div>
 </section>
+
 <!-- Legacy Section -->
 <section class="section">
     <div class="container">
         <div class="alt-section animate-on-scroll">
             <div class="alt-content">
                 <h1 class="alt-title">Mr. Nitin Shah</h1>
+                <p class="alt-text">
+                    Mr. Nitin Shah, the visionary founder of Shree Plastic Industries, laid the foundation of the
+                    company in 1984 with a steadfast belief in quality and self-reliance. His entrepreneurial spirit
+                    and deep understanding of the plastics industry transformed a small manufacturing unit into one
+                    of Pune's most respected plastic product companies.
+                </p>
+                <p class="alt-text">
+                    With over four decades of industry expertise, Mr. Shah's legacy lives on in every product we
+                    manufacture, every client relationship we nurture, and every value we uphold. His guiding
+                    philosophy — "Believe in Yourself" — remains the cornerstone of Shree Plastic Industries'
+                    culture and ambition.
+                </p>
             </div>
             <div class="alt-image">
                 <img src="<?php echo $basePath; ?>assets/images/about/factory.jpg" alt="Shree Plastic Industries"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"></div>
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"></div>'">
             </div>
             <div class="alt-content">
                 <h2 class="alt-title">Four Decades of Excellence</h2>
                 <p class="alt-text">
-                    Since 1984, Shree Plastic Industries has been synonymous with quality and innovation in the 
-                    Indian plastic manufacturing sector. Our journey began with a vision to deliver excellence, 
-                    and today, we continue to uphold the same commitment that our founder, Mr. Nitin Shah, 
+                    Since 1984, Shree Plastic Industries has been synonymous with quality and innovation in the
+                    Indian plastic manufacturing sector. Our journey began with a vision to deliver excellence,
+                    and today, we continue to uphold the same commitment that our founder, Mr. Nitin Shah,
                     instilled in our company culture.
                 </p>
                 <p class="alt-text">
-                    Under the leadership of Mr. Nimesh Shah and Mr. Milan Shah, we have expanded our capabilities 
+                    Under the leadership of Mr. Nimesh Shah and Mr. Milan Shah, we have expanded our capabilities
                     while maintaining our core values of integrity, quality, and customer satisfaction.
+                </p>
+                <p class="alt-text">
+                    Today, with a team of dedicated professionals and a state-of-the-art manufacturing facility,
+                    Shree Plastic Industries stands as a testament to the power of perseverance, innovation, and
+                    an unrelenting pursuit of excellence — values that have been passed down through generations
+                    of leadership.
                 </p>
                 <a href="history.php" class="btn btn-primary">Explore Our History</a>
             </div>
@@ -125,7 +144,7 @@ function getValueIcon($iconName) {
                 The principles that guide everything we do at Shree Plastic Industries
             </p>
         </div>
-        
+
         <div class="values-grid">
             <?php foreach ($values as $index => $value): ?>
             <div class="value-card animate-on-scroll stagger-<?php echo ($index % 6) + 1; ?>">
@@ -147,7 +166,7 @@ function getValueIcon($iconName) {
     <div class="container">
         <div class="quote-block animate-on-scroll">
             <p class="quote-text">
-                "We Believe, Therefore We Can. Shree Plastic Industries has the spirit of Quality & Vision 
+                "We Believe, Therefore We Can. Shree Plastic Industries has the spirit of Quality & Vision
                 that quality always pays."
             </p>
             <p class="quote-author">— Nimesh Shah & Milan Shah</p>
@@ -156,5 +175,3 @@ function getValueIcon($iconName) {
 </section>
 
 <?php include '../includes/footer.php'; ?>
-
-
