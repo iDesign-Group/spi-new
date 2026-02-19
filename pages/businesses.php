@@ -335,7 +335,7 @@ include '../includes/header.php';
             </div>
             <div class="alt-image">
                 <img src="<?php echo $basePath; ?>assets/images/about/quality.jpg" alt="Quality Assurance" loading="lazy"
-                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\"width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\"></div>
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:300px;background:linear-gradient(135deg,#f5f5f5,#e0e0e0);display:flex;align-items:center;justify-content:center;border-radius:8px;color:#999;\'></div>';">
             </div>
             <div class="alt-content">
                 <h2 class="alt-title">Committed to Quality</h2>
@@ -348,9 +348,19 @@ include '../includes/header.php';
                     We continuously invest in advanced manufacturing technologies and skilled workforce to 
                     maintain our position as a trusted partner for businesses across India.
                 </p>
+                <p class="alt-text">
+                    Our quality management system is integrated into every stage of production, from raw material 
+                    procurement to final inspection. We use precision testing equipment to monitor thickness, 
+                    strength, and durability, ensuring that every batch complies with international quality benchmarks.
+                </p>
+                <p class="alt-text">
+                    This unwavering focus on quality has earned us the trust of leading brands across various 
+                    sectors, including automotive, pharmaceuticals, and retail. We believe that quality is not 
+                    just a department, but a culture that defines everything we do at Shree Plastic Industries.
+                </p>
             </div>
         </div>
-    </div>
+    </div>Update businesses.php with expanded Quality Assurance content
 </section>
 
 <!-- CTA Section -->
