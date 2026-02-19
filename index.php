@@ -471,8 +471,8 @@ function getChooseUsIcon($iconName) {
         <?php endforeach; ?>
     </div>
     
-    <button class="slider-arrow prev" aria-label="Previous slide">‹</button>
-    <button class="slider-arrow next" aria-label="Next slide">›</button>
+    <button class="slider-arrow prev" aria-label="Previous slide">&#8249;</button>
+    <button class="slider-arrow next" aria-label="Next slide">&#8250;</button>
 </section>
 
 <!-- Company Introduction -->
@@ -481,10 +481,10 @@ function getChooseUsIcon($iconName) {
         <div class="intro-content animate-on-scroll">
             <h2 class="intro-title">Excellence in Plastic Manufacturing</h2>
             <p class="intro-text">
-                Our state-of-the-art manufacturing facility in Pisoli, Undri specializes in producing a comprehensive 
-                range of plastic solutions including <strong>Skirting Bags, Garbage Bags, HDPE Sheets, LDPE Bags, 
-                Vacuum Bagging Film, and Vacuum Bags</strong>. With decades of industry expertise and commitment to quality, 
-                we continue to serve our clients with dedication and excellence.
+                Since 1984, our Pisoli manufacturing facility has been turning raw polymer into precision plastic 
+                that industries across India rely on. From heavy-duty <strong>HDPE Sheets</strong> engineered for 
+                demanding applications, to high-performance <strong>Vacuum Bagging Films</strong> trusted by 
+                composites manufacturers &mdash; quality here isn&rsquo;t a promise, it&rsquo;s a four-decade track record.
             </p>
         </div>
     </div>
@@ -620,4 +620,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <?php include 'includes/footer.php'; ?>
-
