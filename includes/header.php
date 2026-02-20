@@ -89,30 +89,14 @@ $_htmlLang    = $_htmlLangMap[$CURRENT_LANG] ?? 'en';
             transition: all 0.2s ease; line-height: 1;
             white-space: nowrap;
         }
-        .lang-pill:hover {
-            color: #fff;
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.15);
-        }
-        .lang-pill.lang-active {
-            color: #fff;
-            background: rgba(0,102,204,0.28);
-            border-color: rgba(0,102,204,0.6);
-        }
+        .lang-pill:hover { color: #fff; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.15); }
+        .lang-pill.lang-active { color: #fff; background: rgba(0,102,204,0.28); border-color: rgba(0,102,204,0.6); }
         .lang-flag { font-size: 13px; line-height: 1; }
         .lang-short { font-size: 10px; }
 
         /* ── Mobile Language Switcher ── */
-        .mobile-lang-row {
-            padding: 14px 24px 22px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        .mobile-lang-label {
-            font-size: 10px; text-transform: uppercase;
-            letter-spacing: 1.2px; color: rgba(255,255,255,0.3);
-            font-family: 'Montserrat', sans-serif; font-weight: 700;
-            margin-bottom: 10px;
-        }
+        .mobile-lang-row { padding: 14px 24px 22px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .mobile-lang-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.3); font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 10px; }
         .mobile-lang-pills { display: flex; flex-wrap: wrap; gap: 8px; }
         .mobile-lang-pill {
             display: flex; align-items: center; gap: 6px;
@@ -124,11 +108,7 @@ $_htmlLang    = $_htmlLangMap[$CURRENT_LANG] ?? 'en';
             border: 1px solid rgba(255,255,255,0.1);
             transition: all 0.2s ease;
         }
-        .mobile-lang-pill:hover,
-        .mobile-lang-pill.lang-active {
-            background: rgba(0,102,204,0.28);
-            color: #fff; border-color: rgba(0,102,204,0.55);
-        }
+        .mobile-lang-pill:hover, .mobile-lang-pill.lang-active { background: rgba(0,102,204,0.28); color: #fff; border-color: rgba(0,102,204,0.55); }
         @media (max-width: 991px) { .lang-switcher { display: none; } }
     </style>
 </head>
@@ -136,7 +116,6 @@ $_htmlLang    = $_htmlLangMap[$CURRENT_LANG] ?? 'en';
     <!-- Header -->
     <header class="main-header" id="mainHeader">
         <div class="header-container">
-
             <!-- Logo -->
             <a href="<?php echo $basePath; ?>index.php" class="logo-link">
                 <img src="<?php echo $basePath; ?>assets/images/logo.png" alt="<?php echo SITE_NAME; ?>" class="logo">
@@ -145,27 +124,13 @@ $_htmlLang    = $_htmlLangMap[$CURRENT_LANG] ?? 'en';
             <!-- Desktop Navigation -->
             <nav class="main-nav" id="mainNav">
                 <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>index.php" class="nav-link <?php echo isActivePage('index') ? 'active' : ''; ?>"><?php echo __t('nav_home'); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/about.php" class="nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>"><?php echo __t('nav_about'); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/businesses.php" class="nav-link <?php echo isActivePage('businesses') ? 'active' : ''; ?>"><?php echo __t('nav_businesses'); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/sustainability.php" class="nav-link <?php echo isActivePage('sustainability') ? 'active' : ''; ?>"><?php echo __t('nav_sustainability'); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/careers.php" class="nav-link <?php echo isActivePage('careers') ? 'active' : ''; ?>"><?php echo __t('nav_careers'); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/news-media.php" class="nav-link <?php echo isActivePage('news-media') ? 'active' : ''; ?>"><?php echo __t('nav_news'); ?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/contact.php" class="nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>"><?php echo __t('nav_contact'); ?></a>
-                    </li>
+                    <li class="nav-item"><a href="<?php echo $basePath; ?>index.php" class="nav-link <?php echo isActivePage('index') ? 'active' : ''; ?>"><?php echo __t('nav_home'); ?></a></li>
+                    <li class="nav-item"><a href="<?php echo $basePath; ?>pages/about.php" class="nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>"><?php echo __t('nav_about'); ?></a></li>
+                    <li class="nav-item"><a href="<?php echo $basePath; ?>pages/businesses.php" class="nav-link <?php echo isActivePage('businesses') ? 'active' : ''; ?>"><?php echo __t('nav_businesses'); ?></a></li>
+                    <li class="nav-item"><a href="<?php echo $basePath; ?>pages/sustainability.php" class="nav-link <?php echo isActivePage('sustainability') ? 'active' : ''; ?>"><?php echo __t('nav_sustainability'); ?></a></li>
+                    <li class="nav-item"><a href="<?php echo $basePath; ?>pages/careers.php" class="nav-link <?php echo isActivePage('careers') ? 'active' : ''; ?>"><?php echo __t('nav_careers'); ?></a></li>
+                    <li class="nav-item"><a href="<?php echo $basePath; ?>pages/news-certificate.php" class="nav-link <?php echo isActivePage('news-certificate') ? 'active' : ''; ?>"><?php echo __t('nav_news'); ?></a></li>
+                    <li class="nav-item"><a href="<?php echo $basePath; ?>pages/contact.php" class="nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>"><?php echo __t('nav_contact'); ?></a></li>
                 </ul>
             </nav>
 
@@ -194,27 +159,13 @@ $_htmlLang    = $_htmlLangMap[$CURRENT_LANG] ?? 'en';
     <div class="mobile-nav-overlay" id="mobileNavOverlay">
         <nav class="mobile-nav">
             <ul class="mobile-nav-list">
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>index.php" class="mobile-nav-link <?php echo isActivePage('index') ? 'active' : ''; ?>"><?php echo __t('nav_home'); ?></a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/about.php" class="mobile-nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>"><?php echo __t('nav_about'); ?></a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/businesses.php" class="mobile-nav-link <?php echo isActivePage('businesses') ? 'active' : ''; ?>"><?php echo __t('nav_businesses'); ?></a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/sustainability.php" class="mobile-nav-link <?php echo isActivePage('sustainability') ? 'active' : ''; ?>"><?php echo __t('nav_sustainability'); ?></a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/careers.php" class="mobile-nav-link <?php echo isActivePage('careers') ? 'active' : ''; ?>"><?php echo __t('nav_careers'); ?></a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/news-media.php" class="mobile-nav-link <?php echo isActivePage('news-media') ? 'active' : ''; ?>"><?php echo __t('nav_news'); ?></a>
-                </li>
-                <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/contact.php" class="mobile-nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>"><?php echo __t('nav_contact'); ?></a>
-                </li>
+                <li class="mobile-nav-item"><a href="<?php echo $basePath; ?>index.php" class="mobile-nav-link <?php echo isActivePage('index') ? 'active' : ''; ?>"><?php echo __t('nav_home'); ?></a></li>
+                <li class="mobile-nav-item"><a href="<?php echo $basePath; ?>pages/about.php" class="mobile-nav-link <?php echo isActivePage('about') ? 'active' : ''; ?>"><?php echo __t('nav_about'); ?></a></li>
+                <li class="mobile-nav-item"><a href="<?php echo $basePath; ?>pages/businesses.php" class="mobile-nav-link <?php echo isActivePage('businesses') ? 'active' : ''; ?>"><?php echo __t('nav_businesses'); ?></a></li>
+                <li class="mobile-nav-item"><a href="<?php echo $basePath; ?>pages/sustainability.php" class="mobile-nav-link <?php echo isActivePage('sustainability') ? 'active' : ''; ?>"><?php echo __t('nav_sustainability'); ?></a></li>
+                <li class="mobile-nav-item"><a href="<?php echo $basePath; ?>pages/careers.php" class="mobile-nav-link <?php echo isActivePage('careers') ? 'active' : ''; ?>"><?php echo __t('nav_careers'); ?></a></li>
+                <li class="mobile-nav-item"><a href="<?php echo $basePath; ?>pages/news-certificate.php" class="mobile-nav-link <?php echo isActivePage('news-certificate') ? 'active' : ''; ?>"><?php echo __t('nav_news'); ?></a></li>
+                <li class="mobile-nav-item"><a href="<?php echo $basePath; ?>pages/contact.php" class="mobile-nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>"><?php echo __t('nav_contact'); ?></a></li>
             </ul>
             <!-- Language Switcher (Mobile) -->
             <div class="mobile-lang-row">
