@@ -7,45 +7,49 @@
 require_once '../includes/config.php';
 
 $page_title = 'News & Certificates';
-$page_description = 'Shree Plastic Industries is certified by MPCB, CPCB, GEM Verified Manufacturer, ISO and MSME - reflecting our commitment to quality, compliance and sustainability.';
+$page_description = 'Shree Plastic Industries holds MPCB, CPCB, GEM Verified Manufacturer, ISO, MSME, EPR and CIPET ISO 17088 certifications - reflecting our commitment to quality, compliance and sustainability.';
 
 include '../includes/header.php';
 ?>
 
 <style>
-/* ───────────────────────────────────────────
-   CERTIFICATES GRID
-─────────────────────────────────────────── */
+/* ═══════════════════════════════════════════
+   CERTIFICATES SECTION
+═══════════════════════════════════════════ */
 .cert-section {
     padding: 90px 0 100px;
     background: #F7F9FC;
 }
 
-.cert-grid {
+/* ── Row 1: 4 equal columns ── */
+.cert-row-1 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
     margin-top: 56px;
 }
 
-.cert-grid-row2 {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-top: 32px;
+/* ── Row 2: 3 cards, same width as row-1 cols, centred ── */
+.cert-row-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 24px;
 }
-.cert-grid-row2 .cert-card {
-    width: calc(33.333% - 16px);
-    max-width: 380px;
+/* Hide the invisible 4th placeholder col */
+.cert-row-2::after {
+    content: '';
+    display: block;
 }
 
+/* ── Card base ── */
 .cert-card {
     background: #FFFFFF;
     border-radius: 16px;
-    padding: 40px 32px 36px;
+    padding: 32px 22px 28px;
     text-align: center;
     box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-    border: 1.5px solid rgba(0, 102, 204, 0.08);
+    border: 1.5px solid rgba(0,102,204,0.08);
     transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
@@ -63,17 +67,18 @@ include '../includes/header.php';
 }
 
 .cert-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 16px 48px rgba(0, 102, 204, 0.15);
-    border-color: rgba(0, 102, 204, 0.25);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,102,204,0.15);
+    border-color: rgba(0,102,204,0.25);
 }
 
 .cert-card:hover::before { opacity: 1; }
 
+/* ── Icon circle ── */
 .cert-icon-wrap {
-    width: 96px;
-    height: 96px;
-    margin: 0 auto 24px;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(0,102,204,0.10), rgba(46,80,144,0.10));
     display: flex;
@@ -87,57 +92,64 @@ include '../includes/header.php';
 }
 
 .cert-icon-wrap svg {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     color: #0066CC;
 }
 
+/* ── Badge ── */
 .cert-badge {
     display: inline-block;
     background: linear-gradient(135deg, #0066CC, #2E5090);
     color: #fff;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 700;
-    letter-spacing: 1.2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    padding: 4px 14px;
+    padding: 3px 12px;
     border-radius: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
+.cert-badge.green {
+    background: linear-gradient(135deg, #1a8c4e, #2daa6a);
+}
+
+/* ── Text ── */
 .cert-card h3 {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
     color: #1A1A1A;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-family: 'Montserrat', sans-serif;
+    line-height: 1.3;
 }
 
 .cert-authority {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     color: #0066CC;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 14px;
+    letter-spacing: 0.6px;
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
-.cert-card p {
-    font-size: 14px;
+.cert-card p.cert-desc {
+    font-size: 13px;
     color: #666;
-    line-height: 1.7;
+    line-height: 1.65;
     margin: 0;
 }
 
-/* ───────────────────────────────────────────
+/* ═══════════════════════════════════════════
    NEWS SECTION
-─────────────────────────────────────────── */
+═══════════════════════════════════════════ */
 .news-section {
     padding: 90px 0 100px;
     background: #FFFFFF;
 }
 
-/* Single card — wide horizontal layout */
 .news-single {
     display: flex;
     background: #FFFFFF;
@@ -175,10 +187,7 @@ include '../includes/header.php';
     display: block;
 }
 
-.news-single-image svg {
-    width: 64px;
-    height: 64px;
-}
+.news-single-image svg { width: 64px; height: 64px; }
 
 .news-single-content {
     flex: 1;
@@ -201,7 +210,6 @@ include '../includes/header.php';
     font-size: 12px;
     color: #999;
     margin-bottom: 14px;
-    font-family: 'Open Sans', sans-serif;
 }
 
 .news-title {
@@ -220,9 +228,9 @@ include '../includes/header.php';
     margin: 0;
 }
 
-/* ───────────────────────────────────────────
+/* ═══════════════════════════════════════════
    CTA STRIP
-─────────────────────────────────────────── */
+═══════════════════════════════════════════ */
 .cert-cta {
     background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);
     padding: 80px 0;
@@ -245,21 +253,26 @@ include '../includes/header.php';
     margin-right: auto;
 }
 
-/* ───────────────────────────────────────────
+/* ═══════════════════════════════════════════
    RESPONSIVE
-─────────────────────────────────────────── */
+═══════════════════════════════════════════ */
+@media (max-width: 1199px) {
+    .cert-row-1,
+    .cert-row-2 { gap: 18px; }
+}
+
 @media (max-width: 991px) {
-    .cert-grid { grid-template-columns: repeat(2, 1fr); }
-    .cert-grid-row2 { flex-wrap: wrap; }
-    .cert-grid-row2 .cert-card { width: calc(50% - 16px); max-width: none; }
+    .cert-row-1 { grid-template-columns: repeat(2, 1fr); }
+    .cert-row-2 { grid-template-columns: repeat(2, 1fr); }
+    .cert-row-2::after { display: none; }
     .news-single { flex-direction: column; max-width: 560px; }
     .news-single-image { flex: none; height: 260px; width: 100%; }
 }
 
 @media (max-width: 575px) {
-    .cert-grid { grid-template-columns: 1fr; }
-    .cert-grid-row2 { flex-direction: column; }
-    .cert-grid-row2 .cert-card { width: 100%; }
+    .cert-row-1,
+    .cert-row-2 { grid-template-columns: 1fr; }
+    .cert-row-2::after { display: none; }
     .news-single-content { padding: 28px 22px; }
     .news-title { font-size: 18px; }
     .cert-cta h2 { font-size: 24px; }
@@ -276,17 +289,6 @@ include '../includes/header.php';
     </div>
 </section>
 
-<script>
-// Load hero image if available
-(function() {
-    var img = new Image();
-    img.onload = function() {
-        document.querySelector('.hero-bg').style.backgroundImage = "url('../assets/images/heroes/news-hero.jpg')";
-    };
-    img.src = '../assets/images/heroes/news-hero.jpg';
-})();
-</script>
-
 <!-- Intro -->
 <section class="intro-section">
     <div class="container">
@@ -300,7 +302,7 @@ include '../includes/header.php';
     </div>
 </section>
 
-<!-- Certificates Section -->
+<!-- ═══════ CERTIFICATES SECTION ═══════ -->
 <section class="cert-section">
     <div class="container">
         <div class="section-header animate-on-scroll">
@@ -308,9 +310,10 @@ include '../includes/header.php';
             <p class="section-subtitle">Recognised by leading regulatory and standards bodies</p>
         </div>
 
-        <!-- Row 1: MPCB · CPCB · GEM -->
-        <div class="cert-grid">
-            <!-- MPCB -->
+        <!-- ── ROW 1: 4 cards ── -->
+        <div class="cert-row-1">
+
+            <!-- 1. MPCB -->
             <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -321,10 +324,10 @@ include '../includes/header.php';
                 <span class="cert-badge">State Regulatory</span>
                 <h3>MPCB</h3>
                 <p class="cert-authority">Maharashtra Pollution Control Board</p>
-                <p>Certified and approved by the Maharashtra Pollution Control Board, ensuring all our manufacturing operations meet state environmental norms and pollution control standards.</p>
+                <p class="cert-desc">Certified by the Maharashtra Pollution Control Board, ensuring all operations meet state environmental norms and pollution control standards.</p>
             </div>
 
-            <!-- CPCB -->
+            <!-- 2. CPCB -->
             <div class="cert-card animate-on-scroll stagger-2">
                 <div class="cert-icon-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -336,10 +339,10 @@ include '../includes/header.php';
                 <span class="cert-badge">National Regulatory</span>
                 <h3>CPCB</h3>
                 <p class="cert-authority">Central Pollution Control Board</p>
-                <p>Recognised by the Central Pollution Control Board, confirming that our plastic manufacturing processes adhere to national environmental protection and waste management regulations.</p>
+                <p class="cert-desc">Recognised by the Central Pollution Control Board, confirming our processes adhere to national environmental protection and waste management regulations.</p>
             </div>
 
-            <!-- GEM -->
+            <!-- 3. GEM -->
             <div class="cert-card animate-on-scroll stagger-3">
                 <div class="cert-icon-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -349,14 +352,11 @@ include '../includes/header.php';
                 <span class="cert-badge">Government Portal</span>
                 <h3>GEM Verified</h3>
                 <p class="cert-authority">Government e-Marketplace</p>
-                <p>Verified and listed as an authorised manufacturer on the Government e-Marketplace (GeM), enabling direct supply to central and state government departments across India.</p>
+                <p class="cert-desc">Verified and listed on the Government e-Marketplace (GeM), enabling direct supply to central and state government departments across India.</p>
             </div>
-        </div>
 
-        <!-- Row 2: ISO · MSME (centred) -->
-        <div class="cert-grid-row2">
-            <!-- ISO -->
-            <div class="cert-card animate-on-scroll stagger-1">
+            <!-- 4. ISO -->
+            <div class="cert-card animate-on-scroll stagger-4">
                 <div class="cert-icon-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                         <rect x="3" y="3" width="18" height="18" rx="3"/>
@@ -367,11 +367,17 @@ include '../includes/header.php';
                 <span class="cert-badge">International Standard</span>
                 <h3>ISO Certified</h3>
                 <p class="cert-authority">International Organisation for Standardisation</p>
-                <p>ISO certified, demonstrating our commitment to internationally recognised quality management systems and consistent delivery of products that meet customer and regulatory requirements.</p>
+                <p class="cert-desc">ISO certified, demonstrating our commitment to internationally recognised quality management systems and consistent product delivery.</p>
             </div>
 
-            <!-- MSME -->
-            <div class="cert-card animate-on-scroll stagger-2">
+        </div>
+        <!-- END ROW 1 -->
+
+        <!-- ── ROW 2: 3 cards (grid col 4 stays empty = natural left-align in 4-col grid) ── -->
+        <div class="cert-row-2">
+
+            <!-- 5. MSME -->
+            <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -381,15 +387,11 @@ include '../includes/header.php';
                 <span class="cert-badge">Government of India</span>
                 <h3>MSME Registered</h3>
                 <p class="cert-authority">Ministry of Micro, Small &amp; Medium Enterprises</p>
-                <p>Officially registered under the MSME Act with the Ministry of Micro, Small &amp; Medium Enterprises, Government of India &mdash; qualifying us for priority sector benefits and government procurement programmes.</p>
+                <p class="cert-desc">Registered under the MSME Act, qualifying us for priority sector benefits and government procurement programmes across India.</p>
             </div>
-            
-        </div>
-        <!-- Row 3: EPR · CIPET ISO 17088 (centred) -->
-        <div class="cert-grid-row3">
 
-            <!-- EPR -->
-            <div class="cert-card animate-on-scroll stagger-1">
+            <!-- 6. EPR -->
+            <div class="cert-card animate-on-scroll stagger-2">
                 <div class="cert-icon-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                         <polyline points="23 4 23 10 17 10"/>
@@ -400,11 +402,11 @@ include '../includes/header.php';
                 <span class="cert-badge green">Circular Economy</span>
                 <h3>EPR</h3>
                 <p class="cert-authority">Extended Producer Responsibility &mdash; MoEFCC</p>
-                <p>Registered under the Extended Producer Responsibility framework mandated by the Ministry of Environment, Forest &amp; Climate Change, taking full accountability for the end-of-life management of our plastic products and packaging.</p>
+                <p class="cert-desc">Registered under the EPR framework by MoEFCC, taking full accountability for the end-of-life management of our plastic products and packaging.</p>
             </div>
 
-            <!-- CIPET ISO 17088 -->
-            <div class="cert-card animate-on-scroll stagger-2">
+            <!-- 7. CIPET ISO 17088 -->
+            <div class="cert-card animate-on-scroll stagger-3">
                 <div class="cert-icon-wrap">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                         <path d="M6.5 21.5s6-5.5 6-10.5c0-4-3-7-7-7 0 4.5 1.5 10 1 17.5z"/>
@@ -413,16 +415,17 @@ include '../includes/header.php';
                 </div>
                 <span class="cert-badge green">Compostable</span>
                 <h3>CIPET &ndash; ISO 17088</h3>
-                <p class="cert-authority">Central Institute of Petrochemicals Engineering &amp; Technology</p>
-                <p>Certified compostable as per ISO 17088 by CIPET, confirming that our compostable plastic products meet international standards for biodegradability, disintegration, and eco-toxicity under industrial composting conditions.</p>
+                <p class="cert-authority">Central Institute of Petrochemicals Engg. &amp; Technology</p>
+                <p class="cert-desc">Certified compostable as per ISO 17088 by CIPET, confirming our products meet international standards for biodegradability and eco-toxicity.</p>
             </div>
-        </div>
 
+        </div>
+        <!-- END ROW 2 -->
 
     </div>
 </section>
 
-<!-- News Section -->
+<!-- ═══════ NEWS SECTION ═══════ -->
 <section class="news-section">
     <div class="container">
         <div class="section-header animate-on-scroll">
@@ -432,15 +435,13 @@ include '../includes/header.php';
 
         <!-- Plast India 2026 -->
         <div class="news-single animate-on-scroll">
-
             <div class="news-single-image">
                 <img
                     src="<?php echo $basePath; ?>assets/images/news/plast-india-2026.jpg"
-                    alt="Visited Plast India 2026 – Delhi"
+                    alt="Visited Plast India 2026 &ndash; Delhi"
                     loading="lazy"
                     onerror="this.style.display='none'; this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg>';">
             </div>
-
             <div class="news-single-content">
                 <p class="news-tag">&#127981; Trade Show</p>
                 <p class="news-date">February 2026</p>
@@ -456,7 +457,7 @@ include '../includes/header.php';
     </div>
 </section>
 
-<!-- CTA Strip -->
+<!-- ═══════ CTA STRIP ═══════ -->
 <section class="cert-cta">
     <div class="container">
         <h2>Want to Verify Our Certifications?</h2>
