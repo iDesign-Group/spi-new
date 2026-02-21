@@ -7,7 +7,7 @@
 require_once '../includes/config.php';
 
 $page_title = 'News & Certificates';
-$page_description = 'Shree Plastic Industries is certified by MPCB, CPCB, GEM Verified Manufacturer, ISO and MSME - reflecting our commitment to quality, compliance and sustainability.';
+$page_description = 'Shree Plastic Industries holds MPCB, CPCB, GEM Verified Manufacturer, ISO, MSME, EPR and CIPET ISO 17088 certifications - reflecting our commitment to quality, compliance and sustainability.';
 
 include '../includes/header.php';
 ?>
@@ -21,6 +21,7 @@ include '../includes/header.php';
     background: #F7F9FC;
 }
 
+/* Row 1 — 3 equal columns */
 .cert-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -28,13 +29,16 @@ include '../includes/header.php';
     margin-top: 56px;
 }
 
-.cert-grid-row2 {
+/* Rows 2 & 3 — 2 cards centred */
+.cert-grid-row2,
+.cert-grid-row3 {
     display: flex;
     justify-content: center;
     gap: 32px;
     margin-top: 32px;
 }
-.cert-grid-row2 .cert-card {
+.cert-grid-row2 .cert-card,
+.cert-grid-row3 .cert-card {
     width: calc(33.333% - 16px);
     max-width: 380px;
 }
@@ -105,6 +109,11 @@ include '../includes/header.php';
     margin-bottom: 16px;
 }
 
+/* Green badge variant for eco/compostable certs */
+.cert-badge.green {
+    background: linear-gradient(135deg, #1a8c4e, #2daa6a);
+}
+
 .cert-card h3 {
     font-size: 20px;
     font-weight: 700;
@@ -137,7 +146,6 @@ include '../includes/header.php';
     background: #FFFFFF;
 }
 
-/* Single card — wide horizontal layout */
 .news-single {
     display: flex;
     background: #FFFFFF;
@@ -250,16 +258,20 @@ include '../includes/header.php';
 ─────────────────────────────────────────── */
 @media (max-width: 991px) {
     .cert-grid { grid-template-columns: repeat(2, 1fr); }
-    .cert-grid-row2 { flex-wrap: wrap; }
-    .cert-grid-row2 .cert-card { width: calc(50% - 16px); max-width: none; }
+    .cert-grid-row2,
+    .cert-grid-row3 { flex-wrap: wrap; }
+    .cert-grid-row2 .cert-card,
+    .cert-grid-row3 .cert-card { width: calc(50% - 16px); max-width: none; }
     .news-single { flex-direction: column; max-width: 560px; }
     .news-single-image { flex: none; height: 260px; width: 100%; }
 }
 
 @media (max-width: 575px) {
     .cert-grid { grid-template-columns: 1fr; }
-    .cert-grid-row2 { flex-direction: column; }
-    .cert-grid-row2 .cert-card { width: 100%; }
+    .cert-grid-row2,
+    .cert-grid-row3 { flex-direction: column; }
+    .cert-grid-row2 .cert-card,
+    .cert-grid-row3 .cert-card { width: 100%; max-width: none; }
     .news-single-content { padding: 28px 22px; }
     .news-title { font-size: 18px; }
     .cert-cta h2 { font-size: 24px; }
@@ -299,6 +311,7 @@ include '../includes/header.php';
 
         <!-- Row 1: MPCB · CPCB · GEM -->
         <div class="cert-grid">
+
             <!-- MPCB -->
             <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
@@ -344,6 +357,7 @@ include '../includes/header.php';
 
         <!-- Row 2: ISO · MSME (centred) -->
         <div class="cert-grid-row2">
+
             <!-- ISO -->
             <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
@@ -373,6 +387,40 @@ include '../includes/header.php';
                 <p>Officially registered under the MSME Act with the Ministry of Micro, Small &amp; Medium Enterprises, Government of India &mdash; qualifying us for priority sector benefits and government procurement programmes.</p>
             </div>
         </div>
+
+        <!-- Row 3: EPR · CIPET ISO 17088 (centred) -->
+        <div class="cert-grid-row3">
+
+            <!-- EPR -->
+            <div class="cert-card animate-on-scroll stagger-1">
+                <div class="cert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <polyline points="23 4 23 10 17 10"/>
+                        <polyline points="1 20 1 14 7 14"/>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                    </svg>
+                </div>
+                <span class="cert-badge green">Circular Economy</span>
+                <h3>EPR</h3>
+                <p class="cert-authority">Extended Producer Responsibility &mdash; MoEFCC</p>
+                <p>Registered under the Extended Producer Responsibility framework mandated by the Ministry of Environment, Forest &amp; Climate Change, taking full accountability for the end-of-life management of our plastic products and packaging.</p>
+            </div>
+
+            <!-- CIPET ISO 17088 -->
+            <div class="cert-card animate-on-scroll stagger-2">
+                <div class="cert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M6.5 21.5s6-5.5 6-10.5c0-4-3-7-7-7 0 4.5 1.5 10 1 17.5z"/>
+                        <path d="M17.5 21.5s-6-5.5-6-10.5c0-4 3-7 7-7 0 4.5-1.5 10-1 17.5z"/>
+                    </svg>
+                </div>
+                <span class="cert-badge green">Compostable</span>
+                <h3>CIPET &ndash; ISO 17088</h3>
+                <p class="cert-authority">Central Institute of Petrochemicals Engineering &amp; Technology</p>
+                <p>Certified compostable as per ISO 17088 by CIPET, confirming that our compostable plastic products meet international standards for biodegradability, disintegration, and eco-toxicity under industrial composting conditions.</p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -386,7 +434,6 @@ include '../includes/header.php';
 
         <!-- Plast India 2026 -->
         <div class="news-single animate-on-scroll">
-
             <div class="news-single-image">
                 <img
                     src="<?php echo $basePath; ?>assets/images/news/plast-india-2026.jpg"
@@ -394,7 +441,6 @@ include '../includes/header.php';
                     loading="lazy"
                     onerror="this.style.display='none'; this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg>';">
             </div>
-
             <div class="news-single-content">
                 <p class="news-tag">&#127981; Trade Show</p>
                 <p class="news-date">February 2026</p>
