@@ -28,11 +28,6 @@ include '../includes/header.php';
     margin-top: 56px;
 }
 
-/* Last row: 2 cards — centre them */
-.cert-grid .cert-card:nth-child(4),
-.cert-grid .cert-card:nth-child(5) {
-    grid-column: auto;
-}
 .cert-grid-row2 {
     display: flex;
     justify-content: center;
@@ -73,9 +68,7 @@ include '../includes/header.php';
     border-color: rgba(0, 102, 204, 0.25);
 }
 
-.cert-card:hover::before {
-    opacity: 1;
-}
+.cert-card:hover::before { opacity: 1; }
 
 .cert-icon-wrap {
     width: 96px;
@@ -91,12 +84,6 @@ include '../includes/header.php';
 
 .cert-card:hover .cert-icon-wrap {
     background: linear-gradient(135deg, rgba(0,102,204,0.18), rgba(46,80,144,0.18));
-}
-
-.cert-icon-wrap img {
-    width: 56px;
-    height: 56px;
-    object-fit: contain;
 }
 
 .cert-icon-wrap svg {
@@ -150,70 +137,87 @@ include '../includes/header.php';
     background: #FFFFFF;
 }
 
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.news-card {
+/* Single card — wide horizontal layout */
+.news-single {
+    display: flex;
     background: #FFFFFF;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-    border: 1px solid rgba(0,0,0,0.06);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
+    border: 1px solid rgba(0,0,0,0.07);
+    margin-top: 50px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.35s ease;
 }
 
-.news-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+.news-single:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 56px rgba(0,102,204,0.14);
 }
 
-.news-image {
-    width: 100%;
-    height: 200px;
+.news-single-image {
+    flex: 0 0 400px;
+    min-height: 300px;
     background: linear-gradient(135deg, #EEF3FB, #DDE8F8);
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #AABFE0;
-    overflow: hidden;
 }
 
-.news-image img {
-    width: 100%; height: 100%; object-fit: cover;
+.news-single-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-.news-image svg {
-    width: 56px; height: 56px;
+.news-single-image svg {
+    width: 64px;
+    height: 64px;
 }
 
-.news-content { padding: 26px; }
+.news-single-content {
+    flex: 1;
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .news-tag {
     font-size: 11px;
     font-weight: 700;
     color: #0066CC;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.4px;
     margin-bottom: 10px;
 }
 
+.news-date {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 14px;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .news-title {
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
     color: #1A1A1A;
-    margin-bottom: 12px;
-    line-height: 1.45;
+    margin-bottom: 16px;
+    line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
 }
 
 .news-excerpt {
-    color: #666;
-    font-size: 14px;
-    line-height: 1.7;
+    color: #555;
+    font-size: 15px;
+    line-height: 1.75;
+    margin: 0;
 }
 
 /* ───────────────────────────────────────────
@@ -248,14 +252,16 @@ include '../includes/header.php';
     .cert-grid { grid-template-columns: repeat(2, 1fr); }
     .cert-grid-row2 { flex-wrap: wrap; }
     .cert-grid-row2 .cert-card { width: calc(50% - 16px); max-width: none; }
-    .news-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-single { flex-direction: column; max-width: 560px; }
+    .news-single-image { flex: none; height: 260px; width: 100%; }
 }
 
 @media (max-width: 575px) {
     .cert-grid { grid-template-columns: 1fr; }
     .cert-grid-row2 { flex-direction: column; }
     .cert-grid-row2 .cert-card { width: 100%; }
-    .news-grid { grid-template-columns: 1fr; }
+    .news-single-content { padding: 28px 22px; }
+    .news-title { font-size: 18px; }
     .cert-cta h2 { font-size: 24px; }
 }
 </style>
@@ -276,14 +282,14 @@ include '../includes/header.php';
         <div class="intro-content animate-on-scroll">
             <h2 class="intro-title">Our Certifications &amp; Accreditations</h2>
             <p class="intro-text">
-                At Shree Plastic Industries, compliance is not an afterthought — it is built into every process, every product, and every decision we make. 
+                At Shree Plastic Industries, compliance is not an afterthought &mdash; it is built into every process, every product, and every decision we make.
                 Our certifications from national regulatory bodies and international standards organisations reflect four decades of responsible, high-quality manufacturing.
             </p>
         </div>
     </div>
 </section>
 
-<!-- Certificates Section — Row 1 (3 cards) -->
+<!-- Certificates Section -->
 <section class="cert-section">
     <div class="container">
         <div class="section-header animate-on-scroll">
@@ -293,7 +299,6 @@ include '../includes/header.php';
 
         <!-- Row 1: MPCB · CPCB · GEM -->
         <div class="cert-grid">
-
             <!-- MPCB -->
             <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
@@ -339,7 +344,6 @@ include '../includes/header.php';
 
         <!-- Row 2: ISO · MSME (centred) -->
         <div class="cert-grid-row2">
-
             <!-- ISO -->
             <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
@@ -366,9 +370,8 @@ include '../includes/header.php';
                 <span class="cert-badge">Government of India</span>
                 <h3>MSME Registered</h3>
                 <p class="cert-authority">Ministry of Micro, Small &amp; Medium Enterprises</p>
-                <p>Officially registered under the MSME Act with the Ministry of Micro, Small &amp; Medium Enterprises, Government of India — qualifying us for priority sector benefits and government procurement programmes.</p>
+                <p>Officially registered under the MSME Act with the Ministry of Micro, Small &amp; Medium Enterprises, Government of India &mdash; qualifying us for priority sector benefits and government procurement programmes.</p>
             </div>
-
         </div>
     </div>
 </section>
@@ -381,51 +384,29 @@ include '../includes/header.php';
             <p class="section-subtitle">Company updates and announcements</p>
         </div>
 
-        <?php
-        $newsItems = [
-            [
-                'tag'     => 'Announcement',
-                'title'   => 'Expansion Plans Underway',
-                'excerpt' => 'We are actively expanding our production capacity at the Pisoli facility to meet growing demand from industrial and retail sectors across India.',
-                'image'   => null,
-            ],
-            [
-                'tag'     => 'Sustainability',
-                'title'   => 'Advancing Our Green Manufacturing Goals',
-                'excerpt' => 'Shree Plastic Industries continues to invest in cleaner production technologies aligned with MPCB and CPCB environmental compliance standards.',
-                'image'   => null,
-            ],
-            [
-                'tag'     => 'Product Update',
-                'title'   => 'New Product Range Coming Soon',
-                'excerpt' => 'Stay tuned for our upcoming launch of expanded product lines in HDPE sheets and eco-friendly packaging solutions.',
-                'image'   => null,
-            ],
-        ];
-        ?>
+        <!-- Plast India 2026 -->
+        <div class="news-single animate-on-scroll">
 
-        <div class="news-grid">
-            <?php foreach ($newsItems as $i => $news): ?>
-            <div class="news-card animate-on-scroll stagger-<?php echo ($i % 3) + 1; ?>">
-                <div class="news-image">
-                    <?php if (!empty($news['image'])): ?>
-                    <img src="<?php echo $basePath; ?>assets/images/news/<?php echo htmlspecialchars($news['image']); ?>" alt="<?php echo htmlspecialchars($news['title']); ?>" loading="lazy">
-                    <?php else: ?>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <polyline points="21 15 16 10 5 21"/>
-                    </svg>
-                    <?php endif; ?>
-                </div>
-                <div class="news-content">
-                    <p class="news-tag"><?php echo htmlspecialchars($news['tag']); ?></p>
-                    <h3 class="news-title"><?php echo htmlspecialchars($news['title']); ?></h3>
-                    <p class="news-excerpt"><?php echo htmlspecialchars($news['excerpt']); ?></p>
-                </div>
+            <div class="news-single-image">
+                <img
+                    src="<?php echo $basePath; ?>assets/images/news/plast-india-2026.jpg"
+                    alt="Visited Plast India 2026 – Delhi"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg>';">
             </div>
-            <?php endforeach; ?>
+
+            <div class="news-single-content">
+                <p class="news-tag">&#127981; Trade Show</p>
+                <p class="news-date">February 2026</p>
+                <h3 class="news-title">Visited Plast India 2026 &ndash; Delhi</h3>
+                <p class="news-excerpt">
+                    Our team had the privilege of attending Plast India 2026 in Delhi &mdash; one of India&rsquo;s largest and most prestigious plastic industry exhibitions.
+                    The event brought together manufacturers, innovators, and industry leaders from across the globe, offering valuable insights into the latest advancements
+                    in plastic technology, sustainable materials, and packaging solutions. The experience reaffirmed our commitment to staying at the forefront of the industry.
+                </p>
+            </div>
         </div>
+
     </div>
 </section>
 
