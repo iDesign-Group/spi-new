@@ -21,7 +21,6 @@ include '../includes/header.php';
     background: #F7F9FC;
 }
 
-/* ── Row 1: 4 equal columns ── */
 .cert-row-1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -29,20 +28,18 @@ include '../includes/header.php';
     margin-top: 56px;
 }
 
-/* ── Row 2: 3 cards, same width as row-1 cols, centred ── */
 .cert-row-2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     margin-top: 24px;
 }
-/* Hide the invisible 4th placeholder col */
+
 .cert-row-2::after {
     content: '';
     display: block;
 }
 
-/* ── Card base ── */
 .cert-card {
     background: #FFFFFF;
     border-radius: 16px;
@@ -74,7 +71,6 @@ include '../includes/header.php';
 
 .cert-card:hover::before { opacity: 1; }
 
-/* ── Icon circle ── */
 .cert-icon-wrap {
     width: 80px;
     height: 80px;
@@ -97,7 +93,6 @@ include '../includes/header.php';
     color: #0066CC;
 }
 
-/* ── Badge ── */
 .cert-badge {
     display: inline-block;
     background: linear-gradient(135deg, #0066CC, #2E5090);
@@ -115,7 +110,6 @@ include '../includes/header.php';
     background: linear-gradient(135deg, #1a8c4e, #2daa6a);
 }
 
-/* ── Text ── */
 .cert-card h3 {
     font-size: 17px;
     font-weight: 700;
@@ -150,82 +144,116 @@ include '../includes/header.php';
     background: #FFFFFF;
 }
 
-.news-single {
-    display: flex;
+/* 2-column news grid */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 50px;
+}
+
+.news-card {
     background: #FFFFFF;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.10);
-    border: 1px solid rgba(0,0,0,0.07);
-    margin-top: 50px;
-    max-width: 860px;
-    margin-left: auto;
-    margin-right: auto;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.09);
+    border: 1px solid rgba(0,0,0,0.06);
     transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.news-single:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 56px rgba(0,102,204,0.14);
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0,102,204,0.14);
 }
 
-.news-single-image {
-    flex: 0 0 400px;
-    min-height: 300px;
-    background: linear-gradient(135deg, #EEF3FB, #DDE8F8);
+/* Image area */
+.news-card-image {
+    width: 100%;
+    height: 240px;
     overflow: hidden;
+    background: linear-gradient(135deg, #EEF3FB, #DDE8F8);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #AABFE0;
+    position: relative;
+    flex-shrink: 0;
 }
 
-.news-single-image img {
+.news-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
 }
 
-.news-single-image svg { width: 64px; height: 64px; }
+.news-card:hover .news-card-image img {
+    transform: scale(1.04);
+}
 
-.news-single-content {
+.news-card-image svg {
+    width: 56px;
+    height: 56px;
+}
+
+/* Upcoming ribbon */
+.news-ribbon {
+    position: absolute;
+    top: 16px;
+    right: -1px;
+    background: linear-gradient(135deg, #E65C00, #F9A825);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 14px 5px 12px;
+    border-radius: 4px 0 0 4px;
+    box-shadow: -2px 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Content area */
+.news-card-content {
+    padding: 28px 28px 32px;
     flex: 1;
-    padding: 40px 36px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .news-tag {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     color: #0066CC;
     text-transform: uppercase;
     letter-spacing: 1.4px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .news-date {
     font-size: 12px;
     color: #999;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .news-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
     color: #1A1A1A;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     line-height: 1.4;
     font-family: 'Montserrat', sans-serif;
 }
 
 .news-excerpt {
     color: #555;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.75;
     margin: 0;
+    flex: 1;
 }
 
 /* ═══════════════════════════════════════════
@@ -257,23 +285,20 @@ include '../includes/header.php';
    RESPONSIVE
 ═══════════════════════════════════════════ */
 @media (max-width: 1199px) {
-    .cert-row-1,
-    .cert-row-2 { gap: 18px; }
+    .cert-row-1, .cert-row-2 { gap: 18px; }
 }
 
 @media (max-width: 991px) {
     .cert-row-1 { grid-template-columns: repeat(2, 1fr); }
     .cert-row-2 { grid-template-columns: repeat(2, 1fr); }
     .cert-row-2::after { display: none; }
-    .news-single { flex-direction: column; max-width: 560px; }
-    .news-single-image { flex: none; height: 260px; width: 100%; }
+    .news-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
 }
 
 @media (max-width: 575px) {
-    .cert-row-1,
-    .cert-row-2 { grid-template-columns: 1fr; }
+    .cert-row-1, .cert-row-2 { grid-template-columns: 1fr; }
     .cert-row-2::after { display: none; }
-    .news-single-content { padding: 28px 22px; }
+    .news-card-image { height: 200px; }
     .news-title { font-size: 18px; }
     .cert-cta h2 { font-size: 24px; }
 }
@@ -310,16 +335,11 @@ include '../includes/header.php';
             <p class="section-subtitle">Recognised by leading regulatory and standards bodies</p>
         </div>
 
-        <!-- ── ROW 1: 4 cards ── -->
+        <!-- ROW 1: MPCB · CPCB · GEM · ISO -->
         <div class="cert-row-1">
-
-            <!-- 1. MPCB -->
             <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <polyline points="9 12 11 14 15 10"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
                 </div>
                 <span class="cert-badge">State Regulatory</span>
                 <h3>MPCB</h3>
@@ -327,14 +347,9 @@ include '../includes/header.php';
                 <p class="cert-desc">Certified by the Maharashtra Pollution Control Board, ensuring all operations meet state environmental norms and pollution control standards.</p>
             </div>
 
-            <!-- 2. CPCB -->
             <div class="cert-card animate-on-scroll stagger-2">
                 <div class="cert-icon-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        <line x1="2" y1="12" x2="22" y2="12"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
                 </div>
                 <span class="cert-badge">National Regulatory</span>
                 <h3>CPCB</h3>
@@ -342,12 +357,9 @@ include '../includes/header.php';
                 <p class="cert-desc">Recognised by the Central Pollution Control Board, confirming our processes adhere to national environmental protection and waste management regulations.</p>
             </div>
 
-            <!-- 3. GEM -->
             <div class="cert-card animate-on-scroll stagger-3">
                 <div class="cert-icon-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 </div>
                 <span class="cert-badge">Government Portal</span>
                 <h3>GEM Verified</h3>
@@ -355,34 +367,22 @@ include '../includes/header.php';
                 <p class="cert-desc">Verified and listed on the Government e-Marketplace (GeM), enabling direct supply to central and state government departments across India.</p>
             </div>
 
-            <!-- 4. ISO -->
             <div class="cert-card animate-on-scroll stagger-4">
                 <div class="cert-icon-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <rect x="3" y="3" width="18" height="18" rx="3"/>
-                        <path d="M7 8h4m-4 4h10M7 16h6"/>
-                        <circle cx="17" cy="8" r="1" fill="currentColor"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h4m-4 4h10M7 16h6"/><circle cx="17" cy="8" r="1" fill="currentColor"/></svg>
                 </div>
                 <span class="cert-badge">International Standard</span>
                 <h3>ISO Certified</h3>
                 <p class="cert-authority">International Organisation for Standardisation</p>
                 <p class="cert-desc">ISO certified, demonstrating our commitment to internationally recognised quality management systems and consistent product delivery.</p>
             </div>
-
         </div>
-        <!-- END ROW 1 -->
 
-        <!-- ── ROW 2: 3 cards (grid col 4 stays empty = natural left-align in 4-col grid) ── -->
+        <!-- ROW 2: MSME · EPR · CIPET -->
         <div class="cert-row-2">
-
-            <!-- 5. MSME -->
             <div class="cert-card animate-on-scroll stagger-1">
                 <div class="cert-icon-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                        <polyline points="9 22 9 12 15 12 15 22"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 </div>
                 <span class="cert-badge">Government of India</span>
                 <h3>MSME Registered</h3>
@@ -390,14 +390,9 @@ include '../includes/header.php';
                 <p class="cert-desc">Registered under the MSME Act, qualifying us for priority sector benefits and government procurement programmes across India.</p>
             </div>
 
-            <!-- 6. EPR -->
             <div class="cert-card animate-on-scroll stagger-2">
                 <div class="cert-icon-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <polyline points="23 4 23 10 17 10"/>
-                        <polyline points="1 20 1 14 7 14"/>
-                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                 </div>
                 <span class="cert-badge green">Circular Economy</span>
                 <h3>EPR</h3>
@@ -405,22 +400,16 @@ include '../includes/header.php';
                 <p class="cert-desc">Registered under the EPR framework by MoEFCC, taking full accountability for the end-of-life management of our plastic products and packaging.</p>
             </div>
 
-            <!-- 7. CIPET ISO 17088 -->
             <div class="cert-card animate-on-scroll stagger-3">
                 <div class="cert-icon-wrap">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-                        <path d="M6.5 21.5s6-5.5 6-10.5c0-4-3-7-7-7 0 4.5 1.5 10 1 17.5z"/>
-                        <path d="M17.5 21.5s-6-5.5-6-10.5c0-4 3-7 7-7 0 4.5-1.5 10-1 17.5z"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6.5 21.5s6-5.5 6-10.5c0-4-3-7-7-7 0 4.5 1.5 10 1 17.5z"/><path d="M17.5 21.5s-6-5.5-6-10.5c0-4 3-7 7-7 0 4.5-1.5 10-1 17.5z"/></svg>
                 </div>
                 <span class="cert-badge green">Compostable</span>
                 <h3>CIPET &ndash; ISO 17088</h3>
                 <p class="cert-authority">Central Institute of Petrochemicals Engg. &amp; Technology</p>
                 <p class="cert-desc">Certified compostable as per ISO 17088 by CIPET, confirming our products meet international standards for biodegradability and eco-toxicity.</p>
             </div>
-
         </div>
-        <!-- END ROW 2 -->
 
     </div>
 </section>
@@ -433,27 +422,52 @@ include '../includes/header.php';
             <p class="section-subtitle">Company updates and announcements</p>
         </div>
 
-        <!-- Plast India 2026 -->
-        <div class="news-single animate-on-scroll">
-            <div class="news-single-image">
-                <img
-                    src="<?php echo $basePath; ?>assets/images/news/plast-india-2026.jpg"
-                    alt="Visited Plast India 2026 &ndash; Delhi"
-                    loading="lazy"
-                    onerror="this.style.display='none'; this.parentNode.innerHTML='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg>';">
-            </div>
-            <div class="news-single-content">
-                <p class="news-tag">&#127981; Trade Show</p>
-                <p class="news-date">February 2026</p>
-                <h3 class="news-title">Visited Plast India 2026 &ndash; Delhi</h3>
-                <p class="news-excerpt">
-                    Our team had the privilege of attending Plast India 2026 in Delhi &mdash; one of India&rsquo;s largest and most prestigious plastic industry exhibitions.
-                    The event brought together manufacturers, innovators, and industry leaders from across the globe, offering valuable insights into the latest advancements
-                    in plastic technology, sustainable materials, and packaging solutions. The experience reaffirmed our commitment to staying at the forefront of the industry.
-                </p>
-            </div>
-        </div>
+        <div class="news-grid">
 
+            <!-- Card 1: Plast India 2026 -->
+            <div class="news-card animate-on-scroll stagger-1">
+                <div class="news-card-image">
+                    <img
+                        src="<?php echo $basePath; ?>assets/images/news/plast-india-2026.jpg"
+                        alt="Visited Plast India 2026 &ndash; Delhi"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.parentNode.innerHTML+='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg>';">
+                </div>
+                <div class="news-card-content">
+                    <p class="news-tag">&#127981; Trade Show</p>
+                    <p class="news-date">February 2026 &nbsp;&middot;&nbsp; Delhi, India</p>
+                    <h3 class="news-title">Visited Plast India 2026 &ndash; Delhi</h3>
+                    <p class="news-excerpt">
+                        Our team had the privilege of attending Plast India 2026 in Delhi &mdash; one of India&rsquo;s largest and most prestigious plastic industry exhibitions.
+                        The event brought together manufacturers, innovators, and industry leaders from across the globe, offering valuable insights into the latest advancements
+                        in plastic technology, sustainable materials, and packaging solutions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2: Chinaplas 2026 -->
+            <div class="news-card animate-on-scroll stagger-2">
+                <div class="news-card-image">
+                    <span class="news-ribbon">Upcoming</span>
+                    <img
+                        src="<?php echo $basePath; ?>assets/images/news/chinaplas-2026.jpg"
+                        alt="Chinaplas 2026 &ndash; Shenzhen"
+                        loading="lazy"
+                        onerror="this.style.display='none'; this.parentNode.innerHTML+='<svg viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'18\' rx=\'2\'/><circle cx=\'8.5\' cy=\'8.5\' r=\'1.5\'/><polyline points=\'21 15 16 10 5 21\'/></svg>';">
+                </div>
+                <div class="news-card-content">
+                    <p class="news-tag">&#127759; International Trade Show</p>
+                    <p class="news-date">April 21 &ndash; 24, 2026 &nbsp;&middot;&nbsp; Shenzhen, China</p>
+                    <h3 class="news-title">Visiting Chinaplas 2026 &ndash; Shenzhen</h3>
+                    <p class="news-excerpt">
+                        We are excited to announce that our team will be attending Chinaplas 2026 in Shenzhen, China &mdash; Asia&rsquo;s largest and the world&rsquo;s second-largest plastics and rubber trade fair.
+                        The event will showcase cutting-edge polymer technologies, smart manufacturing innovations, and sustainable material solutions from over 4,000 exhibitors worldwide.
+                        This visit will further strengthen our global industry connections and bring back the latest innovations to our manufacturing operations.
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
