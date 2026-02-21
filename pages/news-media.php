@@ -1,18 +1,155 @@
 <?php
 /**
- * Shree Plastic Industries - News & Media Page
- * Company news, press releases, and media coverage
+ * Shree Plastic Industries - News & Certificates Page
+ * Company certifications, accreditations and news updates
  */
 
 require_once '../includes/config.php';
 
-$page_title = 'News & Media';
-$page_description = 'Stay updated with the latest news, press releases, and media coverage from Shree Plastic Industries.';
+$page_title = 'News & Certificates';
+$page_description = 'Shree Plastic Industries is certified by MPCB, CPCB, GEM Verified Manufacturer, ISO and MSME - reflecting our commitment to quality, compliance and sustainability.';
 
 include '../includes/header.php';
 ?>
 
 <style>
+/* ───────────────────────────────────────────
+   CERTIFICATES GRID
+─────────────────────────────────────────── */
+.cert-section {
+    padding: 90px 0 100px;
+    background: #F7F9FC;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+}
+
+/* Last row: 2 cards — centre them */
+.cert-grid .cert-card:nth-child(4),
+.cert-grid .cert-card:nth-child(5) {
+    grid-column: auto;
+}
+.cert-grid-row2 {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 32px;
+}
+.cert-grid-row2 .cert-card {
+    width: calc(33.333% - 16px);
+    max-width: 380px;
+}
+
+.cert-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px 32px 36px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    border: 1.5px solid rgba(0, 102, 204, 0.08);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0066CC, #2E5090);
+    border-radius: 16px 16px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 48px rgba(0, 102, 204, 0.15);
+    border-color: rgba(0, 102, 204, 0.25);
+}
+
+.cert-card:hover::before {
+    opacity: 1;
+}
+
+.cert-icon-wrap {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(0,102,204,0.10), rgba(46,80,144,0.10));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.cert-card:hover .cert-icon-wrap {
+    background: linear-gradient(135deg, rgba(0,102,204,0.18), rgba(46,80,144,0.18));
+}
+
+.cert-icon-wrap img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.cert-icon-wrap svg {
+    width: 48px;
+    height: 48px;
+    color: #0066CC;
+}
+
+.cert-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #0066CC, #2E5090);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.cert-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cert-authority {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0066CC;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 14px;
+}
+
+.cert-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ───────────────────────────────────────────
+   NEWS SECTION
+─────────────────────────────────────────── */
+.news-section {
+    padding: 90px 0 100px;
+    background: #FFFFFF;
+}
+
 .news-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -22,305 +159,104 @@ include '../includes/header.php';
 
 .news-card {
     background: #FFFFFF;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    border: 1px solid rgba(0,0,0,0.06);
     transition: all 0.3s ease;
 }
 
 .news-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.12);
 }
 
 .news-image {
     width: 100%;
     height: 200px;
-    background: #F5F5F5;
+    background: linear-gradient(135deg, #EEF3FB, #DDE8F8);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #CCCCCC;
+    color: #AABFE0;
     overflow: hidden;
 }
 
 .news-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; height: 100%; object-fit: cover;
 }
 
 .news-image svg {
-    width: 60px;
-    height: 60px;
+    width: 56px; height: 56px;
 }
 
-.news-content {
-    padding: 24px;
-}
+.news-content { padding: 26px; }
 
-.news-date {
-    font-size: 12px;
+.news-tag {
+    font-size: 11px;
+    font-weight: 700;
     color: #0066CC;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
 }
 
 .news-title {
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1A1A1A;
     margin-bottom: 12px;
-    line-height: 1.4;
+    line-height: 1.45;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .news-excerpt {
-    color: #666666;
+    color: #666;
     font-size: 14px;
     line-height: 1.7;
-    margin-bottom: 16px;
 }
 
-.news-link {
-    font-size: 14px;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.news-link svg {
-    width: 16px;
-    height: 16px;
-    transition: transform 0.3s ease;
-}
-
-.news-link:hover svg {
-    transform: translateX(4px);
-}
-
-/* Certificates & Awards Section */
-.awards-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.award-card {
-    background: #FFFFFF;
-    border-radius: 12px;
-    padding: 30px 20px;
+/* ───────────────────────────────────────────
+   CTA STRIP
+─────────────────────────────────────────── */
+.cert-cta {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);
+    padding: 80px 0;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 102, 204, 0.1);
 }
 
-.award-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 30px rgba(0, 102, 204, 0.15);
-    border-color: #0066CC;
-}
-
-.award-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-    background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(46, 80, 144, 0.1));
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #0066CC;
-}
-
-.award-icon svg {
-    width: 40px;
-    height: 40px;
-}
-
-.award-icon img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-}
-
-.award-card h4 {
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #1A1A1A;
-}
-
-.award-card p {
-    font-size: 13px;
-    color: #666666;
-    line-height: 1.5;
-}
-
-.award-year {
-    display: inline-block;
-    background: #0066CC;
+.cert-cta h2 {
     color: #fff;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-top: 12px;
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-/* Media Kit Section */
-.media-kit-section {
-    background: linear-gradient(135deg, #1A1A1A, #2E2E2E);
-    padding: 100px 0;
-}
-
-.media-kit-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.media-kit-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 40px 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.media-kit-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #0066CC;
-    transform: translateY(-4px);
-}
-
-.media-kit-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 24px;
-    color: #0066CC;
-}
-
-.media-kit-card h4 {
-    color: #FFFFFF;
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-.media-kit-card p {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.media-kit-card .btn {
-    padding: 10px 24px;
-    font-size: 13px;
-}
-
-/* Publications Grid */
-.publications-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.publication-card {
-    display: flex;
-    background: #FFFFFF;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
-
-.publication-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-}
-
-.publication-image {
-    flex: 0 0 180px;
-    background: #F5F5F5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #CCCCCC;
-}
-
-.publication-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.publication-content {
-    padding: 24px;
-    flex: 1;
-}
-
-.publication-source {
-    font-size: 11px;
-    color: #0066CC;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
-
-.publication-title {
+.cert-cta p {
+    color: rgba(255,255,255,0.75);
     font-size: 16px;
-    margin-bottom: 8px;
-    line-height: 1.4;
+    margin-bottom: 36px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.publication-date {
-    font-size: 12px;
-    color: #999999;
-    margin-bottom: 12px;
-}
-
-.publication-excerpt {
-    color: #666666;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
+/* ───────────────────────────────────────────
+   RESPONSIVE
+─────────────────────────────────────────── */
 @media (max-width: 991px) {
-    .news-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .awards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .media-kit-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .publications-grid {
-        grid-template-columns: 1fr;
-    }
+    .cert-grid { grid-template-columns: repeat(2, 1fr); }
+    .cert-grid-row2 { flex-wrap: wrap; }
+    .cert-grid-row2 .cert-card { width: calc(50% - 16px); max-width: none; }
+    .news-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 575px) {
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
-    .awards-grid {
-        grid-template-columns: 1fr;
-    }
-    .media-kit-grid {
-        grid-template-columns: 1fr;
-    }
-    .publication-card {
-        flex-direction: column;
-    }
-    .publication-image {
-        flex: none;
-        height: 180px;
-    }
+    .cert-grid { grid-template-columns: 1fr; }
+    .cert-grid-row2 { flex-direction: column; }
+    .cert-grid-row2 .cert-card { width: 100%; }
+    .news-grid { grid-template-columns: 1fr; }
+    .cert-cta h2 { font-size: 24px; }
 }
 </style>
 
@@ -329,157 +265,163 @@ include '../includes/header.php';
     <div class="hero-bg" style="background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-        <h1 class="hero-quote">News & Media</h1>
-        <p class="hero-tagline">Stay Connected With Our Latest Updates</p>
+        <h1 class="hero-quote">News &amp; Certificates</h1>
+        <p class="hero-tagline">Certified. Compliant. Trusted Since 1984.</p>
     </div>
 </section>
 
-<!-- Introduction -->
+<!-- Intro -->
 <section class="intro-section">
     <div class="container">
         <div class="intro-content animate-on-scroll">
-            <h2 class="intro-title">Latest from Shree Plastic Industries</h2>
+            <h2 class="intro-title">Our Certifications &amp; Accreditations</h2>
             <p class="intro-text">
-                Stay informed about our latest developments, industry insights, and company milestones. 
-                From new product launches to sustainability initiatives, find all our updates here.
+                At Shree Plastic Industries, compliance is not an afterthought — it is built into every process, every product, and every decision we make. 
+                Our certifications from national regulatory bodies and international standards organisations reflect four decades of responsible, high-quality manufacturing.
             </p>
         </div>
     </div>
 </section>
 
-<!-- Certificates & Awards Section -->
-<section class="section bg-light">
+<!-- Certificates Section — Row 1 (3 cards) -->
+<section class="cert-section">
     <div class="container">
         <div class="section-header animate-on-scroll">
-            <h2 class="section-title">Certificates & Awards</h2>
-            <p class="section-subtitle">
-                Recognition of our commitment to quality and excellence
-            </p>
+            <h2 class="section-title">Certificates We Hold</h2>
+            <p class="section-subtitle">Recognised by leading regulatory and standards bodies</p>
         </div>
-        
-        <?php
-        // Awards and certificates data - Add your certificates here
-        $awards = [
-            [
-                'title' => 'ISO 9001:2015',
-                'description' => 'Quality Management System Certification',
-                'year' => '2020',
-                'icon' => 'certificate'
-            ],
-            [
-                'title' => 'ISO 17088',
-                'description' => 'Compostable Plastics Certification',
-                'year' => '2021',
-                'icon' => 'leaf'
-            ],
-            [
-                'title' => 'Excellence Award',
-                'description' => 'Industry Excellence in Manufacturing',
-                'year' => '2023',
-                'icon' => 'award'
-            ],
-            [
-                'title' => 'Green Initiative',
-                'description' => 'Environmental Sustainability Recognition',
-                'year' => '2024',
-                'icon' => 'globe'
-            ]
-        ];
-        
-        // Icon function for awards
-        function getAwardIcon($type) {
-            $icons = [
-                'certificate' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h10M7 12h10M7 17h6"/></svg>',
-                'leaf' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 21.5s6-5.5 6-10.5c0-4-3-7-7-7 0 4.5 1.5 10 1 17.5z"/><path d="M17.5 21.5s-6-5.5-6-10.5c0-4 3-7 7-7 0 4.5-1.5 10-1 17.5z"/></svg>',
-                'award' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>',
-                'globe' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
-            ];
-            return $icons[$type] ?? $icons['certificate'];
-        }
-        ?>
-        
-        <div class="awards-grid">
-            <?php foreach ($awards as $index => $award): ?>
-            <div class="award-card animate-on-scroll stagger-<?php echo ($index % 4) + 1; ?>">
-                <div class="award-icon">
-                    <?php echo getAwardIcon($award['icon']); ?>
+
+        <!-- Row 1: MPCB · CPCB · GEM -->
+        <div class="cert-grid">
+
+            <!-- MPCB -->
+            <div class="cert-card animate-on-scroll stagger-1">
+                <div class="cert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <polyline points="9 12 11 14 15 10"/>
+                    </svg>
                 </div>
-                <h4><?php echo sanitize($award['title']); ?></h4>
-                <p><?php echo sanitize($award['description']); ?></p>
-                <span class="award-year"><?php echo sanitize($award['year']); ?></span>
+                <span class="cert-badge">State Regulatory</span>
+                <h3>MPCB</h3>
+                <p class="cert-authority">Maharashtra Pollution Control Board</p>
+                <p>Certified and approved by the Maharashtra Pollution Control Board, ensuring all our manufacturing operations meet state environmental norms and pollution control standards.</p>
             </div>
-            <?php endforeach; ?>
+
+            <!-- CPCB -->
+            <div class="cert-card animate-on-scroll stagger-2">
+                <div class="cert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                    </svg>
+                </div>
+                <span class="cert-badge">National Regulatory</span>
+                <h3>CPCB</h3>
+                <p class="cert-authority">Central Pollution Control Board</p>
+                <p>Recognised by the Central Pollution Control Board, confirming that our plastic manufacturing processes adhere to national environmental protection and waste management regulations.</p>
+            </div>
+
+            <!-- GEM -->
+            <div class="cert-card animate-on-scroll stagger-3">
+                <div class="cert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                </div>
+                <span class="cert-badge">Government Portal</span>
+                <h3>GEM Verified</h3>
+                <p class="cert-authority">Government e-Marketplace</p>
+                <p>Verified and listed as an authorised manufacturer on the Government e-Marketplace (GeM), enabling direct supply to central and state government departments across India.</p>
+            </div>
+        </div>
+
+        <!-- Row 2: ISO · MSME (centred) -->
+        <div class="cert-grid-row2">
+
+            <!-- ISO -->
+            <div class="cert-card animate-on-scroll stagger-1">
+                <div class="cert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <rect x="3" y="3" width="18" height="18" rx="3"/>
+                        <path d="M7 8h4m-4 4h10M7 16h6"/>
+                        <circle cx="17" cy="8" r="1" fill="currentColor"/>
+                    </svg>
+                </div>
+                <span class="cert-badge">International Standard</span>
+                <h3>ISO Certified</h3>
+                <p class="cert-authority">International Organisation for Standardisation</p>
+                <p>ISO certified, demonstrating our commitment to internationally recognised quality management systems and consistent delivery of products that meet customer and regulatory requirements.</p>
+            </div>
+
+            <!-- MSME -->
+            <div class="cert-card animate-on-scroll stagger-2">
+                <div class="cert-icon-wrap">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                </div>
+                <span class="cert-badge">Government of India</span>
+                <h3>MSME Registered</h3>
+                <p class="cert-authority">Ministry of Micro, Small &amp; Medium Enterprises</p>
+                <p>Officially registered under the MSME Act with the Ministry of Micro, Small &amp; Medium Enterprises, Government of India — qualifying us for priority sector benefits and government procurement programmes.</p>
+            </div>
+
         </div>
     </div>
 </section>
 
-<!-- Recent News Section -->
-<section class="section">
+<!-- News Section -->
+<section class="news-section">
     <div class="container">
         <div class="section-header animate-on-scroll">
-            <h2 class="section-title">Recent News</h2>
-            <p class="section-subtitle">
-                Company updates and announcements
-            </p>
+            <h2 class="section-title">Latest News</h2>
+            <p class="section-subtitle">Company updates and announcements</p>
         </div>
-        
+
         <?php
-        // News articles data - Add your news items here
-        // To add news: Copy the array structure below and fill in details
-        // Images should be placed in: assets/images/news/
         $newsItems = [
             [
-                'date' => 'Coming Soon',
-                'title' => 'Expansion Plans Announced',
-                'excerpt' => 'Stay tuned for exciting announcements about our growth and expansion plans.',
-                'image' => null, // Add: 'news-expansion.jpg'
-                'link' => null
+                'tag'     => 'Announcement',
+                'title'   => 'Expansion Plans Underway',
+                'excerpt' => 'We are actively expanding our production capacity at the Pisoli facility to meet growing demand from industrial and retail sectors across India.',
+                'image'   => null,
             ],
             [
-                'date' => 'Coming Soon',
-                'title' => 'Sustainability Milestones',
-                'excerpt' => 'Updates on our journey towards more sustainable manufacturing practices.',
-                'image' => null,
-                'link' => null
+                'tag'     => 'Sustainability',
+                'title'   => 'Advancing Our Green Manufacturing Goals',
+                'excerpt' => 'Shree Plastic Industries continues to invest in cleaner production technologies aligned with MPCB and CPCB environmental compliance standards.',
+                'image'   => null,
             ],
             [
-                'date' => 'Coming Soon',
-                'title' => 'New Product Launch',
-                'excerpt' => 'Information about our latest product innovations and offerings.',
-                'image' => null,
-                'link' => null
-            ]
+                'tag'     => 'Product Update',
+                'title'   => 'New Product Range Coming Soon',
+                'excerpt' => 'Stay tuned for our upcoming launch of expanded product lines in HDPE sheets and eco-friendly packaging solutions.',
+                'image'   => null,
+            ],
         ];
         ?>
-        
+
         <div class="news-grid">
-            <?php foreach ($newsItems as $index => $news): ?>
-            <div class="news-card animate-on-scroll stagger-<?php echo ($index % 3) + 1; ?>">
+            <?php foreach ($newsItems as $i => $news): ?>
+            <div class="news-card animate-on-scroll stagger-<?php echo ($i % 3) + 1; ?>">
                 <div class="news-image">
-                    <?php if ($news['image']): ?>
-                    <img src="<?php echo $basePath; ?>assets/images/news/<?php echo $news['image']; ?>" 
-                         alt="<?php echo sanitize($news['title']); ?>" loading="lazy">
+                    <?php if (!empty($news['image'])): ?>
+                    <img src="<?php echo $basePath; ?>assets/images/news/<?php echo htmlspecialchars($news['image']); ?>" alt="<?php echo htmlspecialchars($news['title']); ?>" loading="lazy">
                     <?php else: ?>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
                     </svg>
                     <?php endif; ?>
                 </div>
                 <div class="news-content">
-                    <p class="news-date"><?php echo sanitize($news['date']); ?></p>
-                    <h3 class="news-title"><?php echo sanitize($news['title']); ?></h3>
-                    <p class="news-excerpt"><?php echo sanitize($news['excerpt']); ?></p>
-                    <?php if ($news['link']): ?>
-                    <a href="<?php echo sanitize($news['link']); ?>" class="news-link">
-                        Read More
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
-                    <?php endif; ?>
+                    <p class="news-tag"><?php echo htmlspecialchars($news['tag']); ?></p>
+                    <h3 class="news-title"><?php echo htmlspecialchars($news['title']); ?></h3>
+                    <p class="news-excerpt"><?php echo htmlspecialchars($news['excerpt']); ?></p>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -487,139 +429,12 @@ include '../includes/header.php';
     </div>
 </section>
 
-<!-- Publications Section -->
-<section class="section bg-light">
+<!-- CTA Strip -->
+<section class="cert-cta">
     <div class="container">
-        <div class="section-header animate-on-scroll">
-            <h2 class="section-title">Press Coverage & Publications</h2>
-            <p class="section-subtitle">
-                News articles and features about Shree Plastic Industries
-            </p>
-        </div>
-        
-        <?php
-        // Publications data - Add your press coverage here
-        // To add publications: Copy the array structure below and fill in details
-        // Images should be placed in: assets/images/publications/
-        $publications = [
-            [
-                'source' => 'Industry Magazine',
-                'title' => 'Publication Coming Soon',
-                'date' => 'TBA',
-                'excerpt' => 'Featured articles about our manufacturing excellence and industry contributions will be listed here.',
-                'image' => null, // Add: 'article-1.jpg'
-                'link' => null
-            ],
-            [
-                'source' => 'Business News',
-                'title' => 'Publication Coming Soon',
-                'date' => 'TBA',
-                'excerpt' => 'Press coverage and media features will be showcased in this section.',
-                'image' => null,
-                'link' => null
-            ]
-        ];
-        ?>
-        
-        <div class="publications-grid">
-            <?php foreach ($publications as $index => $pub): ?>
-            <div class="publication-card animate-on-scroll stagger-<?php echo ($index % 2) + 1; ?>">
-                <div class="publication-image">
-                    <?php if ($pub['image']): ?>
-                    <img src="<?php echo $basePath; ?>assets/images/publications/<?php echo $pub['image']; ?>" 
-                         alt="<?php echo sanitize($pub['title']); ?>" loading="lazy">
-                    <?php else: ?>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="width:50px;height:50px;">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                    </svg>
-                    <?php endif; ?>
-                </div>
-                <div class="publication-content">
-                    <p class="publication-source"><?php echo sanitize($pub['source']); ?></p>
-                    <h3 class="publication-title"><?php echo sanitize($pub['title']); ?></h3>
-                    <p class="publication-date"><?php echo sanitize($pub['date']); ?></p>
-                    <p class="publication-excerpt"><?php echo sanitize($pub['excerpt']); ?></p>
-                    <?php if ($pub['link']): ?>
-                    <a href="<?php echo sanitize($pub['link']); ?>" class="news-link" target="_blank">
-                        Read Article
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
-                        </svg>
-                    </a>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
-<!-- Media Kit Section -->
-<section class="media-kit-section">
-    <div class="container">
-        <div class="section-header animate-on-scroll text-center">
-            <h2 class="section-title" style="color: #FFFFFF;">Media Kit</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">
-                Download our brand assets and company resources
-            </p>
-        </div>
-        
-        <div class="media-kit-grid">
-            <div class="media-kit-card animate-on-scroll stagger-1">
-                <div class="media-kit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="18" height="18" rx="2"/>
-                        <circle cx="8.5" cy="8.5" r="1.5"/>
-                        <path d="M21 15l-5-5L5 21"/>
-                    </svg>
-                </div>
-                <h4>Logo Package</h4>
-                <p>Download our official logos in various formats (PNG, SVG, EPS)</p>
-                <a href="<?php echo $basePath; ?>assets/downloads/spi-logo-package.zip" class="btn btn-primary" download>Download</a>
-            </div>
-            
-            <div class="media-kit-card animate-on-scroll stagger-2">
-                <div class="media-kit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <line x1="16" y1="13" x2="8" y2="13"/>
-                        <line x1="16" y1="17" x2="8" y2="17"/>
-                        <polyline points="10 9 9 9 8 9"/>
-                    </svg>
-                </div>
-                <h4>Company Profile</h4>
-                <p>Comprehensive overview of our company, history, and capabilities</p>
-                <a href="<?php echo $basePath; ?>assets/downloads/spi-company-profile.pdf" class="btn btn-primary" download>Download PDF</a>
-            </div>
-            
-            <div class="media-kit-card animate-on-scroll stagger-3">
-                <div class="media-kit-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 20h9"/>
-                        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                    </svg>
-                </div>
-                <h4>Brand Guidelines</h4>
-                <p>Usage guidelines for our brand identity and visual standards</p>
-                <a href="<?php echo $basePath; ?>assets/downloads/spi-brand-guidelines.pdf" class="btn btn-primary" download>Download PDF</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section class="section bg-light">
-    <div class="container text-center">
-        <div class="animate-on-scroll">
-            <h2>Media Inquiries</h2>
-            <p class="section-subtitle mb-4">
-                For press inquiries, interview requests, or media-related questions, please contact us.
-            </p>
-            <a href="mailto:media@shreeplasticindustries.com" class="btn btn-primary">Contact Media Team</a>
-        </div>
+        <h2>Want to Verify Our Certifications?</h2>
+        <p>Get in touch with us for official certificate copies or any compliance-related queries.</p>
+        <a href="<?php echo $basePath; ?>pages/contact.php" class="btn btn-primary">Contact Us</a>
     </div>
 </section>
 
