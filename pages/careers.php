@@ -131,7 +131,7 @@ include '../includes/header.php';
 
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-bg" style="background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);"></div>
+    <div class="hero-bg" style="background-image: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%); background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-content-inner">
@@ -141,11 +141,14 @@ include '../includes/header.php';
     </div>
 </section>
 <script>
-// Load hero image if available
 (function() {
+    var bg = document.querySelector('.hero-bg');
     var img = new Image();
     img.onload = function() {
-        document.querySelector('.hero-bg').style.backgroundImage = "url('../assets/images/heroes/careers-hero.jpg')";
+        bg.style.backgroundImage = "url('../assets/images/heroes/careers-hero.jpg')";
+        bg.style.backgroundPosition = 'center center';
+        bg.style.backgroundSize = 'cover';
+        bg.style.backgroundRepeat = 'no-repeat';
     };
     img.src = '../assets/images/heroes/careers-hero.jpg';
 })();

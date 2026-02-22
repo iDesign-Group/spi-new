@@ -171,7 +171,7 @@ include '../includes/header.php';
 }
 
 .timeline-highlights li::before {
-    content: '✓';
+    content: '\2713';
     position: absolute;
     left: 0;
     color: #0066CC;
@@ -244,14 +244,26 @@ include '../includes/header.php';
 
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-bg" style="background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);"></div>
-    <div class="hero-bg" style="background-image: url('../assets/images/heroes/history-hero.jpg');"></div>
+    <div class="hero-bg" style="background-image: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%); background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-quote">Our Journey</h1>
         <p class="hero-tagline">Four Decades of Excellence, Innovation & Growth</p>
     </div>
 </section>
+<script>
+(function() {
+    var bg = document.querySelector('.hero-bg');
+    var img = new Image();
+    img.onload = function() {
+        bg.style.backgroundImage = "url('../assets/images/heroes/history-hero.jpg')";
+        bg.style.backgroundPosition = 'center center';
+        bg.style.backgroundSize = 'cover';
+        bg.style.backgroundRepeat = 'no-repeat';
+    };
+    img.src = '../assets/images/heroes/history-hero.jpg';
+})();
+</script>
 
 <!-- Timeline Introduction -->
 <section class="intro-section">
