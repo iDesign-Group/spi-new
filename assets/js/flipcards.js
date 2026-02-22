@@ -157,9 +157,9 @@
                                     ${features.map(f => `<li>${f}</li>`).join('')}
                                 </ul>
                             ` : ''}
-                            <button class="btn btn-white flip-card-btn" data-id="${item.id}">
+                            <a href="products.php#product-${item.id}" class="btn btn-white flip-card-btn">
                                 Learn More
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -305,9 +305,8 @@
                 // Click to flip on mobile
                 if (this.options.flipOnClick) {
                     card.addEventListener('click', (e) => {
-                        // Don't flip if clicking on button
+                        // Don't flip if clicking on the Learn More link
                         if (e.target.closest('.flip-card-btn')) {
-                            this.handleCardAction(card);
                             return;
                         }
                         
@@ -315,15 +314,6 @@
                         if (window.matchMedia('(hover: none)').matches) {
                             card.classList.toggle('flipped');
                         }
-                    });
-                }
-
-                // Button click handler
-                const btn = card.querySelector('.flip-card-btn');
-                if (btn) {
-                    btn.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        this.handleCardAction(card);
                     });
                 }
             });
@@ -334,25 +324,6 @@
                     this.cards.forEach(card => card.classList.remove('flipped'));
                 }
             });
-        }
-
-        /**
-         * Handle card action (Learn More button)
-         */
-        handleCardAction(card) {
-            const id = card.dataset.id;
-            const item = this.data.find(d => d.id == id);
-            
-            if (item) {
-                // You can customize this to open a modal, navigate to detail page, etc.
-                console.log('Selected product:', item);
-                
-                // Example: Dispatch custom event for external handling
-                const event = new CustomEvent('flipcard:select', {
-                    detail: { item, card }
-                });
-                this.container.dispatchEvent(event);
-            }
         }
 
         /**
