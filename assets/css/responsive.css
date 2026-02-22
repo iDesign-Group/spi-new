@@ -3,9 +3,9 @@
  * Mobile-first responsive breakpoints
  * 
  * Breakpoints:
- * - Mobile: < 576px
- * - Tablet: 576px - 991px
- * - Desktop: 992px - 1199px
+ * - Mobile:        < 576px
+ * - Tablet:        576px - 991px
+ * - Desktop:       992px - 1199px
  * - Large Desktop: >= 1200px
  */
 
@@ -30,35 +30,59 @@
     height: 40px;
 }
 
-/* Hero Mobile */
+/* ── Global Hero Mobile ─────────────────────────────────────────────────────
+   Applies to ALL pages that use .hero / .hero-bg / .hero-content
+   ─────────────────────────────────────────────────────────────────────────── */
 .hero {
-    height: 60vh;
-    min-height: 400px;
+    /* Use the --vh variable set by JS (accounts for mobile browser chrome).
+       Falls back to 60vh for browsers without JS.                          */
+    height: calc(var(--vh, 1vh) * 75);
+    min-height: 340px;
+    max-height: none;
+}
+
+/* Shift background focus to top-centre so subject isn't cropped on portrait */
+.hero-bg {
+    background-position: center top;
 }
 
 .hero-quote {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 .hero-tagline {
-    font-size: 14px;
+    font-size: 13px;
+}
+
+/* Inner-page hero banner (used on About, Businesses, etc.) */
+.hero-banner {
+    height: calc(var(--vh, 1vh) * 40);
+    min-height: 200px;
+}
+
+.hero-banner .hero-bg {
+    background-position: center top;
+}
+
+.hero-banner .hero-content h1 {
+    font-size: 26px;
 }
 
 /* Typography Mobile */
 h1 {
-    font-size: 32px;
+    font-size: 28px;
 }
 
 h2 {
-    font-size: 26px;
-}
-
-h3 {
     font-size: 22px;
 }
 
+h3 {
+    font-size: 19px;
+}
+
 h4 {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 /* Content Sections Mobile */
@@ -67,11 +91,11 @@ h4 {
 }
 
 .intro-title {
-    font-size: 26px;
+    font-size: 22px;
 }
 
 .intro-text {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 /* Values Grid Mobile */
@@ -111,7 +135,7 @@ h4 {
 }
 
 .quote-text {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 /* Footer Mobile */
@@ -170,8 +194,8 @@ h4 {
 
 /* Buttons Mobile */
 .btn {
-    padding: 12px 24px;
-    font-size: 13px;
+    padding: 10px 20px;
+    font-size: 12px;
 }
 
 /* ========================================
@@ -189,8 +213,18 @@ h4 {
     }
     
     /* Hero */
+    .hero {
+        height: calc(var(--vh, 1vh) * 80);
+        min-height: 380px;
+    }
+
     .hero-quote {
-        font-size: 32px;
+        font-size: 30px;
+    }
+
+    .hero-banner {
+        height: calc(var(--vh, 1vh) * 45);
+        min-height: 220px;
     }
     
     /* Footer */
@@ -230,7 +264,24 @@ h4 {
     
     /* Hero */
     .hero {
-        height: 70vh;
+        height: calc(var(--vh, 1vh) * 85);
+        min-height: 420px;
+        max-height: 750px;
+    }
+
+    /* Restore natural background position on larger screens */
+    .hero-bg {
+        background-position: center center;
+    }
+
+    .hero-banner {
+        height: calc(var(--vh, 1vh) * 50);
+        min-height: 280px;
+        max-height: 420px;
+    }
+
+    .hero-banner .hero-content h1 {
+        font-size: 38px;
     }
     
     .hero-quote {
@@ -323,6 +374,12 @@ h4 {
     .footer-bottom-content {
         flex-direction: row;
     }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 28px;
+        font-size: 13px;
+    }
 }
 
 /* ========================================
@@ -346,9 +403,25 @@ h4 {
         height: 50px;
     }
     
-    /* Hero */
+    /* Hero — full viewport on desktop */
     .hero {
         height: 80vh;
+        min-height: 500px;
+        max-height: 800px;
+    }
+
+    .hero-bg {
+        background-position: center center;
+    }
+
+    .hero-banner {
+        height: 55vh;
+        min-height: 320px;
+        max-height: 480px;
+    }
+
+    .hero-banner .hero-content h1 {
+        font-size: var(--fs-h1);
     }
     
     .hero-quote {
@@ -422,6 +495,12 @@ h4 {
     .footer-grid {
         grid-template-columns: 2fr 1fr 1fr 1.5fr;
     }
+
+    /* Buttons */
+    .btn {
+        padding: 14px 32px;
+        font-size: var(--fs-small);
+    }
 }
 
 /* ========================================
@@ -463,13 +542,13 @@ h4 {
    ======================================== */
 @media (max-height: 600px) {
     .hero {
-        min-height: 350px;
+        min-height: 300px;
         height: auto;
         padding: 80px 0;
     }
     
     .hero-quote {
-        font-size: 28px;
+        font-size: 24px;
     }
 }
 

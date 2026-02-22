@@ -19,10 +19,30 @@
      * Initialize all functionality
      */
     function init() {
+        initVhFix();          // MUST run first — sets --vh before hero renders
         initNavigation();
         initScrollEffects();
         initScrollAnimations();
         initSmoothScroll();
+    }
+
+    /**
+     * --vh CSS variable fix for mobile browsers.
+     * Fixes the 100vh bug where mobile browser address bar adds extra height.
+     * Usage in CSS:  height: calc(var(--vh, 1vh) * 100);
+     */
+    function initVhFix() {
+        function setVh() {
+            var vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', vh + 'px');
+        }
+        setVh();
+        // Recalculate on resize (orientation change, toolbar show/hide)
+        window.addEventListener('resize', setVh);
+        window.addEventListener('orientationchange', function() {
+            // Small delay to let browser settle after orientation flip
+            setTimeout(setVh, 150);
+        });
     }
 
     /**
@@ -142,8 +162,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
-                    // Optional: unobserve after animation
-                    // observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -222,12 +240,10 @@
      */
     function initLazyLoading() {
         if ('loading' in HTMLImageElement.prototype) {
-            // Browser supports native lazy loading
             document.querySelectorAll('img[data-src]').forEach(img => {
                 img.src = img.dataset.src;
             });
         } else {
-            // Fallback for older browsers
             const lazyImages = document.querySelectorAll('img[data-src]');
             
             const imageObserver = new IntersectionObserver((entries) => {
