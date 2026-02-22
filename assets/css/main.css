@@ -403,7 +403,7 @@ p {
 }
 
 /* ========================================
-   Hero Section — Bottom Center aligned
+   Hero Section
    ======================================== */
 .hero {
     position: relative;
@@ -411,8 +411,8 @@ p {
     min-height: 500px;
     max-height: 800px;
     display: flex;
-    align-items: flex-end;   /* content sits at bottom */
-    justify-content: center; /* horizontally centered */
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
@@ -427,7 +427,6 @@ p {
     background-repeat: no-repeat;
 }
 
-/* Gradient: transparent at top, dark at bottom */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -436,30 +435,18 @@ p {
     bottom: 0;
     background: linear-gradient(
         to bottom,
-        rgba(26, 26, 26, 0.10) 0%,
-        rgba(26, 26, 26, 0.30) 40%,
-        rgba(26, 26, 26, 0.75) 80%,
-        rgba(26, 26, 26, 0.92) 100%
+        rgba(26, 26, 26, 0.4),
+        rgba(26, 26, 26, 0.6)
     );
 }
 
-/* Content: full width, center aligned, bottom padding */
 .hero-content {
     position: relative;
     z-index: 1;
     text-align: center;
-    width: 100%;
-    max-width: 100%;
-    padding: 0;
-    padding-bottom: 60px;
-    color: var(--color-secondary);
-}
-
-/* Inner wrapper to match site container alignment */
-.hero-content-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
+    max-width: 800px;
     padding: 0 var(--spacing-md);
+    color: var(--color-secondary);
 }
 
 .hero-quote {
@@ -467,7 +454,7 @@ p {
     font-size: var(--fs-h1);
     font-weight: var(--fw-semibold);
     font-style: italic;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
