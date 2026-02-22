@@ -427,7 +427,7 @@ p {
     background-repeat: no-repeat;
 }
 
-/* Gradient: transparent at top, dark at bottom */
+/* Gradient: transparent at top, strong dark at bottom for text readability */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -436,10 +436,10 @@ p {
     bottom: 0;
     background: linear-gradient(
         to bottom,
-        rgba(26, 26, 26, 0.10) 0%,
-        rgba(26, 26, 26, 0.30) 40%,
-        rgba(26, 26, 26, 0.75) 80%,
-        rgba(26, 26, 26, 0.92) 100%
+        rgba(26, 26, 26, 0.15) 0%,
+        rgba(26, 26, 26, 0.35) 40%,
+        rgba(26, 26, 26, 0.85) 75%,
+        rgba(26, 26, 26, 0.95) 100%
     );
 }
 
@@ -452,7 +452,7 @@ p {
     max-width: 100%;
     padding: 0;
     padding-bottom: 60px;
-    color: var(--color-secondary);
+    color: #FFFFFF;
 }
 
 /* Inner wrapper to match site container alignment */
@@ -462,22 +462,29 @@ p {
     padding: 0 var(--spacing-md);
 }
 
-.hero-quote {
+/* Force white on hero headings & paragraph — overrides global h1/p dark color */
+.hero .hero-quote,
+.hero-content .hero-quote {
     font-family: var(--font-accent);
     font-size: var(--fs-h1);
     font-weight: var(--fw-semibold);
     font-style: italic;
     margin-bottom: var(--spacing-sm);
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    color: #FFFFFF;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
-.hero-tagline {
+.hero .hero-tagline,
+.hero-content .hero-tagline {
     font-family: var(--font-heading);
     font-size: var(--fs-body-lg);
     font-weight: var(--fw-medium);
     letter-spacing: 1px;
     text-transform: uppercase;
-    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    margin-bottom: 0;
 }
 
 /* ========================================
