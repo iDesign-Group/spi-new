@@ -16,17 +16,14 @@ $heroSlides = [
     [
         'image' => 'assets/images/heroes/home-hero.jpg',
         'title' => 'Believe in Yourself',
-        /* 'description' => 'Leading plastic manufacturing company in Pune with over 4 decades of excellence in quality and innovation.' */
     ],
     [
         'image' => 'assets/images/about/products.jpg',
         'title' => 'Quality Plastic Products',
-        /* 'description' => 'Specializing in Skirting Bags, Garbage Bags, HDPE Sheets, LDPE Bags, and Vacuum Bagging Films.' */
     ],
     [
         'image' => 'assets/images/heroes/sustainability-hero.jpg',
         'title' => 'Committed to Sustainability',
-        /* 'description' => 'Building a greener future through responsible manufacturing and eco-friendly practices.' */
     ]
 ];
 
@@ -105,11 +102,15 @@ function getChooseUsIcon($iconName) {
 ?>
 
 <style>
-/* Hero Slider Styles */
+/* =============================================
+   Hero Slider — Desktop Base
+   ============================================= */
 .hero-slider {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    /* svh = safe viewport height (excludes mobile browser chrome) */
+    height: 100svh;
+    height: 100vh; /* fallback for older browsers */
+    min-height: 500px;
     overflow: hidden;
 }
 
@@ -137,7 +138,7 @@ function getChooseUsIcon($iconName) {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     z-index: -2;
 }
@@ -147,21 +148,19 @@ function getChooseUsIcon($iconName) {
 }
 
 @keyframes kenburns {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
+    0%   { transform: scale(1); }
+    100% { transform: scale(1.1); }
 }
 
 .hero-slide-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(26, 26, 26, 0.85) 0%, rgba(26, 26, 26, 0.4) 50%, rgba(26, 26, 26, 0.2) 100%);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        to top,
+        rgba(26,26,26,0.85) 0%,
+        rgba(26,26,26,0.40) 50%,
+        rgba(26,26,26,0.20) 100%
+    );
     z-index: -1;
 }
 
@@ -181,14 +180,8 @@ function getChooseUsIcon($iconName) {
 }
 
 @keyframes slideInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    0%   { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
 .hero-slide-content h1 {
@@ -196,14 +189,13 @@ function getChooseUsIcon($iconName) {
     font-size: 56px;
     font-weight: 700;
     margin-bottom: 24px;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
     color: #FFFFFF;
     max-width: 800px;
+    line-height: 1.15;
 }
 
-.hero-slide-content h1 span {
-    color: #0066CC;
-}
+.hero-slide-content h1 span { color: #0066CC; }
 
 .hero-slide-content p {
     font-size: 20px;
@@ -212,7 +204,7 @@ function getChooseUsIcon($iconName) {
     line-height: 1.6;
     margin-bottom: 32px;
     max-width: 700px;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.3);
 }
 
 .hero-cta {
@@ -224,11 +216,11 @@ function getChooseUsIcon($iconName) {
 /* Slider Controls */
 .slider-controls {
     position: absolute;
-    bottom: 40px;
+    bottom: 28px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 12px;
+    gap: 10px;
     z-index: 10;
 }
 
@@ -236,8 +228,8 @@ function getChooseUsIcon($iconName) {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: rgba(255,255,255,0.5);
+    border: 2px solid rgba(255,255,255,0.8);
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -245,7 +237,7 @@ function getChooseUsIcon($iconName) {
 .slider-dot.active {
     background: #0066CC;
     border-color: #0066CC;
-    width: 40px;
+    width: 36px;
     border-radius: 6px;
 }
 
@@ -253,8 +245,8 @@ function getChooseUsIcon($iconName) {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -269,19 +261,16 @@ function getChooseUsIcon($iconName) {
 }
 
 .slider-arrow:hover {
-    background: rgba(0, 102, 204, 0.8);
+    background: rgba(0,102,204,0.8);
     border-color: #0066CC;
 }
 
-.slider-arrow.prev {
-    left: 30px;
-}
+.slider-arrow.prev { left: 30px; }
+.slider-arrow.next { right: 30px; }
 
-.slider-arrow.next {
-    right: 30px;
-}
-
-/* Why Choose Us Flash Cards */
+/* =============================================
+   Why Choose Us Flash Cards
+   ============================================= */
 .choose-us-section {
     padding: 100px 0;
     background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
@@ -299,6 +288,14 @@ function getChooseUsIcon($iconName) {
     height: 320px;
     perspective: 1000px;
     cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.choose-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .choose-card-inner {
@@ -331,21 +328,21 @@ function getChooseUsIcon($iconName) {
 
 .choose-card-front {
     background: #FFFFFF;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 102, 204, 0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,102,204,0.1);
 }
 
 .choose-card-back {
     background: linear-gradient(135deg, #0066CC, #2E5090);
     transform: rotateY(180deg);
     color: #FFFFFF;
-    box-shadow: 0 10px 40px rgba(0, 102, 204, 0.3);
+    box-shadow: 0 10px 40px rgba(0,102,204,0.3);
 }
 
 .choose-card-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), rgba(46, 80, 144, 0.1));
+    background: linear-gradient(135deg, rgba(0,102,204,0.1), rgba(46,80,144,0.1));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -355,14 +352,8 @@ function getChooseUsIcon($iconName) {
     transition: all 0.3s ease;
 }
 
-.choose-card:hover .choose-card-icon {
-    transform: scale(1.1);
-}
-
-.choose-card-icon svg {
-    width: 40px;
-    height: 40px;
-}
+.choose-card:hover .choose-card-icon { transform: scale(1.1); }
+.choose-card-icon svg { width: 40px; height: 40px; }
 
 .choose-card-title {
     font-family: 'Montserrat', sans-serif;
@@ -372,79 +363,83 @@ function getChooseUsIcon($iconName) {
     margin-bottom: 12px;
 }
 
-.choose-card-back .choose-card-title {
-    color: #FFFFFF;
-    font-size: 22px;
-}
+.choose-card-back .choose-card-title { color: #FFFFFF; font-size: 22px; }
 
-.choose-card-desc {
-    color: #666666;
-    font-size: 14px;
-    line-height: 1.6;
-}
+.choose-card-desc { color: #666666; font-size: 14px; line-height: 1.6; }
+.choose-card-back .choose-card-desc { color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.7; }
 
-.choose-card-back .choose-card-desc {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-/* Animation for cards */
-.choose-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.choose-card.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Responsive */
+/* =============================================
+   RESPONSIVE — Tablet (≤ 991px)
+   ============================================= */
 @media (max-width: 991px) {
+    .hero-slider {
+        height: 75vw;        /* proportional to viewport width on tablets */
+        min-height: 420px;
+        max-height: 70vh;
+    }
+
     .hero-slide-content {
-        padding: 0 32px 80px;
+        padding: 0 32px 70px;
     }
-    
-    .hero-slide-content h1 {
-        font-size: 42px;
-    }
-    
-    .choose-us-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .slider-arrow {
-        width: 40px;
-        height: 40px;
-    }
+
+    .hero-slide-content h1 { font-size: 38px; }
+
+    .choose-us-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .slider-arrow { width: 40px; height: 40px; font-size: 18px; }
 }
 
-@media (max-width: 575px) {
+/* =============================================
+   RESPONSIVE — Mobile (≤ 767px)
+   ============================================= */
+@media (max-width: 767px) {
+    .hero-slider {
+        /* Use svh so address bar doesn't cut the hero */
+        height: 100svh;
+        height: calc(var(--vh, 1vh) * 100); /* JS fallback */
+        min-height: 380px;
+        max-height: none;
+    }
+
+    /* Push image focus point to center-top on portrait screens */
+    .hero-slide-bg {
+        background-position: center top;
+    }
+
     .hero-slide-content {
-        padding: 0 24px 60px;
+        padding: 0 20px 80px;  /* extra bottom pad so text clears dots */
     }
-    
+
     .hero-slide-content h1 {
-        font-size: 32px;
+        font-size: 28px;
+        margin-bottom: 16px;
     }
-    
-    .hero-slide-content p {
-        font-size: 16px;
-    }
-    
-    .choose-us-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .choose-card {
-        height: 280px;
-    }
-    
-    .slider-arrow {
-        display: none;
-    }
+
+    .hero-slide-content p { font-size: 15px; margin-bottom: 20px; }
+
+    .hero-cta { gap: 10px; }
+    .hero-cta .btn { padding: 10px 20px; font-size: 13px; }
+
+    .slider-arrow { display: none; }   /* arrows hidden; use dots / swipe */
+
+    .slider-controls { bottom: 18px; }
+    .slider-dot { width: 10px; height: 10px; }
+    .slider-dot.active { width: 28px; }
+
+    /* Disable Ken Burns on mobile for performance */
+    .hero-slide.active .hero-slide-bg { animation: none; }
+
+    .choose-us-grid { grid-template-columns: 1fr; }
+    .choose-card { height: 260px; }
+    .choose-us-section { padding: 60px 0; }
+}
+
+/* =============================================
+   RESPONSIVE — Small Mobile (≤ 400px)
+   ============================================= */
+@media (max-width: 400px) {
+    .hero-slide-content h1 { font-size: 24px; }
+    .hero-slide-content { padding: 0 16px 70px; }
 }
 </style>
 
@@ -556,85 +551,71 @@ function getChooseUsIcon($iconName) {
 </section>
 
 <script>
-// Hero Slider functionality
-(function() {
-    const slider = document.getElementById('heroSlider');
-    const slides = slider.querySelectorAll('.hero-slide');
-    const dots = slider.querySelectorAll('.slider-dot');
-    const prevBtn = slider.querySelector('.slider-arrow.prev');
-    const nextBtn = slider.querySelector('.slider-arrow.next');
-    let currentSlide = 0;
-    let slideInterval;
-    
-    function showSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentSlide = (index + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
+// Fix 100vh on mobile (accounts for browser chrome / address bar)
+(function () {
+    function setVh() {
+        var vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', vh + 'px');
     }
-    
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-    
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-    
-    function startAutoplay() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-    
-    function stopAutoplay() {
-        clearInterval(slideInterval);
-    }
-    
-    // Event listeners
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            stopAutoplay();
-            showSlide(index);
-            startAutoplay();
-        });
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        stopAutoplay();
-        prevSlide();
-        startAutoplay();
-    });
-    
-    nextBtn.addEventListener('click', () => {
-        stopAutoplay();
-        nextSlide();
-        startAutoplay();
-    });
-    
-    // Pause on hover
-    slider.addEventListener('mouseenter', stopAutoplay);
-    slider.addEventListener('mouseleave', startAutoplay);
-    
-    // Start autoplay
-    startAutoplay();
+    setVh();
+    window.addEventListener('resize', setVh);
 })();
 
-// Initialize flash card animations
+// Hero Slider
+(function() {
+    var slider   = document.getElementById('heroSlider');
+    var slides   = slider.querySelectorAll('.hero-slide');
+    var dots     = slider.querySelectorAll('.slider-dot');
+    var prevBtn  = slider.querySelector('.slider-arrow.prev');
+    var nextBtn  = slider.querySelector('.slider-arrow.next');
+    var current  = 0;
+    var interval;
+
+    function goTo(index) {
+        slides.forEach(function(s){ s.classList.remove('active'); });
+        dots.forEach(function(d){ d.classList.remove('active'); });
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    }
+
+    function start() { interval = setInterval(function(){ goTo(current + 1); }, 5000); }
+    function stop()  { clearInterval(interval); }
+
+    dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function(){ stop(); goTo(i); start(); });
+    });
+
+    prevBtn.addEventListener('click', function(){ stop(); goTo(current - 1); start(); });
+    nextBtn.addEventListener('click', function(){ stop(); goTo(current + 1); start(); });
+
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+
+    // Touch / swipe support
+    var touchStartX = 0;
+    slider.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { stop(); goTo(diff > 0 ? current + 1 : current - 1); start(); }
+    }, { passive: true });
+
+    start();
+})();
+
+// Flash card scroll animations
 document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.choose-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+    var cards = document.querySelectorAll('.choose-card');
+    var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                setTimeout(() => {
+                setTimeout(function() {
                     entry.target.classList.add('animate-in');
                 }, entry.target.dataset.index * 100);
             }
         });
     }, { threshold: 0.1 });
-    
-    cards.forEach(card => observer.observe(card));
+    cards.forEach(function(card){ obs.observe(card); });
 });
 </script>
 
