@@ -496,6 +496,15 @@ function getChooseUsIcon($iconName) {
                 product that leaves our facility carries the same uncompromising standard. At Shree Plastic 
                 Industries, quality isn&rsquo;t a checkbox. It&rsquo;s the foundation everything is built on.
             </p>
+            <p class="intro-text">
+                As the world moves toward greener choices, we move with it. Our 
+                <strong>Compostable Bags</strong> are manufactured to meet international biodegradability 
+                standards &mdash; breaking down naturally without leaving harmful residues behind. Ideal for 
+                supermarkets, food businesses, and eco-conscious brands looking to reduce their plastic 
+                footprint without compromising on bag strength or performance. With compostable packaging, 
+                Shree Plastic Industries is helping businesses make the responsible switch &mdash; one bag 
+                at a time.
+            </p>
         </div>
     </div>
 </section>
