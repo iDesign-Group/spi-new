@@ -145,7 +145,7 @@
                                     <polyline points="15 3 21 3 21 9"></polyline>
                                     <path d="M21 3l-7 7"></path>
                                 </svg>
-                                Hover to learn more
+                                Hover to learn more &nbsp;<span class="flip-hint-tap">(tap to flip)</span>
                             </span>
                         </div>
                         <!-- Back -->
@@ -299,26 +299,21 @@
 
         /**
          * Setup card interactions
+         * Cards flip on hover (desktop) and on click/tap (all devices)
          */
         setupInteractions() {
             this.cards.forEach(card => {
-                // Click to flip on mobile
                 if (this.options.flipOnClick) {
                     card.addEventListener('click', (e) => {
-                        // Don't flip if clicking on the Learn More link
-                        if (e.target.closest('.flip-card-btn')) {
-                            return;
-                        }
-                        
-                        // Toggle flip on touch devices
-                        if (window.matchMedia('(hover: none)').matches) {
-                            card.classList.toggle('flipped');
-                        }
+                        // Don't flip if clicking the Learn More button
+                        if (e.target.closest('.flip-card-btn')) return;
+                        // Always toggle flipped — works on mobile at any scroll position
+                        card.classList.toggle('flipped');
                     });
                 }
             });
 
-            // Close flipped cards when clicking outside
+            // Close all flipped cards when tapping outside
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.flip-card')) {
                     this.cards.forEach(card => card.classList.remove('flipped'));
