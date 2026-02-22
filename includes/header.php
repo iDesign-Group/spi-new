@@ -100,7 +100,7 @@ $basePath = $isSubpage ? '../' : '';
                         <a href="<?php echo $basePath; ?>pages/careers.php" class="nav-link <?php echo isActivePage('careers') ? 'active' : ''; ?>">Careers</a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo $basePath; ?>pages/news-certificate.php" class="nav-link <?php echo isActivePage('news-certificate') ? 'active' : ''; ?>">News and Certificate</a>
+                        <a href="<?php echo $basePath; ?>pages/news-certification.php" class="nav-link <?php echo isActivePage('news-certification') ? 'active' : ''; ?>">News and Certification</a>
                     </li>
                     <li class="nav-item">
                         <a href="<?php echo $basePath; ?>pages/contact.php" class="nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>">Contact Us</a>
@@ -137,7 +137,7 @@ $basePath = $isSubpage ? '../' : '';
                     <a href="<?php echo $basePath; ?>pages/careers.php" class="mobile-nav-link <?php echo isActivePage('careers') ? 'active' : ''; ?>">Careers</a>
                 </li>
                 <li class="mobile-nav-item">
-                    <a href="<?php echo $basePath; ?>pages/news-certificate.php" class="mobile-nav-link <?php echo isActivePage('news-certificate') ? 'active' : ''; ?>">News and Certificate</a>
+                    <a href="<?php echo $basePath; ?>pages/news-certification.php" class="mobile-nav-link <?php echo isActivePage('news-certification') ? 'active' : ''; ?>">News and Certification</a>
                 </li>
                 <li class="mobile-nav-item">
                     <a href="<?php echo $basePath; ?>pages/contact.php" class="mobile-nav-link <?php echo isActivePage('contact') ? 'active' : ''; ?>">Contact Us</a>
