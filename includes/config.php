@@ -31,6 +31,7 @@ define('IMAGES_URL', 'assets/images/');
 // Contact Information
 define('CONTACT_EMAIL', 'info@shreeplasticind.com');
 define('CONTACT_PHONE', '+91-20-79640062');
+define('WHATSAPP_NUMBER', '919156321299');  // WhatsApp business number (with country code, no + or spaces)
 define('CONTACT_ADDRESS', 'S. NO. 7/1/2/2, NEXT TO DHARMAVAT PETROL PUMP LANE, UNDRI PISOLI ROAD, NEAR TRENDZ FURNITURE, PUNE-411028, INDIA');
 
 /**
