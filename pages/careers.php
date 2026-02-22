@@ -95,6 +95,38 @@ include '../includes/header.php';
         grid-template-columns: 1fr;
     }
 }
+
+/* ── Careers page: Hero bottom-center override ── */
+.hero {
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero .hero-overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(26, 26, 26, 0.15) 0%,
+        rgba(26, 26, 26, 0.35) 40%,
+        rgba(26, 26, 26, 0.85) 75%,
+        rgba(26, 26, 26, 0.95) 100%
+    );
+}
+
+.hero .hero-content {
+    text-align: center;
+    padding-bottom: 60px;
+    color: #FFFFFF;
+}
+
+.hero .hero-quote {
+    color: #FFFFFF;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6), 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.hero .hero-tagline {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
 </style>
 
 <!-- Hero Section -->
