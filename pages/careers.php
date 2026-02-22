@@ -102,8 +102,10 @@ include '../includes/header.php';
     <div class="hero-bg" style="background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-        <h1 class="hero-quote">Careers</h1>
-        <p class="hero-tagline">Grow With Us, Build Your Future</p>
+        <div class="hero-content-inner">
+            <h1 class="hero-quote">Careers</h1>
+            <p class="hero-tagline">Grow With Us, Build Your Future</p>
+        </div>
     </div>
 </section>
 <script>
@@ -183,7 +185,7 @@ include '../includes/header.php';
                         <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
                     </svg>
                 </div>
-                <h3>Recognition & Rewards</h3>
+                <h3>Recognition &amp; Rewards</h3>
                 <p>Your contributions are valued and recognized with competitive compensation and benefits.</p>
             </div>
             
