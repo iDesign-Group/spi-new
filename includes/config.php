@@ -14,7 +14,7 @@ define('SITE_URL', 'https://shreeplasticindustries.com');
 define('SITE_NAME', 'Shree Plastic Industries');
 define('SITE_TAGLINE', 'Believe in Yourself');
 define('SITE_ESTABLISHED', '1984');
-define('SITE_LOCATION', 'Pune, Maharashtra, India');
+define('SITE_LOCATION', 'S. NO. 7/1/2/2, NEXT TO DHARMAVAT PETROL PUMP LANE, UNDRI PISOLI ROAD, NEAR TRENDZ FURNITURE, PUNE-411028, INDIA');
 
 // Directory paths
 define('ROOT_PATH', dirname(__DIR__) . '/');
@@ -29,9 +29,9 @@ define('JS_URL', 'assets/js/');
 define('IMAGES_URL', 'assets/images/');
 
 // Contact Information
-define('CONTACT_EMAIL', 'info@shreeplasticindustries.com');
-define('CONTACT_PHONE', '+91-20-XXXXXXXX');
-define('CONTACT_ADDRESS', 'Pune, Maharashtra, India');
+define('CONTACT_EMAIL', 'info@shreeplasticind.com');
+define('CONTACT_PHONE', '+91-20-79640062');
+define('CONTACT_ADDRESS', 'S. NO. 7/1/2/2, NEXT TO DHARMAVAT PETROL PUMP LANE, UNDRI PISOLI ROAD, NEAR TRENDZ FURNITURE, PUNE-411028, INDIA');
 
 /**
  * Get base URL for assets and links
