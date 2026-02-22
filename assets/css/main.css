@@ -630,6 +630,7 @@ p {
     font-size: var(--fs-body-lg);
     color: var(--color-text-light);
     line-height: 1.9;
+    text-align: justify;
 }
 
 /* Alternating Content Sections */
