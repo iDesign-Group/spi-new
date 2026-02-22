@@ -107,9 +107,8 @@ function getChooseUsIcon($iconName) {
    ============================================= */
 .hero-slider {
     position: relative;
-    /* svh = safe viewport height (excludes mobile browser chrome) */
     height: 100svh;
-    height: 100vh; /* fallback for older browsers */
+    height: 100vh;
     min-height: 500px;
     overflow: hidden;
 }
@@ -213,7 +212,7 @@ function getChooseUsIcon($iconName) {
     flex-wrap: wrap;
 }
 
-/* Slider Controls */
+/* Slider Controls — dots only */
 .slider-controls {
     position: absolute;
     bottom: 28px;
@@ -240,33 +239,6 @@ function getChooseUsIcon($iconName) {
     width: 36px;
     border-radius: 6px;
 }
-
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.2);
-    border: 2px solid rgba(255,255,255,0.5);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-    color: #fff;
-    font-size: 20px;
-}
-
-.slider-arrow:hover {
-    background: rgba(0,102,204,0.8);
-    border-color: #0066CC;
-}
-
-.slider-arrow.prev { left: 30px; }
-.slider-arrow.next { right: 30px; }
 
 /* =============================================
    Why Choose Us Flash Cards
@@ -373,7 +345,7 @@ function getChooseUsIcon($iconName) {
    ============================================= */
 @media (max-width: 991px) {
     .hero-slider {
-        height: 75vw;        /* proportional to viewport width on tablets */
+        height: 75vw;
         min-height: 420px;
         max-height: 70vh;
     }
@@ -385,8 +357,6 @@ function getChooseUsIcon($iconName) {
     .hero-slide-content h1 { font-size: 38px; }
 
     .choose-us-grid { grid-template-columns: repeat(2, 1fr); }
-
-    .slider-arrow { width: 40px; height: 40px; font-size: 18px; }
 }
 
 /* =============================================
@@ -394,20 +364,18 @@ function getChooseUsIcon($iconName) {
    ============================================= */
 @media (max-width: 767px) {
     .hero-slider {
-        /* Use svh so address bar doesn't cut the hero */
         height: 100svh;
-        height: calc(var(--vh, 1vh) * 100); /* JS fallback */
+        height: calc(var(--vh, 1vh) * 100);
         min-height: 380px;
         max-height: none;
     }
 
-    /* Push image focus point to center-top on portrait screens */
     .hero-slide-bg {
         background-position: center top;
     }
 
     .hero-slide-content {
-        padding: 0 20px 80px;  /* extra bottom pad so text clears dots */
+        padding: 0 20px 80px;
     }
 
     .hero-slide-content h1 {
@@ -420,13 +388,10 @@ function getChooseUsIcon($iconName) {
     .hero-cta { gap: 10px; }
     .hero-cta .btn { padding: 10px 20px; font-size: 13px; }
 
-    .slider-arrow { display: none; }   /* arrows hidden; use dots / swipe */
-
     .slider-controls { bottom: 18px; }
     .slider-dot { width: 10px; height: 10px; }
     .slider-dot.active { width: 28px; }
 
-    /* Disable Ken Burns on mobile for performance */
     .hero-slide.active .hero-slide-bg { animation: none; }
 
     .choose-us-grid { grid-template-columns: 1fr; }
@@ -459,15 +424,12 @@ function getChooseUsIcon($iconName) {
     </div>
     <?php endforeach; ?>
     
-    <!-- Slider Controls -->
+    <!-- Slider Controls — dots only -->
     <div class="slider-controls">
         <?php foreach ($heroSlides as $index => $slide): ?>
         <span class="slider-dot <?php echo $index === 0 ? 'active' : ''; ?>" data-slide="<?php echo $index; ?>"></span>
         <?php endforeach; ?>
     </div>
-    
-    <button class="slider-arrow prev" aria-label="Previous slide">&#8249;</button>
-    <button class="slider-arrow next" aria-label="Next slide">&#8250;</button>
 </section>
 
 <!-- Company Introduction -->
@@ -551,7 +513,7 @@ function getChooseUsIcon($iconName) {
 </section>
 
 <script>
-// Fix 100vh on mobile (accounts for browser chrome / address bar)
+// Fix 100vh on mobile
 (function () {
     function setVh() {
         var vh = window.innerHeight * 0.01;
@@ -561,14 +523,12 @@ function getChooseUsIcon($iconName) {
     window.addEventListener('resize', setVh);
 })();
 
-// Hero Slider
+// Hero Slider — dots + swipe only (no arrows)
 (function() {
-    var slider   = document.getElementById('heroSlider');
-    var slides   = slider.querySelectorAll('.hero-slide');
-    var dots     = slider.querySelectorAll('.slider-dot');
-    var prevBtn  = slider.querySelector('.slider-arrow.prev');
-    var nextBtn  = slider.querySelector('.slider-arrow.next');
-    var current  = 0;
+    var slider  = document.getElementById('heroSlider');
+    var slides  = slider.querySelectorAll('.hero-slide');
+    var dots    = slider.querySelectorAll('.slider-dot');
+    var current = 0;
     var interval;
 
     function goTo(index) {
@@ -585,9 +545,6 @@ function getChooseUsIcon($iconName) {
     dots.forEach(function(dot, i) {
         dot.addEventListener('click', function(){ stop(); goTo(i); start(); });
     });
-
-    prevBtn.addEventListener('click', function(){ stop(); goTo(current - 1); start(); });
-    nextBtn.addEventListener('click', function(){ stop(); goTo(current + 1); start(); });
 
     slider.addEventListener('mouseenter', stop);
     slider.addEventListener('mouseleave', start);
