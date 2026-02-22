@@ -40,7 +40,20 @@ include '../includes/header.php';
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner,
+/*
+ * HOVER: only activate on real pointer devices (mouse/trackpad).
+ * On touch screens, :hover fires on tap and immediately releases,
+ * causing the card to flicker and snap back. We prevent that by
+ * scoping :hover to (hover: hover) + (pointer: fine) only.
+ * Touch devices use the JS-toggled .flipped class instead.
+ */
+@media (hover: hover) and (pointer: fine) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* .flipped works on ALL devices (set by JS on click/tap) */
 .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
@@ -112,8 +125,10 @@ include '../includes/header.php';
     transition: transform 0.3s ease;
 }
 
-.flip-card:hover .flip-card-image img {
-    transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+    .flip-card:hover .flip-card-image img {
+        transform: scale(1.05);
+    }
 }
 
 /* Icon Styles (fallback) */
@@ -151,6 +166,15 @@ include '../includes/header.php';
     font-size: 12px;
     font-weight: 500;
     margin-top: auto;
+}
+
+/* Show "tap to flip" hint on touch devices */
+.flip-hint-tap {
+    display: none;
+}
+@media (hover: none) {
+    .flip-hint-hover { display: none; }
+    .flip-hint-tap   { display: inline; }
 }
 
 .flip-card-back-title {
@@ -262,18 +286,11 @@ include '../includes/header.php';
         height: 120px;
     }
 }
-
-/* Touch device hint */
-@media (hover: none) {
-    .flip-card-hint::after {
-        content: ' (tap to flip)';
-    }
-}
 </style>
 
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-bg" style="background: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%);"></div>
+    <div class="hero-bg" style="background-image: linear-gradient(135deg, #1A1A1A 0%, #2E5090 100%); background-size: cover; background-position: center center; background-repeat: no-repeat;"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1 class="hero-quote">Our Businesses</h1>
@@ -281,11 +298,14 @@ include '../includes/header.php';
     </div>
 </section>
 <script>
-// Load hero image if available
 (function() {
+    var bg = document.querySelector('.hero-bg');
     var img = new Image();
     img.onload = function() {
-        document.querySelector('.hero-bg').style.backgroundImage = "url('../assets/images/heroes/businesses-hero.jpg')";
+        bg.style.backgroundImage = "url('../assets/images/heroes/businesses-hero.jpg')";
+        bg.style.backgroundPosition = 'center center';
+        bg.style.backgroundSize = 'cover';
+        bg.style.backgroundRepeat = 'no-repeat';
     };
     img.src = '../assets/images/heroes/businesses-hero.jpg';
 })();
@@ -311,13 +331,14 @@ include '../includes/header.php';
         <div class="section-header animate-on-scroll">
             <h2 class="section-title">Our Product Range</h2>
             <p class="section-subtitle">
-                Hover over each card to discover more about our products
+                <span class="flip-hint-hover">Hover over each card</span>
+                <span class="flip-hint-tap">Tap each card</span>
+                to discover more about our products
             </p>
         </div>
         
         <!-- AJAX-powered Flip Cards Container -->
         <div class="flip-cards-container" data-url="data/content.json">
-            <!-- Cards will be loaded via JavaScript -->
             <div class="flip-cards-loading">
                 <div class="loading-spinner"></div>
                 <p>Loading products...</p>
@@ -360,7 +381,7 @@ include '../includes/header.php';
                 </p>
             </div>
         </div>
-    </div>Update businesses.php with expanded Quality Assurance content
+    </div>
 </section>
 
 <!-- CTA Section -->
