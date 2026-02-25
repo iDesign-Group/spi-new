@@ -1,0 +1,16 @@
+# robots.txt for Shree Plastic Industries
+# Generated: February 2026
+
+User-agent: *
+Allow: /
+
+# Block internal/server-side directories
+Disallow: /includes/
+Disallow: /data/
+Disallow: /lang/
+
+# Allow assets (CSS, JS, images)
+Allow: /assets/
+
+# Sitemap
+Sitemap: https://www.shreeplasticindustries.com/sitemap.xml
